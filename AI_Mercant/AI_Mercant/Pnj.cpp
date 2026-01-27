@@ -2,32 +2,47 @@
 #include "BehaviorTree.h"
 
 Pnj::Pnj() {
-	AIState = new Node;
-	PnjRoot = new RootNode(AIState);
+	AI = new Node();
+	PnjRoot = new RootNode(AI);
+	pnjType.clear();
+	for (int i = 0; i < AI_TYPE; i++) {
+		pnjType.push_back(new Node);
+	}
+	AIType = new FluxNode(AI, pnjType);
 }
 
 Pnj::~Pnj() {
 	if (PnjRoot) {
 		delete PnjRoot; PnjRoot = nullptr;
 	}
-	if (AIState) {
-		delete AIState; AIState = nullptr;
+	if (AI) {
+		delete AI; AI = nullptr;
+	}
+	for (int i = 0; i < pnjType.size(); i++) {
+		if (pnjType[i]) {
+			delete pnjType[i];
+			pnjType[i] = nullptr;
+		}
 	}
 }
 
-Mercant::Mercant() {
+Merchant::Merchant() {
 	nodes.clear();
 	for (int i = 0; i < MERCHANT_STATES; i++) {
 		nodes.push_back(new Node);
 	}
-	states = new FluxNode(AIState, nodes);
+	states = new FluxNode(pnjType[MERCHANT], nodes);
 }
 
-Mercant::~Mercant() {
+Merchant::~Merchant() {
 	for (int i = 0; i < nodes.size(); i++) {
 		if (nodes[i]) {
 			delete nodes[i];
 			nodes[i] = nullptr;
 		}
 	}
+}
+
+Baker::Baker() {
+
 }

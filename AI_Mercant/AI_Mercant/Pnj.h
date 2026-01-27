@@ -1,13 +1,26 @@
 #pragma once
-#define MERCHANT_STATES 3
+#define AI_TYPE 2
+#define COSTUMERS 0
+#define MERCHANT 1
+#define MERCHANT_NUMBERS 6
+#define SALER 0
+#define BAKER 1
+#define BUTCHER 2
+#define WAITER 3
+#define PHARMACIST 4
+#define HAIRDRESSERS 5
 
+
+#include <vector>
 class RootNode;
 class Node;
 
 class Pnj {
-protected:
 	RootNode* PnjRoot;
-	Node* AIState;
+	Node* AI;
+protected:
+	std::vector<Node*> pnjType;
+	FluxNode* AIType;
 public:
 	Pnj();
 	virtual ~Pnj();
@@ -20,25 +33,26 @@ public:
 	virtual ~Costumer() {};
 };
 
-class Mercant : private Pnj {
+class Merchant : private Pnj {
+	std::vector<Node*> nodes;
 protected:
 	int cash;
-	std::vector <Node*> nodes;
 	FluxNode* states;
 public:
-	Mercant();
-	virtual ~Mercant() {};
+	Merchant();
+	virtual ~Merchant() {};
 };
 
-class Baker : protected Mercant {
+class Baker : protected Merchant { //TODO: finir arbre
 protected:
 	int bread;
+	FluxNode* merchantType;
 public:
-	Baker() = default;
+	Baker();
 	virtual ~Baker() {};
 };
 
-class Butcher : protected Mercant {
+class Butcher : protected Merchant {
 protected:
 	int meat;
 public:
