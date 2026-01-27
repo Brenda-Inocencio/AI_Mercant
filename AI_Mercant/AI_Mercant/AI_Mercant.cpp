@@ -4,7 +4,7 @@
 int main()
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML window");
+    sf::RenderWindow window(sf::VideoMode({1200, 800}), "SFML window");
 
     // Load a sprite to display
     const sf::Texture texture("block.png");

@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="AI_Mercant/AI_Mercant.vcxproj" />
+  <Project Path="AI_Mercant/AI_Mercant.vcxproj" Id="5deaf704-d3dc-4898-90e8-08caa4ef703a" />
 </Solution>
