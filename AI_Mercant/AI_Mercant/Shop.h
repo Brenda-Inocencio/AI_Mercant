@@ -4,6 +4,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+//==================
+//==== 6 Trader ====
+//==================
 
 class Shop {
 public:
@@ -53,13 +56,13 @@ public:
 	~Pharmacy();
 };
 
-class Hairdressers : protected Shop {
+class HairSalon : protected Shop {
 public:
-	Hairdressers();
+	HairSalon();
 
 	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
 
-	~Hairdressers();
+	~HairSalon();
 };
 
 #endif

@@ -9,11 +9,16 @@ int main()
     sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML window");
 
     // Load a sprite to display
-    //const sf::Texture texture("block.png");
-    //sf::Sprite sprite(texture);
+    const sf::Texture texture("Background.png");
+    sf::Sprite sprite(texture);
+
+   /* // Taille originale de l'image
+    sf::Vector2u originalSize = texture.getSize();
+    std::cout << "Taille originale : " << originalSize.x << "x" << originalSize.y << "\n";*/
+
 
     // Création des rectangles
-    sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      // TEST A CHANGER    
+    sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      // Shop -> Shop of clothes
     
     sf::RectangleShape rect1 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 175.f, 0.f });
 
@@ -23,11 +28,16 @@ int main()
 
     sf::RectangleShape rect4 = Pharmacy::createRectangle(175.f, 215.f, sf::Color::Green, { 0.f, 385.f });
 
-    sf::RectangleShape rect5 = Hairdressers::createRectangle(175.f, 215.f, sf::Color::Magenta, { 175.f, 385.f });
+    sf::RectangleShape rect5 = Coffee::createRectangle(175.f, 215.f, sf::Color::Cyan, { 175.f, 385.f });
+
+    sf::RectangleShape rect6 = HairSalon::createRectangle(175.f, 215.f, sf::Color::Magenta, { 450.f, 385.f });
+
+    sf::RectangleShape rect7 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 625.f, 385.f });
+
 
     // Start the game loop
     while (window.isOpen())
-    {
+    {   
         // Process events
         while (const auto event = window.pollEvent())
         {
@@ -40,7 +50,7 @@ int main()
         window.clear();
 
         // Draw the sprite
-       // window.draw(sprite);
+       window.draw(sprite);
 
         //Draw the rectangle
         window.draw(rect);
@@ -49,6 +59,8 @@ int main()
         window.draw(rect3);
         window.draw(rect4);
         window.draw(rect5);
+        window.draw(rect6);
+        window.draw(rect7);
 
         // Update the window
         window.display();

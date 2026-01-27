@@ -60,10 +60,10 @@ sf::RectangleShape Pharmacy::createRectangle(float width, float height, sf::Colo
 }
 
 
-Hairdressers::Hairdressers() {
+HairSalon::HairSalon() {
 }
 
-sf::RectangleShape Hairdressers::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
+sf::RectangleShape HairSalon::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
 
     sf::RectangleShape rectangle(sf::Vector2f(width, height));
     rectangle.setFillColor(color);
