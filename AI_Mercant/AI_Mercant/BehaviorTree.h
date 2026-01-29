@@ -15,7 +15,7 @@ public:
     Node* childNode;
 public:
     RootNode(Node* _childNode);
-    virtual ~RootNode() {};
+    virtual ~RootNode();
 
     void Tick(float dt) override;
 };
@@ -27,7 +27,7 @@ public:
     Node* actualNode = nullptr;
 public:
     FluxNode(Node* _parentNode, std::vector<Node*> _childNodes);
-    virtual ~FluxNode() {};
+    virtual ~FluxNode();
 
     void Tick(float dt) override;
     virtual void OnNodeEnd();
@@ -40,7 +40,7 @@ public:
     float _time;
 public:
     TaskNode() = default;
-    virtual ~TaskNode() {};
+    virtual ~TaskNode();
 
     void Begin() override;
     void Tick(float dt) override;

@@ -1,6 +1,6 @@
 ﻿  AI_Mercant.cpp
   BehaviorTree.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(21,19): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(30,19): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
   Pnj.cpp
   Génération de code en cours...
   AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

@@ -5,6 +5,13 @@ RootNode::RootNode(Node* _childNode) {
     childNode = _childNode;
 }
 
+RootNode::~RootNode() {
+    if (childNode) {
+        delete childNode;
+        childNode = nullptr;
+    }
+}
+
 void RootNode::Tick(float dt) {
     if (childNode != nullptr) {
         childNode->Tick(dt);
@@ -14,6 +21,23 @@ void RootNode::Tick(float dt) {
 FluxNode::FluxNode(Node* _parentNode, std::vector<Node*> _childNodes) {
     parentNode = _parentNode;
     childNodes = _childNodes;
+}
+
+FluxNode::~FluxNode() {
+    for (int i = 0; i < childNodes.size(); i++) {
+        if (childNodes[i]) {
+            delete childNodes[i];
+            childNodes[i] = nullptr;
+        }
+    }
+    if (parentNode) {
+        delete parentNode;
+        parentNode = nullptr;
+    }
+    if (actualNode) {
+        delete actualNode;
+        actualNode = nullptr;
+    }
 }
 
 void FluxNode:: Tick(float DeltaTime) {
@@ -36,6 +60,13 @@ void FluxNode::OnNodeEnd() {
         }
         actualNode = childNodes[Index];
         actualNode->Begin();
+    }
+}
+
+TaskNode::~TaskNode() {
+    if (parentNode) {
+        delete parentNode;
+        parentNode = nullptr;
     }
 }
 

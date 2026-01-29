@@ -14,13 +14,14 @@
 #define ORDER 1
 #define PAUSE 2
 
-
 #include <vector>
+
 class RootNode;
+class FluxNode;
 class Node;
 
 class Pnj {
-	RootNode* PnjRoot;
+	RootNode* pnjRoot;
 	Node* AI;
 protected:
 	std::vector<Node*> pnjType;
@@ -32,19 +33,28 @@ public:
 
 class Costumer : protected Pnj {
 protected:
+	int cash;
 public:
-	Costumer() = default;
+	Costumer();
 	virtual ~Costumer() {};
+	void buy(Merchant* merchant, int sales);
 };
 
 class Merchant : private Pnj {
 protected:
 	int cash;
+	int price;
+	int salesNumber;
+	bool noStock;
 	std::vector<Node*> merchantType;
 	FluxNode* merchants;
 public:
 	Merchant();
-	virtual ~Merchant() {};
+	virtual ~Merchant();
+	virtual void Sell(int sales) {};
+	virtual void Order(int newFurnitures) {};
+	virtual void UpdatePrice(int newPrice) {};
+	inline virtual int GetPrice() { return price; }
 };
 
 class Saler : protected Merchant { 
@@ -55,44 +65,59 @@ protected:
 public:
 	Saler();
 	virtual ~Saler();
+	void Sell(int sales) override;
+	void Order(int newFurnitures) override;
+	void UpdatePrice(int newPrice) override;
 };
 
 class Baker : protected Merchant { 
 protected:
-	int bread;
+	int breads;
 	std::vector<Node*> stateType;
 	FluxNode* states;
 public:
 	Baker();
 	virtual ~Baker();
+	void Sell(int sales) override;
+	void Order(int newFurnitures) override;
+	void UpdatePrice(int newPrice) override;
 };
 
 class Butcher : protected Merchant {
 protected:
-	int meat;
+	int meats;
 	std::vector<Node*> stateType;
 	FluxNode* states;
 public:
 	Butcher();
 	virtual ~Butcher();
+	void Sell(int sales) override;
+	void Order(int newFurnitures) override;
+	void UpdatePrice(int newPrice) override;
 };
 
 class Waiter : protected Merchant {
 protected:
-	int cofee;
+	int coffees;
 	std::vector<Node*> stateType;
 	FluxNode* states;
 public:
 	Waiter();
 	virtual ~Waiter();
+	void Sell(int sales) override;
+	void Order(int newFurnitures) override;
+	void UpdatePrice(int newPrice) override;
 };
 
 class Hairdressers : protected Merchant {
 protected:
-	int Hair;
+	int hair;
 	std::vector<Node*> stateType;
 	FluxNode* states;
 public:
 	Hairdressers();
 	virtual ~Hairdressers();
+	void Sell(int sales) override;
+	void Order(int newFurnitures) override;
+	void UpdatePrice(int newPrice) override;
 };
