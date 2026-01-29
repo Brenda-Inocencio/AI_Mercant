@@ -9,6 +9,10 @@
 #define WAITER 3
 #define PHARMACIST 4
 #define HAIRDRESSERS 5
+#define STATES 3
+#define SELL 0
+#define ORDER 1
+#define PAUSE 2
 
 
 #include <vector>
@@ -34,28 +38,61 @@ public:
 };
 
 class Merchant : private Pnj {
-	std::vector<Node*> nodes;
 protected:
 	int cash;
-	FluxNode* states;
+	std::vector<Node*> merchantType;
+	FluxNode* merchants;
 public:
 	Merchant();
 	virtual ~Merchant() {};
 };
 
-class Baker : protected Merchant { //TODO: finir arbre
+class Saler : protected Merchant { 
+protected:
+	int furnitures;
+	std::vector<Node*> stateType;
+	FluxNode* states;
+public:
+	Saler();
+	virtual ~Saler();
+};
+
+class Baker : protected Merchant { 
 protected:
 	int bread;
-	FluxNode* merchantType;
+	std::vector<Node*> stateType;
+	FluxNode* states;
 public:
 	Baker();
-	virtual ~Baker() {};
+	virtual ~Baker();
 };
 
 class Butcher : protected Merchant {
 protected:
 	int meat;
+	std::vector<Node*> stateType;
+	FluxNode* states;
 public:
-	Butcher() = default;
-	virtual ~Butcher() {};
+	Butcher();
+	virtual ~Butcher();
+};
+
+class Waiter : protected Merchant {
+protected:
+	int cofee;
+	std::vector<Node*> stateType;
+	FluxNode* states;
+public:
+	Waiter();
+	virtual ~Waiter();
+};
+
+class Hairdressers : protected Merchant {
+protected:
+	int Hair;
+	std::vector<Node*> stateType;
+	FluxNode* states;
+public:
+	Hairdressers();
+	virtual ~Hairdressers();
 };
