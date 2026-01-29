@@ -44,6 +44,9 @@ int main()
             // Close window: exit
             if (event->is<sf::Event::Closed>())
                 window.close();
+
+            if (event->is<sf::Event::MouseButtonPressed>() &&
+                event.mouseButton.button == sf::Mouse::Left) {
         }   
 
         // Clear screen

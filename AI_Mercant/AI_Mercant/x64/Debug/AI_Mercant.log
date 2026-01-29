@@ -1,1 +1,22 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(463,5): error MSB8020: Les outils de génération pour v145 (ensemble d'outils de plateforme = 'v145') sont introuvables. Pour générer à l'aide des outils de génération v145, installez les outils de génération v145. Vous avez également la possibilité de mettre à niveau les outils Visual Studio actuels en sélectionnant le menu Projet ou en cliquant avec le bouton droit sur la solution, puis en sélectionnant "Recibler la solution".
+﻿  AI_Mercant.cpp
+  Button.cpp
+  Shop.cpp
+  BehaviorTree.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(54,19): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
+  Pnj.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(40,11): error C2061: erreur de syntaxe : identificateur 'Merchant'
+  (compiler le fichier source 'Pnj.cpp')
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(38,16): error C2511: 'void Costumer::buy(Merchant *,int)' : impossible de trouver la fonction membre surchargée dans 'Costumer'
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(34,7):
+      voir la déclaration de 'Costumer'
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(39,6): error C2597: référence non conforme à un membre non static 'Costumer::cash'
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(36,6):
+      voir la déclaration de 'Costumer::cash'
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(40,3): error C2597: référence non conforme à un membre non static 'Costumer::cash'
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(36,6):
+      voir la déclaration de 'Costumer::cash'
+  
+  Génération de code en cours...
