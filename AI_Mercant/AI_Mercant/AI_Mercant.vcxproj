@@ -140,10 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AI_Mercant.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="Training.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Shop.h" />
+    <ClInclude Include="Training.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
