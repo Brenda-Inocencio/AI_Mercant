@@ -2,6 +2,7 @@
 #include <optional>
 
 #include "Shop.h"
+#include "Settings.h"
 
 int main()
 {
@@ -16,6 +17,10 @@ int main()
     sf::Vector2u originalSize = texture.getSize();
     std::cout << "Taille originale : " << originalSize.x << "x" << originalSize.y << "\n";*/
 
+    int nbMerchants = 8; 
+    int nbMerchantsType = 6;
+    //Settings initiallisation
+    Settings settings(nbMerchants, nbMerchantsType);
 
     // Cr�ation des rectangles
     sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      // Shop -> Shop of clothes
