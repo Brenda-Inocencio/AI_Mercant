@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
-
 #include "Shop.h"
+#include "GameDay.h"
 
 int main()
 {
@@ -12,13 +12,9 @@ int main()
     const sf::Texture texture("Background.png");
     sf::Sprite sprite(texture);
 
-   /* // Taille originale de l'image
-    sf::Vector2u originalSize = texture.getSize();
-    std::cout << "Taille originale : " << originalSize.x << "x" << originalSize.y << "\n";*/
-
 
     // Cr�ation des rectangles
-    sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      // Shop -> Shop of clothes
+    sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
     
     sf::RectangleShape rect1 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 175.f, 0.f });
 
