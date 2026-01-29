@@ -19,11 +19,19 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Shop.cpp">
+    <ClCompile Include="Pnj.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviorTree.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shop.h">
+    <ClInclude Include="Pnj.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviorTree.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
