@@ -140,12 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AI_Mercant.cpp" />
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameDay.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Training.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameDay.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Training.h" />
   </ItemGroup>
