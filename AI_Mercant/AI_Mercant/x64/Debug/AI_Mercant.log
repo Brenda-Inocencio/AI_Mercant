@@ -1,22 +1,2 @@
 ﻿  AI_Mercant.cpp
-  Button.cpp
-  Shop.cpp
-  BehaviorTree.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(54,19): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
-  Pnj.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(40,11): error C2061: erreur de syntaxe : identificateur 'Merchant'
-  (compiler le fichier source 'Pnj.cpp')
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(38,16): error C2511: 'void Costumer::buy(Merchant *,int)' : impossible de trouver la fonction membre surchargée dans 'Costumer'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(34,7):
-      voir la déclaration de 'Costumer'
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(39,6): error C2597: référence non conforme à un membre non static 'Costumer::cash'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(36,6):
-      voir la déclaration de 'Costumer::cash'
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(40,3): error C2597: référence non conforme à un membre non static 'Costumer::cash'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(36,6):
-      voir la déclaration de 'Costumer::cash'
-  
-  Génération de code en cours...
+  AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

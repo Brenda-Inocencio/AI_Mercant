@@ -31,14 +31,6 @@ public:
 	virtual ~Pnj();
 };
 
-class Costumer : protected Pnj {
-protected:
-	int cash;
-public:
-	Costumer();
-	virtual ~Costumer() {};
-	void buy(Merchant* merchant, int sales);
-};
 
 class Merchant : private Pnj {
 protected:
@@ -120,4 +112,14 @@ public:
 	void Sell(int sales) override;
 	void Order(int newFurnitures) override;
 	void UpdatePrice(int newPrice) override;
+};
+
+
+class Costumer : protected Pnj {
+protected:
+	int cash;
+public:
+	Costumer();
+	virtual ~Costumer() {};
+	void buy(Merchant* merchant, int sales);
 };

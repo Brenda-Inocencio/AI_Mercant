@@ -2,9 +2,9 @@
 #include <optional>
 
 #include "Shop.h"
+#include "button.h"
 
-int main()
-{
+int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML window");
 
@@ -22,7 +22,7 @@ int main()
     
     sf::RectangleShape rect1 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 175.f, 0.f });
 
-    sf::RectangleShape rect2 = Butcher::createRectangle(175.f, 215.f, sf::Color::Blue, { 450.f, 0.f });
+    sf::RectangleShape rect2 = ButcherShop::createRectangle(175.f, 215.f, sf::Color::Blue, { 450.f, 0.f });
 
     sf::RectangleShape rect3 = Coffee::createRectangle(175.f, 215.f, sf::Color::Cyan, { 625.f, 0.f });
 
@@ -34,19 +34,23 @@ int main()
 
     sf::RectangleShape rect7 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 625.f, 385.f });
 
+    Button* exit = new Exit;
 
     // Start the game loop
-    while (window.isOpen())
-    {   
+    while (window.isOpen()) {   
         // Process events
-        while (const auto event = window.pollEvent())
-        {
+        while (const auto event = window.pollEvent()) {
             // Close window: exit
             if (event->is<sf::Event::Closed>())
                 window.close();
 
-            if (event->is<sf::Event::MouseButtonPressed>() &&
-                event.mouseButton.button == sf::Mouse::Left) {
+            if (event->is<sf::Event::MouseButtonPressed>()) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    exit->GetPosY() <= static_cast<float>(mousePos.y) && exit->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    window.close();
+                }
+            }
         }   
 
         // Clear screen
@@ -64,6 +68,7 @@ int main()
         window.draw(rect5);
         window.draw(rect6);
         window.draw(rect7);
+        exit->Render(window);
 
         // Update the window
         window.display();
