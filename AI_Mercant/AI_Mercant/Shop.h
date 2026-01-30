@@ -29,13 +29,13 @@ public:
 	~Bakery();
 };
 
-class Butcher : protected Shop {
+class ButcherShop : protected Shop {
 public:
-	Butcher();
+	ButcherShop();
 
 	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
 
-	~Butcher();
+	~ButcherShop();
 };
 
 class Coffee : protected Shop {

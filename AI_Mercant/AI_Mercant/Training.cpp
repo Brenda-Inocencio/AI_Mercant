@@ -63,7 +63,7 @@ void Training::updateLeaning() {
 	m_orderAdjustment = m_productionAdjustement * 0.8f;
 }
 
-
+Training::~Training(){}
 
 
 //####################	IN MERCHANT	###################### 

@@ -24,10 +24,10 @@ sf::RectangleShape Bakery::createRectangle(float width, float height, sf::Color 
 }
 
 
-Butcher::Butcher() {
+ButcherShop::ButcherShop() {
 }
 
-sf::RectangleShape Butcher::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
+sf::RectangleShape ButcherShop::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
 
     sf::RectangleShape rectangle(sf::Vector2f(width, height));
     rectangle.setFillColor(color);

@@ -11,6 +11,7 @@ public:
 
     // Appelé depuis ton main
     void update(float dt);
+    DayPhase m_phase;
 
 private:
     void updateMorning(float dt);
@@ -19,7 +20,6 @@ private:
     void nextPhase();
 
 private:
-    DayPhase m_phase;
     float m_phaseTimer;
     float m_phaseDuration;
 };

@@ -2,6 +2,7 @@
 #include <optional>
 #include "Shop.h"
 #include "GameDay.h"
+#include "HUD.h"
 
 int main()
 {
@@ -18,7 +19,7 @@ int main()
     
     sf::RectangleShape rect1 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 175.f, 0.f });
 
-    sf::RectangleShape rect2 = Butcher::createRectangle(175.f, 215.f, sf::Color::Blue, { 450.f, 0.f });
+    sf::RectangleShape rect2 = ButcherShop::createRectangle(175.f, 215.f, sf::Color::Blue, { 450.f, 0.f });
 
     sf::RectangleShape rect3 = Coffee::createRectangle(175.f, 215.f, sf::Color::Cyan, { 625.f, 0.f });
 
@@ -30,6 +31,7 @@ int main()
 
     sf::RectangleShape rect7 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 625.f, 385.f });
 
+    HUD* hud = new HUD();
 
     // Start the game loop
     while (window.isOpen())
@@ -49,14 +51,16 @@ int main()
        window.draw(sprite);
 
         //Draw the rectangle
-        window.draw(rect);
+       /* window.draw(rect);
         window.draw(rect1);
         window.draw(rect2);
         window.draw(rect3);
         window.draw(rect4);
         window.draw(rect5);
         window.draw(rect6);
-        window.draw(rect7);
+        window.draw(rect7);*/
+        hud->Render(window, "jhg", 255, 255);
+        
 
         // Update the window
         window.display();
