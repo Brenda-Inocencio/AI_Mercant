@@ -4,10 +4,12 @@
 #include "GameDay.h"
 #include "HUD.h"
 #include "button.h"
+#include "MenuStart.h"
+#include "MenuEnd.h"
 
 int main() {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML window");
+    sf::RenderWindow window(sf::VideoMode({900, 600}), "SFML window");
 
     // Load a sprite to display
     const sf::Texture texture("Background.png");
@@ -15,25 +17,28 @@ int main() {
 
 
     // Cr�ation des rectangles
-    sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
+    sf::RectangleShape rect = Shop::createRectangle(185.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
     
-    sf::RectangleShape rect1 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 175.f, 0.f });
+    sf::RectangleShape rect1 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 185.f, 0.f });
 
-    sf::RectangleShape rect2 = ButcherShop::createRectangle(175.f, 215.f, sf::Color::Blue, { 450.f, 0.f });
+    sf::RectangleShape rect2 = ButcherShop::createRectangle(185.f, 215.f, sf::Color::Blue, { 540.f, 0.f });
 
-    sf::RectangleShape rect3 = Coffee::createRectangle(175.f, 215.f, sf::Color::Cyan, { 625.f, 0.f });
+    sf::RectangleShape rect3 = Coffee::createRectangle(185.f, 215.f, sf::Color::Cyan, { 715.f, 0.f });
 
-    sf::RectangleShape rect4 = Pharmacy::createRectangle(175.f, 215.f, sf::Color::Green, { 0.f, 385.f });
+    sf::RectangleShape rect4 = Pharmacy::createRectangle(185.f, 215.f, sf::Color::Green, { 0.f, 385.f });
 
-    sf::RectangleShape rect5 = Coffee::createRectangle(175.f, 215.f, sf::Color::Cyan, { 175.f, 385.f });
+    sf::RectangleShape rect5 = Coffee::createRectangle(185.f, 215.f, sf::Color::Cyan, { 185.f, 385.f });
 
-    sf::RectangleShape rect6 = HairSalon::createRectangle(175.f, 215.f, sf::Color::Magenta, { 450.f, 385.f });
+    sf::RectangleShape rect6 = HairSalon::createRectangle(185.f, 215.f, sf::Color::Magenta, { 540.f, 385.f });
 
-    sf::RectangleShape rect7 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 625.f, 385.f });
+    sf::RectangleShape rect7 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 715.f, 385.f });
 
     HUD* hud = new HUD();
-    Button* exit = new Exit;
-    Button* start = new Start;
+    MenuStart* menustart = new MenuStart();
+    MenuEnd* menuend = new MenuEnd();
+    Button* exit = new Exit();
+    Button* start = new Start();
+
 
     // Start the game loop
     while (window.isOpen()) {   
@@ -60,7 +65,7 @@ int main() {
         window.clear();
 
         // Draw the sprite
-       window.draw(sprite);
+        window.draw(sprite);
 
         //Draw the rectangle
         window.draw(rect);
@@ -73,6 +78,11 @@ int main() {
         window.draw(rect7);
         hud->Render(window, "jhg", 255, 255);
         
+        menustart->Render(window);
+        //menuend->Render(window);
+
+        //window.draw(sprite2);
+
         exit->Render(window);
         start->Render(window);
 

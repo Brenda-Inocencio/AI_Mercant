@@ -14,8 +14,8 @@ void Button::SetText(std::string textStirng, float posx, float posy, sf::Font& f
 
 
 Exit::Exit() {
-    posx = 350.f;
-    posy = 375.f;
+    posx = 400.f;
+    posy = 475.f;
     width = 100.f;
     height = 50.f;
     if (!font.openFromFile("OpenSans-VariableFont_wdth,wght.ttf"))
@@ -23,7 +23,7 @@ Exit::Exit() {
 
     button.setPosition(sf::Vector2f(posx, posy));
     button.setSize(sf::Vector2f(width, height));
-    button.setFillColor(sf::Color::White);
+    button.setFillColor(sf::Color::Red);
     SetText("Exit", posx, posy, font);
 }
 
@@ -34,8 +34,8 @@ void Exit::Render(sf::RenderWindow& window) {
 
 
 Start::Start() {
-    posx = 350.f;
-    posy = 300;
+    posx = 400.f;
+    posy = 400;
     width = 100;
     height = 50;
     if (!font.openFromFile("OpenSans-VariableFont_wdth,wght.ttf"))
@@ -43,7 +43,7 @@ Start::Start() {
 
     button.setPosition(sf::Vector2f(posx, posy));
     button.setSize(sf::Vector2f(width, height));
-    button.setFillColor(sf::Color::White);
+    button.setFillColor(sf::Color::Green);
     SetText("Start", posx, posy, font);
 }
 

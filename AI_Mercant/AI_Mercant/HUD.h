@@ -2,7 +2,6 @@
 #define HUD_H
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Image.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <string>
