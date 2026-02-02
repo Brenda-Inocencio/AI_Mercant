@@ -6,7 +6,7 @@ Pnj::Pnj() {
 	pnjRoot = new RootNode(AI);
 	pnjType.clear();
 	for (int i = 0; i < AI_TYPE; i++) {
-		pnjType.push_back(new Node);
+		pnjType.push_back(new Node());
 	}
 	AIType = new FluxNode(AI, pnjType);
 }
@@ -33,6 +33,12 @@ Pnj::~Pnj() {
 //Costumers
 Costumer::Costumer() {
 	cash = 100;
+
+	tasks.clear();
+	for (int i = 0; i < COSTUMER_TASKS; i++) {
+		tasks.push_back(new Node());
+	}
+	costumers = new FluxNode(pnjType[COSTUMERS], tasks);
 }
 
 void Costumer::buy(Merchant* merchant, int sales) {
@@ -51,7 +57,7 @@ Merchant::Merchant() {
 	noStock = true;
 	merchantType.clear();
 	for (int i = 0; i < MERCHANT_NUMBERS; i++) {
-		merchantType.push_back(new Node);
+		merchantType.push_back(new Node());
 	}
 	merchants = new FluxNode(pnjType[MERCHANT], merchantType);
 }
@@ -78,7 +84,7 @@ Saler::Saler() {
 	Price = nullptr;
 	stateType.clear();
 	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node);
+		stateType.push_back(new Node());
 	}
 	states = new FluxNode(merchantType[SALER], stateType);
 }
@@ -119,7 +125,7 @@ void Saler::Order(int newFurnitures) {
 
 
 void Saler::UpdatePrice(float newPrice) {
-	Price : (new Training)->updateLeaning();
+	Price : (new Training())->updateLeaning();
 }
 
 
@@ -127,7 +133,7 @@ Baker::Baker() {
 	breads = 0;
 	stateType.clear();
 	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node);
+		stateType.push_back(new Node());
 	}
 	states = new FluxNode(merchantType[BAKER], stateType);
 }
@@ -168,14 +174,14 @@ void Baker::Order(int newFurnitures) {
 }
 
 void Baker::UpdatePrice(int newPrice) {
-	Price: (new Training)->updateLeaning();
+	Price: (new Training())->updateLeaning();
 }
 
 Butcher::Butcher() {
 	meats = 0;
 	stateType.clear();
 	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node);
+		stateType.push_back(new Node());
 	}
 	states = new FluxNode(merchantType[BUTCHER], stateType);
 }
@@ -216,7 +222,7 @@ void Butcher::Order(int newFurnitures) {
 }
 
 void Butcher::UpdatePrice(int newPrice) {
-	Price: (new Training)->updateLeaning();
+	Price: (new Training())->updateLeaning();
 }
 
 
@@ -224,7 +230,7 @@ Waiter::Waiter() {
 	coffees = 0;
 	stateType.clear();
 	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node);
+		stateType.push_back(new Node());
 	}
 	states = new FluxNode(merchantType[WAITER], stateType);
 }
@@ -265,7 +271,7 @@ void Waiter::Order(int newFurnitures) {
 }
 
 void Waiter::UpdatePrice(int newPrice) {
-	Price: (new Training)->updateLeaning();
+	Price: (new Training())->updateLeaning();
 }
 
 
@@ -273,7 +279,7 @@ Hairdressers::Hairdressers() {
 	hair = 0;
 	stateType.clear();
 	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node);
+		stateType.push_back(new Node());
 	}
 	states = new FluxNode(merchantType[HAIRDRESSERS], stateType);
 }
@@ -314,5 +320,5 @@ void Hairdressers::Order(int newFurnitures) {
 }
 
 void Hairdressers::UpdatePrice(int newPrice) {
-	Price: (new Training)->updateLeaning();
+	Price: (new Training())->updateLeaning();
 }
