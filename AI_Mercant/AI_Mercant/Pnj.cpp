@@ -38,14 +38,23 @@ Costumer::Costumer() {
 	for (int i = 0; i < COSTUMER_TASKS; i++) {
 		tasks.push_back(new Node());
 	}
+
 	costumers = new FluxNode(pnjType[COSTUMERS], tasks);
+
+	shape.setRadius(20.f);
+	shape.setFillColor(sf::Color::Green);
+	shape.setPosition(sf::Vector2f(50.f, 50.f));
 }
 
 void Costumer::buy(Merchant* merchant, int sales) {
-	if (cash - merchant->GetPrice() >= 0) {
+	if (cash >= merchant->GetPrice()) {
 		cash -= merchant->GetPrice();
 		merchant->Sell(sales);
 	}
+}
+
+void Costumer::Render(sf::RenderWindow& window) {
+	window.draw(shape);
 }
 
 

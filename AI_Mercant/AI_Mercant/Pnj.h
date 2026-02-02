@@ -19,6 +19,7 @@
 
 #include "Training.h"
 #include <vector>
+#include <SFML/Graphics.hpp>
 
 class RootNode;
 class FluxNode;
@@ -125,8 +126,10 @@ protected:
 	int cash;
 	FluxNode* costumers;
 	std::vector<Node*> tasks;
+	sf::CircleShape shape;
 public:
 	Costumer();
-	virtual ~Costumer() {};
 	void buy(Merchant* merchant, int sales);
+	void Render(sf::RenderWindow& window);
+	virtual ~Costumer() {};
 };

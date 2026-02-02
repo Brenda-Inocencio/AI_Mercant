@@ -7,6 +7,7 @@
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
+#include "Pnj.h"
 
 int main() {
     // Create the main window
@@ -43,6 +44,7 @@ int main() {
     MenuEnd* menuend = new MenuEnd();
     Button* exit = new Exit();
     Button* start = new Start();
+    Costumer* costumer = new Costumer();
 
 
     sf::Clock clock;
@@ -86,6 +88,9 @@ int main() {
         window.draw(rect5);
         window.draw(rect6);
         window.draw(rect7);
+
+        costumer->Render(window);
+
         hud->Render(window, "jhg", 255, 255);
         
         menustart->Render(window);

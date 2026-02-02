@@ -1,2 +1,7 @@
-﻿  AI_Mercant.cpp
+﻿  Pnj.cpp
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(137,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(186,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(234,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(283,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(332,2): warning C4102: 'Price' : étiquette non référencée
   AI_Mercant.vcxproj -> C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
