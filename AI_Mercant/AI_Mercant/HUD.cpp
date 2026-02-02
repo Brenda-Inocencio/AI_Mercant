@@ -26,9 +26,9 @@ void HUD::RenderText(sf::RenderWindow& window, const std::string& message, float
 	// Creation text
 	text.setFont(font_);
 	text.setString(message);
-	text.setCharacterSize(48); // Taille en pixels
-	text.setPosition(sf::Vector2f(x +255, y +255));
-	text.setFillColor(sf::Color::White); // Couleur du texte
+	text.setCharacterSize(30); // Taille en pixels
+	text.setPosition(sf::Vector2f(x -220, y -255));
+	text.setFillColor(sf::Color::Black); // Couleur du texte
 	text.setStyle(sf::Text::Bold); // Style
 	window.draw(text);
 }
@@ -43,9 +43,9 @@ void HUD::RenderText1(sf::RenderWindow& window, const std::string& message, floa
 	// Creation text
 	text1.setFont(font_);
 	text1.setString(message);
-	text1.setCharacterSize(48); // Taille en pixels
-	text1.setPosition(sf::Vector2f(x +255, y +250));
-	text1.setFillColor(sf::Color::White); // Couleur du texte
+	text1.setCharacterSize(30); // Taille en pixels
+	text1.setPosition(sf::Vector2f(x -220, y -215));
+	text1.setFillColor(sf::Color::Black); // Couleur du texte
 	text1.setStyle(sf::Text::Bold); // Style
 	window.draw(text1);
 }

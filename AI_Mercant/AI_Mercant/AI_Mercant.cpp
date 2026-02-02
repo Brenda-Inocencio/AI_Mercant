@@ -51,14 +51,14 @@ int main()
        window.draw(sprite);
 
         //Draw the rectangle
-       /* window.draw(rect);
+        window.draw(rect);
         window.draw(rect1);
         window.draw(rect2);
         window.draw(rect3);
         window.draw(rect4);
         window.draw(rect5);
         window.draw(rect6);
-        window.draw(rect7);*/
+        window.draw(rect7);
         hud->Render(window, "jhg", 255, 255);
         
 
