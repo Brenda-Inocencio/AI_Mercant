@@ -1,2 +1,13 @@
-﻿  HUD.cpp
+﻿  AI_Mercant.cpp
+  GameDay.cpp
+  HUD.cpp
+  Pnj.cpp
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(122,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(171,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(219,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(268,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(317,2): warning C4102: 'Price' : étiquette non référencée
+  Shop.cpp
+  Training.cpp
+  Génération de code en cours...
   AI_Mercant.vcxproj -> C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
