@@ -3,9 +3,9 @@
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
+#include "button.h"
 
-int main()
-{
+int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML window");
 
@@ -32,16 +32,28 @@ int main()
     sf::RectangleShape rect7 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 625.f, 385.f });
 
     HUD* hud = new HUD();
+    Button* exit = new Exit;
+    Button* start = new Start;
 
     // Start the game loop
-    while (window.isOpen())
-    {   
+    while (window.isOpen()) {   
         // Process events
-        while (const auto event = window.pollEvent())
-        {
+        while (const auto event = window.pollEvent()) {
             // Close window: exit
             if (event->is<sf::Event::Closed>())
                 window.close();
+
+            if (event->is<sf::Event::MouseButtonPressed>()) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    exit->GetPosY() <= static_cast<float>(mousePos.y) && exit->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    window.close();
+                }
+                if (start->GetPosX() <= static_cast<float>(mousePos.x) && start->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    start->GetPosY() <= static_cast<float>(mousePos.y) && start->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    //debut simulation
+                }
+            }
         }   
 
         // Clear screen
@@ -61,6 +73,8 @@ int main()
         window.draw(rect7);
         hud->Render(window, "jhg", 255, 255);
         
+        exit->Render(window);
+        start->Render(window);
 
         // Update the window
         window.display();

@@ -32,6 +32,7 @@ public:
 	virtual ~Pnj();
 };
 
+
 class Merchant : private Pnj {
 protected:
 	int cash;
@@ -114,6 +115,7 @@ public:
 	void Order(int newFurnitures) override;
 	void UpdatePrice(int newPrice) override;
 };
+
 
 class Costumer : protected Pnj {
 protected:
