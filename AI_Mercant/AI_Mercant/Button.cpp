@@ -4,7 +4,7 @@
 Button::Button() {
 }
 
-void Button::SetText(std::string textStirng, float posx, float posy, float width, float height, sf::Font& font) {
+void Button::SetText(std::string textStirng, float posx, float posy, sf::Font& font) {
     text.setFont(font);
     text.setString(textStirng);
     text.setFillColor(sf::Color::Black);
@@ -24,7 +24,7 @@ Exit::Exit() {
     button.setPosition(sf::Vector2f(posx, posy));
     button.setSize(sf::Vector2f(width, height));
     button.setFillColor(sf::Color::White);
-    SetText("Exit", posx, posy, width, height, font);
+    SetText("Exit", posx, posy, font);
 }
 
 void Exit::Render(sf::RenderWindow& window) {
@@ -35,15 +35,16 @@ void Exit::Render(sf::RenderWindow& window) {
 
 Start::Start() {
     posx = 350.f;
-    posy = 275.f;
+    posy = 300;
     width = 100;
-    height = 75;
-    button = sf::RectangleShape(sf::Vector2f(200.0f, 50.0f));
-    button.setPosition(sf::Vector2f(posx, posy));
-    button.setFillColor(sf::Color::Blue);
+    height = 50;
     if (!font.openFromFile("OpenSans-VariableFont_wdth,wght.ttf"))
         std::cerr << "Can't find the font file" << std::endl;
-    SetText("Start", posx, posy, width, height, font);
+
+    button.setPosition(sf::Vector2f(posx, posy));
+    button.setSize(sf::Vector2f(width, height));
+    button.setFillColor(sf::Color::White);
+    SetText("Start", posx, posy, font);
 }
 
 void Start::Render(sf::RenderWindow& window) {

@@ -35,6 +35,7 @@ int main() {
     sf::RectangleShape rect7 = Bakery::createRectangle(175.f, 215.f, sf::Color::Red, { 625.f, 385.f });
 
     Button* exit = new Exit;
+    Button* start = new Start;
 
     // Start the game loop
     while (window.isOpen()) {   
@@ -49,6 +50,10 @@ int main() {
                 if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
                     exit->GetPosY() <= static_cast<float>(mousePos.y) && exit->GetBottomY() >= static_cast<float>(mousePos.y)) {
                     window.close();
+                }
+                if (start->GetPosX() <= static_cast<float>(mousePos.x) && start->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    start->GetPosY() <= static_cast<float>(mousePos.y) && start->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    //debut simulation
                 }
             }
         }   
@@ -69,6 +74,7 @@ int main() {
         window.draw(rect6);
         window.draw(rect7);
         exit->Render(window);
+        start->Render(window);
 
         // Update the window
         window.display();
