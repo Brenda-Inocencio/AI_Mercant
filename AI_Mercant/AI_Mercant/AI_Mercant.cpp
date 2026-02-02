@@ -33,9 +33,13 @@ int main()
 
     HUD* hud = new HUD();
 
+    sf::Clock clock;
+    float timer = 0.f;
+    float dt = 0.0f;
     // Start the game loop
-    while (window.isOpen())
-    {   
+    while (window.isOpen()) {
+        dt = clock.restart().asSeconds();
+        timer += dt;
         // Process events
         while (const auto event = window.pollEvent())
         {
