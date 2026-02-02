@@ -4,8 +4,9 @@
 GameDay::GameDay()
     : m_phase(DayPhase::Morning),
     m_phaseTimer(0.f),
-    m_phaseDuration(60.f)
-{}
+    m_phaseDuration(60.f) {
+    day = 0;
+}
 
 void GameDay::update(float dt) {
     m_phaseTimer += dt;
@@ -39,6 +40,6 @@ void GameDay::nextPhase() {
     switch (m_phase) {
     case DayPhase::Morning: m_phase = DayPhase::Day; break;
     case DayPhase::Day:     m_phase = DayPhase::Evening; break;
-    case DayPhase::Evening: m_phase = DayPhase::Morning; break;
+    case DayPhase::Evening: m_phase = DayPhase::Morning; day += 1; break;
     }
 }

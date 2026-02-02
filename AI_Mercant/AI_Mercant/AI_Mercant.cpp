@@ -86,7 +86,7 @@ int main() {
         window.draw(rect5);
         window.draw(rect6);
         window.draw(rect7);
-        hud->Render(window, "jhg", 255, 255);
+        hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
         
         menustart->Render(window);
         //menuend->Render(window);
