@@ -38,7 +38,7 @@ public:
             ActualNode->Begin();
         }
         ActualNode->Tick(DeltaTime);
-    }
+    }   
     virtual void OnNodeEnd() {
         auto It = std::find(ChildNodes.begin(), ChildNodes.end(), ActualNode);
         if (It != ChildNodes.end()) {
