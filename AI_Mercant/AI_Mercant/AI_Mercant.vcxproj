@@ -142,14 +142,16 @@
     <ClCompile Include="AI_Mercant.cpp" />
     <ClCompile Include="BehaviorTree.cpp" />
     <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Pnj.cpp" />
     <ClCompile Include="GameDay.cpp" />
-    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Training.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="BehaviorTree.h" />
     <ClInclude Include="Pnj.h" />

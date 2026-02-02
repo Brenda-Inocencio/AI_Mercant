@@ -3,6 +3,7 @@
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
+#include "Settings.h"
 
 int main()
 {
@@ -13,6 +14,10 @@ int main()
     const sf::Texture texture("Background.png");
     sf::Sprite sprite(texture);
 
+    int nbMerchants = 8; 
+    int nbMerchantsType = 6;
+    //Settings initiallisation
+    Settings settings(nbMerchants, nbMerchantsType);
 
     // Cr�ation des rectangles
     sf::RectangleShape rect = Shop::createRectangle(175.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
