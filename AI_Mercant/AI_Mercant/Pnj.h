@@ -1,6 +1,9 @@
 #pragma once
 #define AI_TYPE 2
 #define COSTUMERS 0
+#define COSTUMER_TASKS 2
+#define BUY 0
+#define LEAVE 1
 #define MERCHANT 1
 #define MERCHANT_NUMBERS 6
 #define SALER 0
@@ -14,6 +17,7 @@
 #define ORDER 1
 #define PAUSE 2
 
+#include "Training.h"
 #include <vector>
 
 class RootNode;
@@ -31,14 +35,6 @@ public:
 	virtual ~Pnj();
 };
 
-class Costumer : protected Pnj {
-protected:
-	int cash;
-public:
-	Costumer();
-	virtual ~Costumer() {};
-	void buy(Merchant* merchant, int sales);
-};
 
 class Merchant : private Pnj {
 protected:
@@ -48,6 +44,7 @@ protected:
 	bool noStock;
 	std::vector<Node*> merchantType;
 	FluxNode* merchants;
+	Training* Price;
 public:
 	Merchant();
 	virtual ~Merchant();
@@ -67,7 +64,7 @@ public:
 	virtual ~Saler();
 	void Sell(int sales) override;
 	void Order(int newFurnitures) override;
-	void UpdatePrice(int newPrice) override;
+	void UpdatePrice(float newPrice);
 };
 
 class Baker : protected Merchant { 
@@ -120,4 +117,16 @@ public:
 	void Sell(int sales) override;
 	void Order(int newFurnitures) override;
 	void UpdatePrice(int newPrice) override;
+};
+
+
+class Costumer : protected Pnj {
+protected:
+	int cash;
+	FluxNode* costumers;
+	std::vector<Node*> tasks;
+public:
+	Costumer();
+	virtual ~Costumer() {};
+	void buy(Merchant* merchant, int sales);
 };

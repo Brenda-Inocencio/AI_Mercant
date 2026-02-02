@@ -63,6 +63,10 @@ void FluxNode::OnNodeEnd() {
     }
 }
 
+TaskNode::TaskNode(FluxNode* _parentNode) {
+    parentNode = _parentNode;
+}
+
 TaskNode::~TaskNode() {
     if (parentNode) {
         delete parentNode;
