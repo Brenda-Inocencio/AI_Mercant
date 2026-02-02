@@ -1,6 +1,9 @@
 #pragma once
 #define AI_TYPE 2
 #define COSTUMERS 0
+#define COSTUMER_TASKS 2
+#define BUY 0
+#define LEAVE 1
 #define MERCHANT 1
 #define MERCHANT_NUMBERS 6
 #define SALER 0
@@ -120,6 +123,8 @@ public:
 class Costumer : protected Pnj {
 protected:
 	int cash;
+	FluxNode* costumers;
+	std::vector<Node*> tasks;
 public:
 	Costumer();
 	virtual ~Costumer() {};

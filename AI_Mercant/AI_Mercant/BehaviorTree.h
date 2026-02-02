@@ -39,7 +39,7 @@ public:
     float actualTime;
     float _time;
 public:
-    TaskNode() = default;
+    TaskNode(FluxNode* _parentNode);
     virtual ~TaskNode();
 
     void Begin() override;
