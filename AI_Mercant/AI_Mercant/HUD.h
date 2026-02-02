@@ -19,20 +19,20 @@ public:
 	void Time(float t);
 
 
-	void Render(sf::RenderWindow& window, const std::string& message, float x, float y);
+	void Render(sf::RenderWindow& window, int d, float t);
 
-	~HUD();
+	~HUD() {};
 private:
-	sf::Font* font;
-	sf::Font font_;
-	sf::Text text = sf::Text(font_, "Day", 48);
-	sf::Text text1 = sf::Text(font_, "Time", 48);
+	sf::Font font;
+	std::string day;
+	std::string time;
+	sf::Text text = sf::Text(font, "Day : ", 24);
+	sf::Text text1 = sf::Text(font, "Time : ", 24);
+	sf::Text dayText = sf::Text(font, day, 24);
+	sf::Text timeText = sf::Text(font, time, 24);
 
-	int day;
-	float time;
-
-	void RenderText(sf::RenderWindow& window, const std::string& message, float x, float y);
-	void RenderText1(sf::RenderWindow& window, const std::string& message, float x, float y);
+	void RenderText(sf::RenderWindow& window);
+	void RenderText1(sf::RenderWindow& window);
 };
 
 #endif 

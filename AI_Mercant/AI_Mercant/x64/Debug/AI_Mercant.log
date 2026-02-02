@@ -1,2 +1,3 @@
 ﻿  HUD.cpp
-  AI_Mercant.vcxproj -> C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
