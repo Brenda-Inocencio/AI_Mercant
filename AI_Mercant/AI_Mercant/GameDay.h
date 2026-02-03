@@ -12,6 +12,7 @@ public:
     // Appelé depuis ton main
     void update(float dt);
     DayPhase m_phase;
+    inline int GetDay() { return day; }
 
 private:
     void updateMorning(float dt);
@@ -22,6 +23,7 @@ private:
 private:
     float m_phaseTimer;
     float m_phaseDuration;
+    int day;
 };
 
 #endif

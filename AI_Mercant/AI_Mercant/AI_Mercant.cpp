@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
+#include <SFML/Window/Export.hpp>
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
@@ -8,6 +9,7 @@
 #include "MenuStart.h"
 #include "MenuEnd.h"
 #include "Pnj.h"
+#include "Setting.h"
 
 int main() {
     // Create the main window
@@ -42,14 +44,18 @@ int main() {
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
+    Setting* setting = new Setting();
     Button* exit = new Exit();
     Button* start = new Start();
     Costumer* costumer = new Costumer();
-
+    Button* settingsButton = new SettingsButton();
 
     sf::Clock clock;
     float timer = 0.f;
     float dt = 0.0f;
+    bool isRunning = false;
+    bool isSettings = false;
+    bool endSim = false;
     // Start the game loop
     while (window.isOpen()) {
         dt = clock.restart().asSeconds();
@@ -62,13 +68,23 @@ int main() {
 
             if (event->is<sf::Event::MouseButtonPressed>()) {
                 sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-                if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
+                if (start->GetPosX() <= static_cast<float>(mousePos.x) && start->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    start->GetPosY() <= static_cast<float>(mousePos.y) && start->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    isRunning = true;
+                }
+                else if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
                     exit->GetPosY() <= static_cast<float>(mousePos.y) && exit->GetBottomY() >= static_cast<float>(mousePos.y)) {
                     window.close();
                 }
-                if (start->GetPosX() <= static_cast<float>(mousePos.x) && start->GetRightX() >= static_cast<float>(mousePos.x) &&
-                    start->GetPosY() <= static_cast<float>(mousePos.y) && start->GetBottomY() >= static_cast<float>(mousePos.y)) {
-                    //debut simulation
+                else if (settingsButton->GetPosX() <= static_cast<float>(mousePos.x) && settingsButton->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    settingsButton->GetPosY() <= static_cast<float>(mousePos.y) && settingsButton->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    isSettings = true;
+                }
+            }
+            else if (event->is<sf::Event::KeyPressed>()) {
+                if (event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::Escape) {
+                    isSettings = false;
+                    isRunning = false;
                 }
             }
         }   
@@ -77,8 +93,6 @@ int main() {
         window.clear();
 
         // Draw the sprite
-        window.draw(sprite);
-
         //Draw the rectangle
         window.draw(rect);
         window.draw(rect1);
@@ -91,15 +105,26 @@ int main() {
 
         costumer->Render(window);
 
-        hud->Render(window, "jhg", 255, 255);
-        
-        menustart->Render(window);
-        //menuend->Render(window);
+        hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
 
-        //window.draw(sprite2);
+        if (isSettings) {
+            window.clear();
+            setting->Render(window);
+        }
+        else if (!isRunning) {
+            menustart->Render(window);
+            start->Render(window);
+            exit->Render(window);
+            settingsButton->Render(window);
+            
+        }
+        else if (isRunning) {
+            window.draw(sprite);
+        }
+        else if (endSim) {
+            menuend->Render(window);
+        }
 
-        exit->Render(window);
-        start->Render(window);
 
         // Update the window
         window.display();
