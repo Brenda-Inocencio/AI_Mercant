@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
 #include <SFML/Window/Export.hpp>
+#include <vector>
+#include <random>
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
@@ -9,6 +11,14 @@
 #include "MenuStart.h"
 #include "MenuEnd.h"
 #include "Setting.h"
+
+int GetRandomNumber(int min, int max) {
+    std::random_device m_rd;
+    std::mt19937 m_gen(m_rd());
+
+    std::uniform_int_distribution<int> dis(min, max);
+    return dis(m_gen);
+}
 
 int main() {
     // Create the main window
@@ -23,22 +33,43 @@ int main() {
     //Settings initiallisation
     Settings settings(nbMerchants, nbMerchantsType);
 
-    // Cr�ation des rectangles
-    sf::RectangleShape rect = Shop::createRectangle(185.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
-    
-    sf::RectangleShape rect1 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 185.f, 0.f });
+    std::vector<sf::Vector2f> places = {
+        { 0.f, 0.f }, { 185.f, 0.f }, { 540.f, 0.f }, { 715.f, 0.f },
+        { 0.f, 385.f }, { 185.f, 385.f }, { 540.f, 385.f }, { 715.f, 385.f }
+    };
+    std::vector<Shop*> shops;
+    size_t maxShops = std::min(settings.GetNumberMerchants(), static_cast<int>(places.size()));
 
-    sf::RectangleShape rect2 = ButcherShop::createRectangle(185.f, 215.f, sf::Color::Blue, { 540.f, 0.f });
+    for (size_t i = 0; i < maxShops; i++) {
+        int randomShop = GetRandomNumber(0, settings.GetNumberMerchantsType() - 1);
 
-    sf::RectangleShape rect3 = Coffee::createRectangle(185.f, 215.f, sf::Color::Cyan, { 715.f, 0.f });
-
-    sf::RectangleShape rect4 = Pharmacy::createRectangle(185.f, 215.f, sf::Color::Green, { 0.f, 385.f });
-
-    sf::RectangleShape rect5 = Coffee::createRectangle(185.f, 215.f, sf::Color::Cyan, { 185.f, 385.f });
-
-    sf::RectangleShape rect6 = HairSalon::createRectangle(185.f, 215.f, sf::Color::Magenta, { 540.f, 385.f });
-
-    sf::RectangleShape rect7 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 715.f, 385.f });
+        switch (randomShop) {
+        case 0: {
+            shops.push_back(new Shop(places[i]));
+            break;
+        }
+        case 1:{
+            shops.push_back(new Bakery(places[i]));
+            break;
+        }
+        case 2:{
+            shops.push_back(new ButcherShop(places[i]));
+            break;
+        }
+        case 3: {
+            shops.push_back(new Coffee(places[i]));
+            break;
+        }
+        case 4: {
+            shops.push_back(new Pharmacy(places[i]));
+            break;
+        }
+        case 5: {
+            shops.push_back(new HairSalon(places[i]));
+            break;
+        }
+        }
+    }
 
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
@@ -92,15 +123,6 @@ int main() {
 
         // Draw the sprite
         //Draw the rectangle
-        window.draw(rect);
-        window.draw(rect1);
-        window.draw(rect2);
-        window.draw(rect3);
-        window.draw(rect4);
-        window.draw(rect5);
-        window.draw(rect6);
-        window.draw(rect7);
-        hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
 
         if (isSettings) {
             window.clear();
@@ -113,8 +135,12 @@ int main() {
             settingsButton->Render(window);
             
         }
-        else if (isRunning) {
+        if (true) {
             window.draw(sprite);
+            for (int i = 0; i < shops.size(); i++) {
+                shops[i]->Render(window);
+            }
+            hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
         }
         else if (endSim) {
             menuend->Render(window);
@@ -124,4 +150,17 @@ int main() {
         // Update the window
         window.display();
     }
+
+    for (int i = 0; i < shops.size(); i++) {
+        delete shops[i];
+        shops[i] = nullptr;
+    }
+    shops.clear();
+
+    delete hud; hud = nullptr;
+    delete menustart; menustart = nullptr;
+    delete menuend; menuend = nullptr;
+    delete exit; exit = nullptr;
+    delete start; start = nullptr;
+    delete settingsButton; settingsButton = nullptr;
 }
