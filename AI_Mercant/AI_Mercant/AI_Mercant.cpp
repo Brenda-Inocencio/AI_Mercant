@@ -44,11 +44,13 @@ int main() {
     MenuEnd* menuend = new MenuEnd();
     Button* exit = new Exit();
     Button* start = new Start();
-
+    Button* settingsButton = new SettingsButton();
 
     sf::Clock clock;
     float timer = 0.f;
     float dt = 0.0f;
+    bool isRunning = false;
+    bool endSim = false;
     // Start the game loop
     while (window.isOpen()) {
         dt = clock.restart().asSeconds();
@@ -61,13 +63,17 @@ int main() {
 
             if (event->is<sf::Event::MouseButtonPressed>()) {
                 sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-                if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
+                if (start->GetPosX() <= static_cast<float>(mousePos.x) && start->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    start->GetPosY() <= static_cast<float>(mousePos.y) && start->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    isRunning = true;
+                }
+                else if (exit->GetPosX() <= static_cast<float>(mousePos.x) && exit->GetRightX() >= static_cast<float>(mousePos.x) &&
                     exit->GetPosY() <= static_cast<float>(mousePos.y) && exit->GetBottomY() >= static_cast<float>(mousePos.y)) {
                     window.close();
                 }
-                if (start->GetPosX() <= static_cast<float>(mousePos.x) && start->GetRightX() >= static_cast<float>(mousePos.x) &&
-                    start->GetPosY() <= static_cast<float>(mousePos.y) && start->GetBottomY() >= static_cast<float>(mousePos.y)) {
-                    //debut simulation
+                else if (settingsButton->GetPosX() <= static_cast<float>(mousePos.x) && settingsButton->GetRightX() >= static_cast<float>(mousePos.x) &&
+                    settingsButton->GetPosY() <= static_cast<float>(mousePos.y) && settingsButton->GetBottomY() >= static_cast<float>(mousePos.y)) {
+                    window.close();
                 }
             }
         }   
@@ -76,8 +82,6 @@ int main() {
         window.clear();
 
         // Draw the sprite
-        window.draw(sprite);
-
         //Draw the rectangle
         window.draw(rect);
         window.draw(rect1);
@@ -88,14 +92,21 @@ int main() {
         window.draw(rect6);
         window.draw(rect7);
         hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
-        
-        menustart->Render(window);
-        //menuend->Render(window);
 
-        //window.draw(sprite2);
+        if (!isRunning) {
+            menustart->Render(window);
+            start->Render(window);
+            exit->Render(window);
+            settingsButton->Render(window);
+            
+        }
+        else if (isRunning) {
+            window.draw(sprite);
+        }
+        else if (endSim) {
+            menuend->Render(window);
+        }
 
-        exit->Render(window);
-        start->Render(window);
 
         // Update the window
         window.display();
