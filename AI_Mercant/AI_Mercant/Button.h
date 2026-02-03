@@ -15,7 +15,7 @@ public:
 	virtual float GetRightX() = 0;
 	virtual float GetPosY() = 0;
 	virtual float GetBottomY() = 0;
-	virtual void SetText(std::string textStirng, float posx, float posy, sf:: Font& font);
+	virtual void SetText(std::string textStirng, float posx, float posy, float width, float height, sf:: Font& font);
 	virtual void Render(sf::RenderWindow& window) = 0;
 };
 
@@ -45,6 +45,21 @@ public:
 	inline float GetPosX() override { return posx; };
 	inline float GetRightX() override { return posx + width; };
 	inline float GetPosY() override { return posy; };
-	inline float GetBottomY() override { return posy - height; };
+	inline float GetBottomY() override { return posy + height; };
+	void Render(sf::RenderWindow& window) override;
+};
+
+class SettingsButton : public Button {
+	float posx;
+	float posy;
+	float width;
+	float height;
+public:
+	SettingsButton();
+	virtual ~SettingsButton() {};
+	inline float GetPosX() override { return posx; };
+	inline float GetRightX() override { return posx + width; };
+	inline float GetPosY() override { return posy; };
+	inline float GetBottomY() override { return posy + height; };
 	void Render(sf::RenderWindow& window) override;
 };
