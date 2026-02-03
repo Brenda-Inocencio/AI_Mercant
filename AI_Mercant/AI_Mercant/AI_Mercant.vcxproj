@@ -142,6 +142,7 @@
     <ClCompile Include="AI_Mercant.cpp" />
     <ClCompile Include="BehaviorTree.cpp" />
     <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -154,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="Setting.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="MenuEnd.h" />

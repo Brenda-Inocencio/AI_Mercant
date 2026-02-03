@@ -7,6 +7,7 @@
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
+#include "Setting.h"
 
 int main() {
     // Create the main window
