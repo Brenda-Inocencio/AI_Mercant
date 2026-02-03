@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
+#include <SFML/Window/Export.hpp>
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
@@ -42,6 +43,7 @@ int main() {
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
+    Setting* setting = new Setting();
     Button* exit = new Exit();
     Button* start = new Start();
     Button* settingsButton = new SettingsButton();
@@ -50,6 +52,7 @@ int main() {
     float timer = 0.f;
     float dt = 0.0f;
     bool isRunning = false;
+    bool isSettings = false;
     bool endSim = false;
     // Start the game loop
     while (window.isOpen()) {
@@ -73,7 +76,13 @@ int main() {
                 }
                 else if (settingsButton->GetPosX() <= static_cast<float>(mousePos.x) && settingsButton->GetRightX() >= static_cast<float>(mousePos.x) &&
                     settingsButton->GetPosY() <= static_cast<float>(mousePos.y) && settingsButton->GetBottomY() >= static_cast<float>(mousePos.y)) {
-                    window.close();
+                    isSettings = true;
+                }
+            }
+            else if (event->is<sf::Event::KeyPressed>()) {
+                if (event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::Escape) {
+                    isSettings = false;
+                    isRunning = false;
                 }
             }
         }   
@@ -93,7 +102,11 @@ int main() {
         window.draw(rect7);
         hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
 
-        if (!isRunning) {
+        if (isSettings) {
+            window.clear();
+            setting->Render(window);
+        }
+        else if (!isRunning) {
             menustart->Render(window);
             start->Render(window);
             exit->Render(window);

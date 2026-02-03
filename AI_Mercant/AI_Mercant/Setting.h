@@ -1,18 +1,21 @@
 #ifndef SETTING
 #define SETTING
+
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Image.hpp>
 
 class Setting {
-private:
-    unsigned int width;
-    unsigned int height;
-    sf::RenderWindow window;
-    sf::RectangleShape shape;
-
 public:
+
     Setting();
-    void setting();
+
+    void Render(sf::RenderWindow& window);
+
     ~Setting();
+
+private:
+    sf::Texture* image;
+    sf::Sprite* sprite;
 };
 
 #endif  
