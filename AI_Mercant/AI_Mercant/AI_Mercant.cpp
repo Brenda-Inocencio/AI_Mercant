@@ -47,6 +47,8 @@ int main() {
     Button* exit = new Exit();
     Button* start = new Start();
     Button* settingsButton = new SettingsButton();
+    Button* increase = new ButtonRight();
+    Button* decrease = new ButtonLeft();
 
     sf::Clock clock;
     float timer = 0.f;
@@ -77,6 +79,17 @@ int main() {
                 else if (settingsButton->GetPosX() <= static_cast<float>(mousePos.x) && settingsButton->GetRightX() >= static_cast<float>(mousePos.x) &&
                     settingsButton->GetPosY() <= static_cast<float>(mousePos.y) && settingsButton->GetBottomY() >= static_cast<float>(mousePos.y)) {
                     isSettings = true;
+                    
+                    if (increase->GetPosX() <= static_cast<float>(mousePos.x) && increase->GetRightX() >= static_cast<float>(mousePos.x) &&
+                        increase->GetPosY() <= static_cast<float>(mousePos.y) && increase->GetBottomY() >= static_cast<float>(mousePos.y)) {        // A REGLER
+                        nbMerchants++;
+                        std::cerr << "+1";
+                    }
+                    else if (decrease->GetPosX() <= static_cast<float>(mousePos.x) && decrease->GetRightX() >= static_cast<float>(mousePos.x) &&
+                        decrease->GetPosY() <= static_cast<float>(mousePos.y) && decrease->GetBottomY() >= static_cast<float>(mousePos.y)) {        // A REGLER
+                        nbMerchants--;
+                        std::cerr << "-1";
+                    }
                 }
             }
             else if (event->is<sf::Event::KeyPressed>()) {
@@ -105,6 +118,8 @@ int main() {
         if (isSettings) {
             window.clear();
             setting->Render(window);
+            increase->Render(window);
+            decrease->Render(window);
         }
         else if (!isRunning) {
             menustart->Render(window);

@@ -63,3 +63,33 @@ public:
 	inline float GetBottomY() override { return posy + height; };
 	void Render(sf::RenderWindow& window) override;
 };
+
+class ButtonLeft : public Button {
+	float posx;
+	float posy;
+	float width;
+	float height;
+public:
+	ButtonLeft();
+	virtual ~ButtonLeft() {};
+	inline float GetPosX() override { return posx; };
+	inline float GetRightX() override { return posx + width; };
+	inline float GetPosY() override { return posy; };
+	inline float GetBottomY() override { return posy + height; };
+	void Render(sf::RenderWindow& window) override;
+};
+
+class ButtonRight : public Button {
+	float posx;
+	float posy;
+	float width;
+	float height;
+public:
+	ButtonRight();
+	virtual ~ButtonRight() {};
+	inline float GetPosX() override { return posx; };
+	inline float GetRightX() override { return posx + width; };
+	inline float GetPosY() override { return posy; };
+	inline float GetBottomY() override { return posy + height; };
+	void Render(sf::RenderWindow& window) override;
+};
