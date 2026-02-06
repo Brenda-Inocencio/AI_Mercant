@@ -4,7 +4,7 @@
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
-#include "Settings.h"
+#include "Setting.h"
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
@@ -21,7 +21,7 @@ int main() {
     int nbMerchants = 8; 
     int nbMerchantsType = 6;
     //Settings initiallisation
-    Settings settings(nbMerchants, nbMerchantsType);
+    //Setting settings(nbMerchants, nbMerchantsType);
 
     // Cr�ation des rectangles
     sf::RectangleShape rect = Shop::createRectangle(185.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
