@@ -9,6 +9,7 @@
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
+#include "Game.h"
 
 int GetRandomNumber(int min, int max) {
     std::random_device m_rd;
@@ -75,7 +76,8 @@ int main() {
     Button* exit = new Exit();
     Button* start = new Start();
     Button* settingsButton = new SettingsButton();
-
+    Game game;
+    
     sf::Clock clock;
     float timer = 0.f;
     float dt = 0.0f;
@@ -115,21 +117,18 @@ int main() {
         //Draw the rectangle
 
         if (!isRunning) {
-            //menustart->Render(window);
-            //start->Render(window);
-            //exit->Render(window);
-            //settingsButton->Render(window);
+            menustart->Render(window);
+            start->Render(window);
+            exit->Render(window);
+            settingsButton->Render(window);
             
         }
-        if (true) {
-            //window.draw(sprite);
-            for (int i = 0; i < shops.size(); i++) {
-                shops[i]->Render(window);
-            }
-            //hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
+        else if (isRunning) {
+            window.draw(sprite);
+            game.Render(window, shops, hud);
         }
         else if (endSim) {
-            //menuend->Render(window);
+            menuend->Render(window);
         }
 
 

@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="AI_Mercant.cpp" />
     <ClCompile Include="BehaviorTree.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Training.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="Settings.h" />
