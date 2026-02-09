@@ -1,199 +1,5 @@
 ﻿  AI_Mercant.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(40,32): error C2065: 'settings' : identificateur non déclaré
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(40,28): error C2672: 'std::min' : fonction correspondante surchargée introuvable
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(109,26):
-      est peut-être '_Ty std::min(std::initializer_list<_Elem>)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(40,28):
-          '_Ty std::min(std::initializer_list<_Elem>)' : attend des arguments 1 - 2 fournis.
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(106,26):
-      ou       '_Ty std::min(std::initializer_list<_Elem>,_Pr)'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(98,6):
-      ou       'const _Ty &std::min(const _Ty &,const _Ty &) noexcept(<expr>)'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility(88,33):
-      ou       'const _Ty &std::min(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(40,28):
-          'const _Ty &std::min(const _Ty &,const _Ty &,_Pr) noexcept(<expr>)' : attend des arguments 3 - 2 fournis.
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(43,45): error C2065: 'settings' : identificateur non déclaré
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(43,26): error C2660: 'GetRandomNumber' : la fonction ne prend pas 1 arguments
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(14,5):
-      voir la déclaration de 'GetRandomNumber'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(43,26):
-      lors de la tentative de mise en correspondance de la liste des arguments '(int)'
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(47,37): error C2665: 'Shop::Shop' : aucune fonction surchargée n’a pu convertir tous les types d’arguments.
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(19,1):
-      est peut-être 'Shop::Shop(const Shop &)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(47,37):
-          'Shop::Shop(const Shop &)' : impossible de convertir l'argument 1 de '_Ty' en 'const Shop &'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(47,46):
-              Raison : impossible de convertir de '_Ty' en 'const Shop'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(47,46):
-              Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(47,37):
-      lors de la tentative de mise en correspondance de la liste des arguments '(_Ty)'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39): error C2665: 'Bakery::Bakery' : aucune fonction surchargée n’a pu convertir tous les types d’arguments.
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(30,1):
-      est peut-être 'Bakery::Bakery(const Bakery &)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39):
-          'Bakery::Bakery(const Bakery &)' : impossible de convertir l'argument 1 de '_Ty' en 'const Bakery &'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,48):
-              Raison : impossible de convertir de '_Ty' en 'const Bakery'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,48):
-              Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39):
-      lors de la tentative de mise en correspondance de la liste des arguments '(_Ty)'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39): error C2243: 'cast de type' : la conversion de 'Bakery *' en '_Ty' existe, mais n'est pas accessible
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39): error C2243:         with
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39): error C2243:         [
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39): error C2243:             _Ty=Shop *
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(51,39): error C2243:         ]
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44): error C2665: 'ButcherShop::ButcherShop' : aucune fonction surchargée n’a pu convertir tous les types d’arguments.
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(39,1):
-      est peut-être 'ButcherShop::ButcherShop(const ButcherShop &)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44):
-          'ButcherShop::ButcherShop(const ButcherShop &)' : impossible de convertir l'argument 1 de '_Ty' en 'const ButcherShop &'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,53):
-              Raison : impossible de convertir de '_Ty' en 'const ButcherShop'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,53):
-              Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44):
-      lors de la tentative de mise en correspondance de la liste des arguments '(_Ty)'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44): error C2243: 'cast de type' : la conversion de 'ButcherShop *' en '_Ty' existe, mais n'est pas accessible
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44): error C2243:         with
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44): error C2243:         [
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44): error C2243:             _Ty=Shop *
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(55,44): error C2243:         ]
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39): error C2665: 'Coffee::Coffee' : aucune fonction surchargée n’a pu convertir tous les types d’arguments.
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(48,1):
-      est peut-être 'Coffee::Coffee(const Coffee &)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39):
-          'Coffee::Coffee(const Coffee &)' : impossible de convertir l'argument 1 de '_Ty' en 'const Coffee &'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,48):
-              Raison : impossible de convertir de '_Ty' en 'const Coffee'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,48):
-              Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39):
-      lors de la tentative de mise en correspondance de la liste des arguments '(_Ty)'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39): error C2243: 'cast de type' : la conversion de 'Coffee *' en '_Ty' existe, mais n'est pas accessible
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39): error C2243:         with
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39): error C2243:         [
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39): error C2243:             _Ty=Shop *
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(59,39): error C2243:         ]
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41): error C2665: 'Pharmacy::Pharmacy' : aucune fonction surchargée n’a pu convertir tous les types d’arguments.
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(57,1):
-      est peut-être 'Pharmacy::Pharmacy(const Pharmacy &)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41):
-          'Pharmacy::Pharmacy(const Pharmacy &)' : impossible de convertir l'argument 1 de '_Ty' en 'const Pharmacy &'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,50):
-              Raison : impossible de convertir de '_Ty' en 'const Pharmacy'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,50):
-              Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41):
-      lors de la tentative de mise en correspondance de la liste des arguments '(_Ty)'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41): error C2243: 'cast de type' : la conversion de 'Pharmacy *' en '_Ty' existe, mais n'est pas accessible
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41): error C2243:         with
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41): error C2243:         [
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41): error C2243:             _Ty=Shop *
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(63,41): error C2243:         ]
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42): error C2665: 'HairSalon::HairSalon' : aucune fonction surchargée n’a pu convertir tous les types d’arguments.
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(66,1):
-      est peut-être 'HairSalon::HairSalon(const HairSalon &)'
-          C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42):
-          'HairSalon::HairSalon(const HairSalon &)' : impossible de convertir l'argument 1 de '_Ty' en 'const HairSalon &'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,51):
-              Raison : impossible de convertir de '_Ty' en 'const HairSalon'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-              C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,51):
-              Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42):
-      lors de la tentative de mise en correspondance de la liste des arguments '(_Ty)'
-          with
-          [
-              _Ty=sf::Vector2f
-          ]
-  
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42): error C2243: 'cast de type' : la conversion de 'HairSalon *' en '_Ty' existe, mais n'est pas accessible
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42): error C2243:         with
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42): error C2243:         [
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42): error C2243:             _Ty=Shop *
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(67,42): error C2243:         ]
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(155,27): error C2039: 'Render' n'est pas membre de 'Shop'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Shop.h(11,7):
-      voir la déclaration de 'Shop'
-  
+  BehaviorTree.cpp
 C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(157,18): error C2660: 'HUD::Render' : la fonction ne prend pas 3 arguments
       C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.h(22,7):
       voir la déclaration de 'HUD::Render'
@@ -201,6 +7,36 @@ C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mer
       lors de la tentative de mise en correspondance de la liste des arguments '(sf::RenderWindow, int, float)'
   
   Button.cpp
+  BuyFurnituresTask.cpp
+  FallBack.cpp
+  FlowNode.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\FlowNode.cpp(15,13): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
+  Game.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Game.cpp(26,14): error C2660: 'HUD::Render' : la fonction ne prend pas 3 arguments
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.h(22,7):
+      voir la déclaration de 'HUD::Render'
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Game.cpp(26,14):
+      lors de la tentative de mise en correspondance de la liste des arguments '(sf::RenderWindow, int, float)'
+  
+  GetCashTask.cpp
+  HUD.cpp
   MenuEnd.cpp
   MenuStart.cpp
+  Node.cpp
+  PauseTask.cpp
+  SellTask.cpp
+  Sequence.cpp
+  Setting.cpp
+  Shop.cpp
+  Pnj.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(70,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(103,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(135,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(168,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(201,2): warning C4102: 'Price' : étiquette non référencée
+  GameDay.cpp
+  SpendCashTask.cpp
+  Génération de code en cours...
+  Compilation en cours...
+  TaskNode.cpp
   Génération de code en cours...

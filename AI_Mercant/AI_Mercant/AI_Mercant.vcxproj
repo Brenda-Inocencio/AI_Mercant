@@ -145,6 +145,7 @@
     <ClCompile Include="BuyFurnituresTask.cpp" />
     <ClCompile Include="FallBack.cpp" />
     <ClCompile Include="FlowNode.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetCashTask.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="MenuEnd.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="BuyFurnituresTask.h" />
     <ClInclude Include="FallBack.h" />
     <ClInclude Include="FlowNode.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="GetCashTask.h" />
     <ClInclude Include="HUD.h" />

@@ -11,58 +11,68 @@
 class Shop {
 public:
 
-	Shop();
+	Shop() = default;
+	Shop(sf::Vector2f position);
 
-	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
+	~Shop() {};
 
-	~Shop();
+	void Render(sf::RenderWindow& window);
+
+	inline sf::Vector2f GetPosition() { return pos; }
+
+protected:
+	sf::Color color;
+	sf::RectangleShape rect;
+	float width;
+	float height;
+	sf::Vector2f pos;
 };
 
 
-class Bakery : protected Shop {
+class Bakery : public Shop {
 public:
 
-	Bakery();
+	Bakery() = default;
+	Bakery(sf::Vector2f position);
 
-	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
+	~Bakery() {};
 
-	~Bakery();
 };
 
-class ButcherShop : protected Shop {
+class ButcherShop : public Shop {
 public:
-	ButcherShop();
+	ButcherShop() = default;
+	ButcherShop(sf::Vector2f position);
 
-	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
+	~ButcherShop() {};
 
-	~ButcherShop();
 };
 
-class Coffee : protected Shop {
+class Coffee : public Shop {
 public:
-	Coffee();
+	Coffee() = default;
+	Coffee(sf::Vector2f position);
 
-	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
+	~Coffee() {};
 
-	~Coffee();
 };
 
-class Pharmacy : protected Shop {
+class Pharmacy : public Shop {
 public:
-	Pharmacy();
+	Pharmacy() = default;
+	Pharmacy(sf::Vector2f position);
 
-	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
+	~Pharmacy() {};
 
-	~Pharmacy();
 };
 
-class HairSalon : protected Shop {
+class HairSalon : public Shop {
 public:
-	HairSalon();
+	HairSalon() = default;
+	HairSalon(sf::Vector2f position);
 
-	static sf::RectangleShape createRectangle(float width, float height, sf::Color color, sf::Vector2f position);
+	~HairSalon() {};
 
-	~HairSalon();
 };
 
 #endif
