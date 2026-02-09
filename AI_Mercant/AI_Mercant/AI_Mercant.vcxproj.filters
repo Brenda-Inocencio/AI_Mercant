@@ -13,6 +13,7 @@
     <ClCompile Include="MenuEnd.cpp" />
     <ClCompile Include="MenuStart.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Setting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
@@ -26,5 +27,6 @@
     <ClInclude Include="MenuEnd.h" />
     <ClInclude Include="MenuStart.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Setting.h" />
   </ItemGroup>
 </Project>

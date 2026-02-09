@@ -2,14 +2,25 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+class MenuStart;
+class MenuEnd;
+class Setting;
+class Button;
 class Shop;
 class HUD;
 
 class Game {
+	enum EState {
+		Menu = 0,
+		Running = 1,
+		End = 2,
+		Settings = 3
+	} state;
 public:
-	Game() = default;
+	Game();
 	~Game() {};
-	void Render(sf::RenderWindow& window, std::vector<Shop*>& shops, HUD* hud);
-	void Update();
+	void Render(sf::RenderWindow& window, MenuStart* menustart, Button* start, Button* exit, Button* settingsButton,
+		std::vector<Shop*>& shops, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease);
+	void Update(bool isRunning, bool isEnd, bool isSettings);
 };
 

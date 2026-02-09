@@ -76,3 +76,40 @@ void SettingsButton::Render(sf::RenderWindow& window) {
     window.draw(text);
 }
 
+ButtonLeft::ButtonLeft() {
+    posx = 250;
+    posy = 225;
+    width = 100;
+    height = 50;
+    if (!font.openFromFile("OpenSans-VariableFont_wdth,wght.ttf"))
+        std::cerr << "Can't find the font file" << std::endl;
+
+    button.setPosition(sf::Vector2f(posx, posy));
+    button.setSize(sf::Vector2f(width, height));
+    button.setFillColor(sf::Color::Cyan);
+    SetText("Decrease", posx, posy, width, height, font);
+}
+
+void ButtonLeft::Render(sf::RenderWindow& window) {
+    window.draw(button);
+    window.draw(text);
+}
+
+ButtonRight::ButtonRight() {
+    posx = 550;
+    posy = 225;
+    width = 100;
+    height = 50;
+    if (!font.openFromFile("OpenSans-VariableFont_wdth,wght.ttf"))
+        std::cerr << "Can't find the font file" << std::endl;
+
+    button.setPosition(sf::Vector2f(posx, posy));
+    button.setSize(sf::Vector2f(width, height));
+    button.setFillColor(sf::Color::Cyan);
+    SetText("Increase", posx, posy, width, height, font);
+}
+
+void ButtonRight::Render(sf::RenderWindow& window) {
+    window.draw(button);
+    window.draw(text);
+}

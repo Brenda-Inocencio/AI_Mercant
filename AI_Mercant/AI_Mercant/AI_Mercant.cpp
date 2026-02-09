@@ -6,6 +6,7 @@
 #include "GameDay.h"
 #include "HUD.h"
 #include "Settings.h"
+#include "Setting.h"
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
@@ -73,15 +74,19 @@ int main() {
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
+    Setting* setting = new Setting();
     Button* exit = new Exit();
     Button* start = new Start();
     Button* settingsButton = new SettingsButton();
+    Button* increase = new ButtonRight();
+    Button* decrease = new ButtonLeft();
     Game game;
     
     sf::Clock clock;
     float timer = 0.f;
     float dt = 0.0f;
     bool isRunning = false;
+    bool isSettings = false;
     bool endSim = false;
     // Start the game loop
     while (window.isOpen()) {
@@ -105,7 +110,24 @@ int main() {
                 }
                 else if (settingsButton->GetPosX() <= static_cast<float>(mousePos.x) && settingsButton->GetRightX() >= static_cast<float>(mousePos.x) &&
                     settingsButton->GetPosY() <= static_cast<float>(mousePos.y) && settingsButton->GetBottomY() >= static_cast<float>(mousePos.y)) {
-                    window.close();
+                    isSettings = true;
+
+                    if (increase->GetPosX() <= static_cast<float>(mousePos.x) && increase->GetRightX() >= static_cast<float>(mousePos.x) &&
+                        increase->GetPosY() <= static_cast<float>(mousePos.y) && increase->GetBottomY() >= static_cast<float>(mousePos.y)) {        // A REGLER
+                        nbMerchants++;
+                        std::cerr << "+1";
+                    }
+                    else if (decrease->GetPosX() <= static_cast<float>(mousePos.x) && decrease->GetRightX() >= static_cast<float>(mousePos.x) &&
+                        decrease->GetPosY() <= static_cast<float>(mousePos.y) && decrease->GetBottomY() >= static_cast<float>(mousePos.y)) {        // A REGLER
+                        nbMerchants--;
+                        std::cerr << "-1";
+                    }
+                }
+            }
+            else if (event->is<sf::Event::KeyPressed>()) {
+                if (event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::Escape) {
+                    isSettings = false;
+                    isRunning = false;
                 }
             }
         }   
@@ -115,21 +137,24 @@ int main() {
 
         // Draw the sprite
         //Draw the rectangle
-
-        if (!isRunning) {
-            menustart->Render(window);
-            start->Render(window);
-            exit->Render(window);
-            settingsButton->Render(window);
-            
-        }
-        else if (isRunning) {
-            window.draw(sprite);
-            game.Render(window, shops, hud);
-        }
-        else if (endSim) {
-            menuend->Render(window);
-        }
+        game.Update(isRunning, endSim, isSettings);
+        game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
+        //if (!isRunning) {
+        //    menustart->Render(window);
+        //    start->Render(window);
+        //    exit->Render(window);
+        //    settingsButton->Render(window);
+        //}
+        //else if (isRunning) {
+        //    window.draw(sprite);
+        //    for (int i = 0; i < shops.size(); i++) {
+        //        shops[i]->Render(window);
+        //    }
+        //    hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
+        //}
+        //else if (endSim) {
+        //    menuend->Render(window);
+        //}
 
 
         // Update the window
@@ -145,7 +170,10 @@ int main() {
     delete hud; hud = nullptr;
     delete menustart; menustart = nullptr;
     delete menuend; menuend = nullptr;
+    delete setting; setting = nullptr;
     delete exit; exit = nullptr;
     delete start; start = nullptr;
     delete settingsButton; settingsButton = nullptr;
+    delete increase; increase = nullptr;
+    delete decrease; decrease = nullptr;
 }
