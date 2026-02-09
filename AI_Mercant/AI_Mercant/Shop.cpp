@@ -1,78 +1,103 @@
 #include "Shop.h"
 
-Shop::Shop() {
+Shop::Shop(sf::Vector2f position) {
+    pos = position;
+    width = 175.f;
+    height = 175.f;
+    color = sf::Color::Yellow; 
+    rect = sf::RectangleShape(sf::Vector2f(width, height));
+    rect.setFillColor(color);
+    rect.setPosition(position); 
+
+    texture = new sf::Texture("Epicerie.png");
+    sprite = new sf::Sprite(*texture);
+    sprite->setPosition(position);
+    sprite->setScale(sf::Vector2(2.f, 2.f));
 }
 
-sf::RectangleShape Shop::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
-
-	sf::RectangleShape rectangle(sf::Vector2f(width, height));
-    rectangle.setFillColor(color);
-    rectangle.setPosition(position);
-    return rectangle;
+Shop::~Shop() {
+    delete texture;
+    texture = nullptr;
+    delete sprite;
+    sprite = nullptr;
 }
 
-
-Bakery::Bakery() {
+void Shop::Render(sf::RenderWindow& window) {
+    window.draw(rect);
+    window.draw(*sprite);
 }
 
-sf::RectangleShape Bakery::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
+Bakery::Bakery(sf::Vector2f position) {
+    pos = position;
+    width = 175.f;
+    height = 175.f;
+    color = sf::Color::Red;
+    rect = sf::RectangleShape(sf::Vector2f(width, height));
+    rect.setFillColor(color);
+    rect.setPosition(position);
 
-    sf::RectangleShape rectangle(sf::Vector2f(width, height));
-    rectangle.setFillColor(color);
-    rectangle.setPosition(position);
-    return rectangle;
+    texture = new sf::Texture("Bakery.png");
+    sprite = new sf::Sprite(*texture);
+    sprite->setPosition(position);
+    sprite->setScale(sf::Vector2(2.f, 2.f));
 }
 
+ButcherShop::ButcherShop(sf::Vector2f position) {
+    pos = position;
+    width = 175.f;
+    height = 175.f;
+    color = sf::Color::Blue;
+    rect = sf::RectangleShape(sf::Vector2f(width, height));
+    rect.setFillColor(color);
+    rect.setPosition(position);
 
-ButcherShop::ButcherShop() {
+    texture = new sf::Texture("Butcher.png");
+    sprite = new sf::Sprite(*texture);
+    sprite->setPosition(position);
+    sprite->setScale(sf::Vector2(2.f, 2.f));
 }
 
-sf::RectangleShape ButcherShop::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
+Coffee::Coffee(sf::Vector2f position) {
+    pos = position;
+    width = 175.f;
+    height = 175.f;
+    color = sf::Color::Cyan;
+    rect = sf::RectangleShape(sf::Vector2f(width, height));
+    rect.setFillColor(color);
+    rect.setPosition(position);
 
-    sf::RectangleShape rectangle(sf::Vector2f(width, height));
-    rectangle.setFillColor(color);
-    rectangle.setPosition(position);
-    return rectangle;
+    texture = new sf::Texture("Cafe.png");
+    sprite = new sf::Sprite(*texture);
+    sprite->setPosition(position);
+    sprite->setScale(sf::Vector2(2.f, 2.f));
 }
 
+Pharmacy::Pharmacy(sf::Vector2f position) {
+    pos = position;
+    width = 175.f;
+    height = 175.f;
+    color = sf::Color::Green;
+    rect = sf::RectangleShape(sf::Vector2f(width, height));
+    rect.setFillColor(color);
+    rect.setPosition(position);
 
-Coffee::Coffee() {
+    texture = new sf::Texture("Pharmacie.png");
+    sprite = new sf::Sprite(*texture);
+    sprite->setPosition(position);
+    sprite->setScale(sf::Vector2(2.f, 2.f));
 }
 
-sf::RectangleShape Coffee::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
+HairSalon::HairSalon(sf::Vector2f position) {
+    pos = position;
+    width = 175.f;
+    height = 175.f;
+    color = sf::Color::Magenta;
+    rect = sf::RectangleShape(sf::Vector2f(width, height));
+    rect.setFillColor(color);
+    rect.setPosition(position);
 
-    sf::RectangleShape rectangle(sf::Vector2f(width, height));
-    rectangle.setFillColor(color);
-    rectangle.setPosition(position);
-    return rectangle;
+    texture = new sf::Texture("Coiffeur.png");
+    sprite = new sf::Sprite(*texture);
+    sprite->setPosition(position);
+    sprite->setScale(sf::Vector2(2.f, 2.f));
 }
-
-
-Pharmacy::Pharmacy() {
-}
-
-sf::RectangleShape Pharmacy::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
-
-    sf::RectangleShape rectangle(sf::Vector2f(width, height));
-    rectangle.setFillColor(color);
-    rectangle.setPosition(position);
-    return rectangle;
-}
-
-
-HairSalon::HairSalon() {
-}
-
-sf::RectangleShape HairSalon::createRectangle(float width, float height, sf::Color color, sf::Vector2f position) {
-
-    sf::RectangleShape rectangle(sf::Vector2f(width, height));
-    rectangle.setFillColor(color);
-    rectangle.setPosition(position);
-    return rectangle;
-}
-
-
-//sf::RectangleShape Shop::createRectangle(float width, float height, sf::Color color, sf::Vector2f position)
-//{
-//	return sf::RectangleShape();
-//}

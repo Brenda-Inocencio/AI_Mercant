@@ -1,15 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include <optional>
 #include <SFML/Window/Export.hpp>
+#include <vector>
+#include <random>
 #include "Shop.h"
 #include "GameDay.h"
 #include "HUD.h"
-#include "Settings.h"
+#include "Setting.h"
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
-#include "Pnj.h"
-#include "Setting.h"
+#include "Game.h"
+
+int GetRandomNumber(int min, int max) {
+    std::random_device m_rd;
+    std::mt19937 m_gen(m_rd());
+
+    std::uniform_int_distribution<int> dis(min, max);
+    return dis(m_gen);
+}
 
 int main() {
     // Create the main window
@@ -22,34 +31,59 @@ int main() {
     int nbMerchants = 8; 
     int nbMerchantsType = 6;
     //Settings initiallisation
-    Settings settings(nbMerchants, nbMerchantsType);
+    //Setting settings(nbMerchants, nbMerchantsType);
 
-    // Cr�ation des rectangles
-    sf::RectangleShape rect = Shop::createRectangle(185.f, 215.f, sf::Color::Yellow, { 0.f, 0.f });      
-    
-    sf::RectangleShape rect1 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 185.f, 0.f });
+    Setting* setting = new Setting(nbMerchants, nbMerchantsType);
 
-    sf::RectangleShape rect2 = ButcherShop::createRectangle(185.f, 215.f, sf::Color::Blue, { 540.f, 0.f });
+    std::vector<sf::Vector2f> places = {
+        { 0.f, 0.f }, { 175.f, 0.f }, { 550.f, 0.f }, { 725.f, 0.f },
+        { 0.f, 425.f }, { 175.f, 425.f }, { 550.f, 425.f }, { 725.f, 425.f }
+    };
+    std::vector<Shop*> shops;
+    size_t maxShops = std::min(setting->GetNumberMerchants(), static_cast<int>(places.size()));
 
-    sf::RectangleShape rect3 = Coffee::createRectangle(185.f, 215.f, sf::Color::Cyan, { 715.f, 0.f });
+    for (size_t i = 0; i < maxShops; i++) {
+        int randomShop = GetRandomNumber(0, setting->GetNumberMerchantsType() - 1);
 
-    sf::RectangleShape rect4 = Pharmacy::createRectangle(185.f, 215.f, sf::Color::Green, { 0.f, 385.f });
-
-    sf::RectangleShape rect5 = Coffee::createRectangle(185.f, 215.f, sf::Color::Cyan, { 185.f, 385.f });
-
-    sf::RectangleShape rect6 = HairSalon::createRectangle(185.f, 215.f, sf::Color::Magenta, { 540.f, 385.f });
-
-    sf::RectangleShape rect7 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 715.f, 385.f });
+        switch (randomShop) {
+        case 0: {
+            shops.push_back(new Shop(places[i]));
+            break;
+        }
+        case 1:{
+            shops.push_back(new Bakery(places[i]));
+            break;
+        }
+        case 2:{
+            shops.push_back(new ButcherShop(places[i]));
+            break;
+        }
+        case 3: {
+            shops.push_back(new Coffee(places[i]));
+            break;
+        }
+        case 4: {
+            shops.push_back(new Pharmacy(places[i]));
+            break;
+        }
+        case 5: {
+            shops.push_back(new HairSalon(places[i]));
+            break;
+        }
+        }
+    }
 
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
-    Setting* setting = new Setting();
     Button* exit = new Exit();
     Button* start = new Start();
     Costumer* costumer = new Costumer();
     Button* settingsButton = new SettingsButton();
-
+    Button* increase = new ButtonRight();
+    Button* decrease = new ButtonLeft();
+    Game game;
+    
     sf::Clock clock;
     float timer = 0.f;
     float dt = 0.0f;
@@ -79,6 +113,17 @@ int main() {
                 else if (settingsButton->GetPosX() <= static_cast<float>(mousePos.x) && settingsButton->GetRightX() >= static_cast<float>(mousePos.x) &&
                     settingsButton->GetPosY() <= static_cast<float>(mousePos.y) && settingsButton->GetBottomY() >= static_cast<float>(mousePos.y)) {
                     isSettings = true;
+                    
+                    if (increase->GetPosX() <= static_cast<float>(mousePos.x) && increase->GetRightX() >= static_cast<float>(mousePos.x) &&
+                        increase->GetPosY() <= static_cast<float>(mousePos.y) && increase->GetBottomY() >= static_cast<float>(mousePos.y)) {        // A REGLER
+                        nbMerchants++;
+                        std::cerr << "+1";
+                    }
+                    else if (decrease->GetPosX() <= static_cast<float>(mousePos.x) && decrease->GetRightX() >= static_cast<float>(mousePos.x) &&
+                        decrease->GetPosY() <= static_cast<float>(mousePos.y) && decrease->GetBottomY() >= static_cast<float>(mousePos.y)) {        // A REGLER
+                        nbMerchants--;
+                        std::cerr << "-1";
+                    }
                 }
             }
             else if (event->is<sf::Event::KeyPressed>()) {
@@ -93,40 +138,27 @@ int main() {
         window.clear();
 
         // Draw the sprite
-        //Draw the rectangle
-        window.draw(rect);
-        window.draw(rect1);
-        window.draw(rect2);
-        window.draw(rect3);
-        window.draw(rect4);
-        window.draw(rect5);
-        window.draw(rect6);
-        window.draw(rect7);
-
-        costumer->Render(window);
-
-        hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
-
-        if (isSettings) {
-            window.clear();
-            setting->Render(window);
-        }
-        else if (!isRunning) {
-            menustart->Render(window);
-            start->Render(window);
-            exit->Render(window);
-            settingsButton->Render(window);
-            
-        }
-        else if (isRunning) {
-            window.draw(sprite);
-        }
-        else if (endSim) {
-            menuend->Render(window);
-        }
-
+        // Draw the rectangle
+        game.Update(isRunning, endSim, isSettings);
+        game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
 
         // Update the window
         window.display();
     }
+
+    for (int i = 0; i < shops.size(); i++) {
+        delete shops[i];
+        shops[i] = nullptr;
+    }
+    shops.clear();
+
+    delete hud; hud = nullptr;
+    delete menustart; menustart = nullptr;
+    delete menuend; menuend = nullptr;
+    delete setting; setting = nullptr;
+    delete exit; exit = nullptr;
+    delete start; start = nullptr;
+    delete settingsButton; settingsButton = nullptr;
+    delete increase; increase = nullptr;
+    delete decrease; decrease = nullptr;
 }

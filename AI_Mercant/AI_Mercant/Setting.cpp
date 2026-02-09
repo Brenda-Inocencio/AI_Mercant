@@ -1,7 +1,8 @@
 #include "Setting.h"
 
-
-Setting::Setting() {
+Setting::Setting(int _numberMerchants, int _numberMerchantsType) {
+	numberMerchants = _numberMerchants;
+	numberMerchantsType = _numberMerchantsType;
 
 	image = new sf::Texture("Setting.png");
 	sprite = new sf::Sprite(*image);
