@@ -8,10 +8,12 @@
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Training.cpp" />
     <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="Setting.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="MenuEnd.cpp" />
     <ClCompile Include="MenuStart.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Setting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
@@ -20,9 +22,11 @@
     <ClInclude Include="Pnj.h" />
     <ClInclude Include="Training.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="Setting.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="MenuEnd.h" />
     <ClInclude Include="MenuStart.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Setting.h" />
   </ItemGroup>
 </Project>

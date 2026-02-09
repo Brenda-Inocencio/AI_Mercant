@@ -113,4 +113,3 @@ void ButtonRight::Render(sf::RenderWindow& window) {
     window.draw(button);
     window.draw(text);
 }
-
