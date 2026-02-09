@@ -31,7 +31,7 @@ Pnj::~Pnj() {
 
 
 //Costumers
-Costumer::Costumer() {
+Costumer::Costumer(sf::Vector2f position) {
 	cash = 100;
 
 	tasks.clear();
@@ -42,8 +42,20 @@ Costumer::Costumer() {
 	costumers = new FluxNode(pnjType[COSTUMERS], tasks);
 
 	shape.setRadius(20.f);
-	shape.setFillColor(sf::Color::Green);
-	shape.setPosition(sf::Vector2f(50.f, 50.f));
+	shape.setFillColor(sf::Color::Red);
+	shape.setPosition(sf::Vector2f(400.f, 0.f));
+	
+	pos = position;
+	width = 12.f;
+	height = 24.f;
+	color = sf::Color::Yellow;
+	rect = sf::RectangleShape(sf::Vector2f(width, height));
+	rect.setFillColor(color);
+
+	texture = new sf::Texture("Gars1.png");
+	sprite = new sf::Sprite(*texture);
+	sprite->setPosition(position);
+	sprite->setScale(sf::Vector2(2.f, 2.f));
 }
 
 void Costumer::buy(Merchant* merchant, int sales) {
@@ -54,9 +66,16 @@ void Costumer::buy(Merchant* merchant, int sales) {
 }
 
 void Costumer::Render(sf::RenderWindow& window) {
-	window.draw(shape);
+	window.draw(rect);
+	window.draw(*sprite);
 }
 
+Costumer::~Costumer() {
+	delete texture;
+	texture = nullptr;
+	delete sprite;
+	sprite = nullptr;
+}
 
 //Merchants
 Merchant::Merchant() {

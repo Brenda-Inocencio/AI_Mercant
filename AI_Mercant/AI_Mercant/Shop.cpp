@@ -17,7 +17,7 @@ Shop::Shop(sf::Vector2f position) {
 
 Shop::~Shop() {
     delete texture;
-    texture = nullptr;
+    texture = nullptr; 
     delete sprite;
     sprite = nullptr;
 }

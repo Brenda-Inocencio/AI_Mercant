@@ -11,6 +11,7 @@
 #include "MenuStart.h"
 #include "MenuEnd.h"
 #include "Game.h"
+#include "Pnj.h"
 
 int GetRandomNumber(int min, int max) {
     std::random_device m_rd;
@@ -73,12 +74,12 @@ int main() {
         }
     }
 
+    Costumer* customers = new Costumer();
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
     Button* exit = new Exit();
     Button* start = new Start();
-    Costumer* costumer = new Costumer();
     Button* settingsButton = new SettingsButton();
     Button* increase = new ButtonRight();
     Button* decrease = new ButtonLeft();
@@ -141,7 +142,7 @@ int main() {
         // Draw the rectangle
         game.Update(isRunning, endSim, isSettings);
         game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
-
+        customers->Render(window);
         // Update the window
         window.display();
     }

@@ -1,21 +1,14 @@
 ﻿  AI_Mercant.cpp
-  HUD.cpp
-C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  Setting.cpp
-  Button.cpp
   Pnj.cpp
-C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(137,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(186,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(234,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(283,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(332,2): warning C4102: 'Price' : étiquette non référencée
-  GameDay.cpp
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(156,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(205,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(253,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(302,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(351,2): warning C4102: 'Price' : étiquette non référencée
   Génération de code en cours...
-  LINK : C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
 BehaviorTree.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'BehaviorTree.obj' ou sur '' ; l'objet sera lié sans informations de débogage
-Settings.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Settings.obj' ou sur '' ; l'objet sera lié sans informations de débogage
-Shop.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Shop.obj' ou sur '' ; l'objet sera lié sans informations de débogage
 MenuEnd.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'MenuEnd.obj' ou sur '' ; l'objet sera lié sans informations de débogage
 MenuStart.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'MenuStart.obj' ou sur '' ; l'objet sera lié sans informations de débogage
+GameDay.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'GameDay.obj' ou sur '' ; l'objet sera lié sans informations de débogage
 Training.obj : warning LNK4099: PDB '' n'a pu être trouvé avec 'Training.obj' ou sur '' ; l'objet sera lié sans informations de débogage
   AI_Mercant.vcxproj -> C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

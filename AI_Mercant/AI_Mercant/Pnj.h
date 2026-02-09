@@ -31,6 +31,7 @@ class Pnj {
 protected:
 	std::vector<Node*> pnjType;
 	FluxNode* AIType;
+
 public:
 	Pnj();
 	virtual ~Pnj();
@@ -121,15 +122,30 @@ public:
 };
 
 
-class Costumer : protected Pnj {
+class Costumer : public Pnj {
 protected:
 	int cash;
 	FluxNode* costumers;
 	std::vector<Node*> tasks;
 	sf::CircleShape shape;
+
+
+	sf::Color color;
+	sf::RectangleShape rect;
+	float width;
+	float height;
+	sf::Vector2f pos;
+	sf::Texture* texture;
+	sf::Sprite* sprite;
 public:
-	Costumer();
+	Costumer() = default;
+	Costumer(sf::Vector2f position);
+
 	void buy(Merchant* merchant, int sales);
+
+	inline sf::Vector2f GetPosition() { return pos; }
+
 	void Render(sf::RenderWindow& window);
-	virtual ~Costumer() {};
+
+	virtual ~Costumer();
 };
