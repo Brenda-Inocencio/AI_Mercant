@@ -1,42 +1,5 @@
 ﻿  AI_Mercant.cpp
   BehaviorTree.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(157,18): error C2660: 'HUD::Render' : la fonction ne prend pas 3 arguments
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.h(22,7):
-      voir la déclaration de 'HUD::Render'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(157,18):
-      lors de la tentative de mise en correspondance de la liste des arguments '(sf::RenderWindow, int, float)'
-  
-  Button.cpp
-  BuyFurnituresTask.cpp
-  FallBack.cpp
-  FlowNode.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\FlowNode.cpp(15,13): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
-  Game.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Game.cpp(26,14): error C2660: 'HUD::Render' : la fonction ne prend pas 3 arguments
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.h(22,7):
-      voir la déclaration de 'HUD::Render'
-      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Game.cpp(26,14):
-      lors de la tentative de mise en correspondance de la liste des arguments '(sf::RenderWindow, int, float)'
-  
-  GetCashTask.cpp
-  HUD.cpp
-  MenuEnd.cpp
-  MenuStart.cpp
-  Node.cpp
-  PauseTask.cpp
-  SellTask.cpp
-  Sequence.cpp
-  Setting.cpp
-  Shop.cpp
-  Pnj.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(70,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(103,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(135,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(168,2): warning C4102: 'Price' : étiquette non référencée
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(201,2): warning C4102: 'Price' : étiquette non référencée
-  GameDay.cpp
   SpendCashTask.cpp
   Génération de code en cours...
-  Compilation en cours...
-  TaskNode.cpp
-  Génération de code en cours...
+  AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
