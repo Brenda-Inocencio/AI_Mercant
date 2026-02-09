@@ -14,7 +14,7 @@ public:
 	Shop() = default;
 	Shop(sf::Vector2f position);
 
-	~Shop() {};
+	~Shop();
 
 	void Render(sf::RenderWindow& window);
 
@@ -26,6 +26,8 @@ protected:
 	float width;
 	float height;
 	sf::Vector2f pos;
+	sf::Texture* texture;
+	sf::Sprite* sprite;
 };
 
 

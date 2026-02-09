@@ -36,8 +36,8 @@ int main() {
     Setting* setting = new Setting(nbMerchants, nbMerchantsType);
 
     std::vector<sf::Vector2f> places = {
-        { 0.f, 0.f }, { 185.f, 0.f }, { 540.f, 0.f }, { 715.f, 0.f },
-        { 0.f, 385.f }, { 185.f, 385.f }, { 540.f, 385.f }, { 715.f, 385.f }
+        { 0.f, 0.f }, { 175.f, 0.f }, { 550.f, 0.f }, { 725.f, 0.f },
+        { 0.f, 425.f }, { 175.f, 425.f }, { 550.f, 425.f }, { 725.f, 425.f }
     };
     std::vector<Shop*> shops;
     size_t maxShops = std::min(setting->GetNumberMerchants(), static_cast<int>(places.size()));
