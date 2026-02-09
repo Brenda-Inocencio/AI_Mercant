@@ -19,17 +19,8 @@
 
 #include "Training.h"
 #include <vector>
-
-class RootNode;
-class FluxNode;
-class Node;
-
 class Pnj {
-	RootNode* pnjRoot;
-	Node* AI;
 protected:
-	std::vector<Node*> pnjType;
-	FluxNode* AIType;
 public:
 	Pnj();
 	virtual ~Pnj();
@@ -41,8 +32,6 @@ protected:
 	int price;
 	int salesNumber;
 	bool noStock;
-	std::vector<Node*> merchantType;
-	FluxNode* merchants;
 	Training* Price;
 public:
 	Merchant();
@@ -56,8 +45,6 @@ public:
 class Saler : protected Merchant { 
 protected:
 	int furnitures;
-	std::vector<Node*> stateType;
-	FluxNode* states;
 public:
 	Saler();
 	virtual ~Saler();
@@ -69,8 +56,6 @@ public:
 class Baker : protected Merchant { 
 protected:
 	int breads;
-	std::vector<Node*> stateType;
-	FluxNode* states;
 public:
 	Baker();
 	virtual ~Baker();
@@ -82,8 +67,6 @@ public:
 class Butcher : protected Merchant {
 protected:
 	int meats;
-	std::vector<Node*> stateType;
-	FluxNode* states;
 public:
 	Butcher();
 	virtual ~Butcher();
@@ -95,8 +78,6 @@ public:
 class Waiter : protected Merchant {
 protected:
 	int coffees;
-	std::vector<Node*> stateType;
-	FluxNode* states;
 public:
 	Waiter();
 	virtual ~Waiter();
@@ -108,8 +89,6 @@ public:
 class Hairdressers : protected Merchant {
 protected:
 	int hair;
-	std::vector<Node*> stateType;
-	FluxNode* states;
 public:
 	Hairdressers();
 	virtual ~Hairdressers();
@@ -121,8 +100,6 @@ public:
 class Costumer : protected Pnj {
 protected:
 	int cash;
-	FluxNode* costumers;
-	std::vector<Node*> tasks;
 public:
 	Costumer();
 	virtual ~Costumer() {};

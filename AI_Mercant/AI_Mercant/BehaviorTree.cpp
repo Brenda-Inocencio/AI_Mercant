@@ -1,89 +1,115 @@
 #include "BehaviorTree.h"
-#include <iostream>
 
-RootNode::RootNode(Node* _childNode) {
-    childNode = _childNode;
+#include "FallBack.h"
+#include "Node.h"
+#include "Sequence.h"
+#include "SellTask.h"
+#include "GetCashTask.h"
+#include "SpendCashTask.h"
+#include "BuyFurnituresTask.h"
+#include "PauseTask.h"
+
+BehaviorTree::BehaviorTree() : BehaviorTree(nullptr) {
+
 }
 
-RootNode::~RootNode() {
-    if (childNode) {
-        delete childNode;
-        childNode = nullptr;
-    }
+BehaviorTree::BehaviorTree(Blackboard* BB) : internBlackBoard(BB) {
+
 }
 
-void RootNode::Tick(float dt) {
-    if (childNode != nullptr) {
-        childNode->Tick(dt);
-    }
+BehaviorTree::~BehaviorTree() {
+
 }
 
-FluxNode::FluxNode(Node* _parentNode, std::vector<Node*> _childNodes) {
-    parentNode = _parentNode;
-    childNodes = _childNodes;
+void BehaviorTree::BeginExecute() {
+    root->BeginExecute();
 }
 
-FluxNode::~FluxNode() {
-    for (int i = 0; i < childNodes.size(); i++) {
-        if (childNodes[i]) {
-            delete childNodes[i];
-            childNodes[i] = nullptr;
-        }
-    }
-    if (parentNode) {
-        delete parentNode;
-        parentNode = nullptr;
-    }
-    if (actualNode) {
-        delete actualNode;
-        actualNode = nullptr;
-    }
+void BehaviorTree::Tick(float dt) {
+    root->Tick(dt);
 }
 
-void FluxNode:: Tick(float DeltaTime) {
-    if (actualNode == nullptr) {
-        actualNode = childNodes.front();
-        actualNode->Begin();
-    }
-    actualNode->Tick(DeltaTime);
+void BehaviorTree::BuildTree() {
+    root = new RootNode();
+    allSubNodes.push_back(root);
 }
 
-void FluxNode::OnNodeEnd() {
-    auto It = std::find(childNodes.begin(), childNodes.end(), actualNode);
-    if (It != childNodes.end()) {
-        int Index = std::distance(childNodes.begin(), It);
-        if (Index < childNodes.size() - 1) {
-            Index++;
-        }
-        else {
-            Index = 0;
-        }
-        actualNode = childNodes[Index];
-        actualNode->Begin();
+void BehaviorTree::CleanTree() {
+    for (auto node : allSubNodes) {
+        delete node;
+        node = nullptr;
     }
+    allSubNodes.clear();
 }
 
-TaskNode::TaskNode(FluxNode* _parentNode) {
-    parentNode = _parentNode;
+Blackboard* BehaviorTree::GetBlackBoard()
+{
+    return internBlackBoard;
 }
 
-TaskNode::~TaskNode() {
-    if (parentNode) {
-        delete parentNode;
-        parentNode = nullptr;
-    }
+MerchantBehaviorTree::MerchantBehaviorTree() : MerchantBehaviorTree(nullptr) {
 }
 
-void TaskNode::Begin() {
-    actualTime = _time;
+MerchantBehaviorTree::MerchantBehaviorTree(Blackboard* BB) : BehaviorTree(BB) {
 }
 
-void TaskNode::Tick(float dt) {
-    actualTime = actualTime - dt;
-    if (actualTime <= 0.0f) {
-        parentNode->OnNodeEnd();
-    }
-    else {
-        std::cout << actualTime << std::endl;
-    }
+MerchantBehaviorTree::~MerchantBehaviorTree() {
+}
+
+void MerchantBehaviorTree::BuildTree() {
+    BehaviorTree::BuildTree();
+
+    FallBack* fallBack1 = new FallBack(this, nullptr, {});
+    root->child = fallBack1;
+
+    Sequence* sequence1 = new Sequence(this, fallBack1, {});
+    fallBack1->AddChild(sequence1);
+
+    SellTask* task1 = new SellTask(this, sequence1);
+
+    GetCashTask* task2 = new GetCashTask(this, sequence1);
+
+    Sequence* sequence2 = new Sequence(this, fallBack1, {});
+    fallBack1->AddChild(sequence2);
+
+    SpendCashTask* task3 = new SpendCashTask(this, sequence2);
+    
+    BuyFurnituresTask* task4 = new BuyFurnituresTask(this, sequence2);
+
+    PauseTask* task5 = new PauseTask(this, fallBack1);
+    
+    allSubNodes.push_back(task1);
+    allSubNodes.push_back(task2);
+    allSubNodes.push_back(sequence1);
+    allSubNodes.push_back(task3);
+    allSubNodes.push_back(task4);
+    allSubNodes.push_back(sequence2);
+    allSubNodes.push_back(task5);
+    allSubNodes.push_back(fallBack1);
+}
+
+CostumerBehaviorTree::CostumerBehaviorTree() : CostumerBehaviorTree(nullptr) {
+}
+
+CostumerBehaviorTree::CostumerBehaviorTree(Blackboard* BB) : BehaviorTree(BB) {
+}
+
+CostumerBehaviorTree::~CostumerBehaviorTree() {
+}
+
+void CostumerBehaviorTree::BuildTree() {
+    BehaviorTree::BuildTree();
+
+    FallBack* fallBack1 = new FallBack(this, nullptr, {});
+    root->child = fallBack1;
+
+    Sequence* sequence1 = new Sequence(this, fallBack1, {});
+    fallBack1->AddChild(sequence1);
+
+    //task
+
+
+    //AllSubNodes.push_back(Task1);
+    allSubNodes.push_back(sequence1);
+    allSubNodes.push_back(fallBack1);
 }

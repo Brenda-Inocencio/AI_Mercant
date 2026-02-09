@@ -141,20 +141,46 @@
   <ItemGroup>
     <ClCompile Include="AI_Mercant.cpp" />
     <ClCompile Include="BehaviorTree.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="BuyFurnituresTask.cpp" />
+    <ClCompile Include="FallBack.cpp" />
+    <ClCompile Include="FlowNode.cpp" />
+    <ClCompile Include="GetCashTask.cpp" />
     <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="MenuEnd.cpp" />
+    <ClCompile Include="MenuStart.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="PauseTask.cpp" />
+    <ClCompile Include="SellTask.cpp" />
+    <ClCompile Include="Sequence.cpp" />
+    <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Pnj.cpp" />
     <ClCompile Include="GameDay.cpp" />
+    <ClCompile Include="SpendCashTask.cpp" />
+    <ClCompile Include="TaskNode.cpp" />
     <ClCompile Include="Training.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="BuyFurnituresTask.h" />
+    <ClInclude Include="FallBack.h" />
+    <ClInclude Include="FlowNode.h" />
     <ClInclude Include="GameDay.h" />
+    <ClInclude Include="GetCashTask.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="Settings.h" />
+    <ClInclude Include="MenuEnd.h" />
+    <ClInclude Include="MenuStart.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="PauseTask.h" />
+    <ClInclude Include="SellTask.h" />
+    <ClInclude Include="Sequence.h" />
+    <ClInclude Include="Setting.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="BehaviorTree.h" />
     <ClInclude Include="Pnj.h" />
+    <ClInclude Include="SpendCashTask.h" />
+    <ClInclude Include="TaskNode.h" />
     <ClInclude Include="Training.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

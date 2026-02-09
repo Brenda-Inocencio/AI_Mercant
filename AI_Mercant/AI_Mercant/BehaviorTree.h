@@ -1,47 +1,55 @@
 #pragma once
 #include <vector>
 
-class Node {
-public:
-    Node() = default;
-    virtual ~Node() {};
+class RootNode;
+class BaseNode;
 
-    virtual void Tick(float dt) {};
-    virtual void Begin() {}
+class Blackboard {
+public:
+
 };
 
-class RootNode : public Node {
+class BehaviorTree {
 public:
-    Node* childNode;
-public:
-    RootNode(Node* _childNode);
-    virtual ~RootNode();
+	BehaviorTree();
+	BehaviorTree(Blackboard* BB);
+	virtual ~BehaviorTree();
 
-    void Tick(float dt) override;
+	void BeginExecute();
+	void Tick(float DeltaTime);
+
+	virtual void BuildTree();
+	void CleanTree();
+
+	Blackboard* GetBlackBoard();
+protected:
+	Blackboard* internBlackBoard;
+	RootNode* root;
+	std::vector<BaseNode*> allSubNodes;
 };
 
-class FluxNode : public Node {
+class MerchantBlackBoard : public Blackboard {
 public:
-    std::vector<Node*> childNodes;
-    Node* parentNode;
-    Node* actualNode = nullptr;
-public:
-    FluxNode(Node* _parentNode, std::vector<Node*> _childNodes);
-    virtual ~FluxNode();
-
-    void Tick(float dt) override;
-    virtual void OnNodeEnd();
+	float cash;
+	float price;
+	float furnituresPrice;
+	int furnitures;
 };
 
-class TaskNode : public Node {
+class MerchantBehaviorTree : public BehaviorTree {
 public:
-    FluxNode* parentNode;
-    float actualTime;
-    float _time;
-public:
-    TaskNode(FluxNode* _parentNode);
-    virtual ~TaskNode();
+	MerchantBehaviorTree();
+	MerchantBehaviorTree(Blackboard* BB);
+	virtual ~MerchantBehaviorTree();
 
-    void Begin() override;
-    void Tick(float dt) override;
+	virtual void BuildTree() override;
+};
+
+class CostumerBehaviorTree: public BehaviorTree{
+public:
+	CostumerBehaviorTree();
+	CostumerBehaviorTree(Blackboard* BB);
+	virtual ~CostumerBehaviorTree();
+
+	virtual void BuildTree() override;
 };

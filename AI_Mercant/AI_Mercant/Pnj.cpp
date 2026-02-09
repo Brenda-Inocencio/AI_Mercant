@@ -2,43 +2,15 @@
 #include "BehaviorTree.h"
 
 Pnj::Pnj() {
-	AI = new Node();
-	pnjRoot = new RootNode(AI);
-	pnjType.clear();
-	for (int i = 0; i < AI_TYPE; i++) {
-		pnjType.push_back(new Node());
-	}
-	AIType = new FluxNode(AI, pnjType);
 }
 
 Pnj::~Pnj() {
-	if (pnjRoot) {
-		delete pnjRoot; 
-		pnjRoot = nullptr;
-	}
-	if (AI) {
-		delete AI; 
-		AI = nullptr;
-	}
-	for (int i = 0; i < pnjType.size(); i++) {
-		if (pnjType[i]) {
-			delete pnjType[i];
-			pnjType[i] = nullptr;
-		}
-	}
-	pnjType.clear();
 }
 
 
 //Costumers
 Costumer::Costumer() {
 	cash = 100;
-
-	tasks.clear();
-	for (int i = 0; i < COSTUMER_TASKS; i++) {
-		tasks.push_back(new Node());
-	}
-	costumers = new FluxNode(pnjType[COSTUMERS], tasks);
 }
 
 void Costumer::buy(Merchant* merchant, int sales) {
@@ -53,26 +25,13 @@ void Costumer::buy(Merchant* merchant, int sales) {
 Merchant::Merchant() {
 	cash = 1000;
 	price = 3;
+	Price = nullptr;
 	salesNumber = 0;
 	noStock = true;
-	merchantType.clear();
-	for (int i = 0; i < MERCHANT_NUMBERS; i++) {
-		merchantType.push_back(new Node());
-	}
-	merchants = new FluxNode(pnjType[MERCHANT], merchantType);
 }
 
 Merchant::~Merchant() {
-	for (int i = 0; i < merchantType.size(); i++) {
-		if (merchantType[i]) {
-			delete merchantType[i];
-			merchantType[i] = nullptr;
-		}
-	}
-	merchantType.clear();
-	if (merchants) {
-		delete merchants; 
-		merchants = nullptr;
+	if (Price) {
 		delete Price;
 		Price = nullptr;
 	}
@@ -81,26 +40,9 @@ Merchant::~Merchant() {
 
 Saler::Saler() {
 	furnitures = 0;
-	Price = nullptr;
-	stateType.clear();
-	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node());
-	}
-	states = new FluxNode(merchantType[SALER], stateType);
 }
 
 Saler::~Saler() {
-	for (int i = 0; i < stateType.size(); i++) {
-		if (stateType[i]) {
-			delete stateType[i];
-			stateType[i] = nullptr;
-		}
-	}
-	stateType.clear();
-	if (states) {
-		delete states;
-		states = nullptr;
-	}
 }
 
 void Saler::Sell(int sales) {
@@ -131,25 +73,9 @@ void Saler::UpdatePrice(float newPrice) {
 
 Baker::Baker() {
 	breads = 0;
-	stateType.clear();
-	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node());
-	}
-	states = new FluxNode(merchantType[BAKER], stateType);
 }
 
 Baker::~Baker() {
-	for (int i = 0; i < stateType.size(); i++) {
-		if (stateType[i]) {
-			delete stateType[i];
-			stateType[i] = nullptr;
-		}
-	}
-	stateType.clear();
-	if (states) {
-		delete states;
-		states = nullptr;
-	}
 }
 
 void Baker::Sell(int sales) {
@@ -179,25 +105,9 @@ void Baker::UpdatePrice(int newPrice) {
 
 Butcher::Butcher() {
 	meats = 0;
-	stateType.clear();
-	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node());
-	}
-	states = new FluxNode(merchantType[BUTCHER], stateType);
 }
 
 Butcher::~Butcher() {
-	for (int i = 0; i < stateType.size(); i++) {
-		if (stateType[i]) {
-			delete stateType[i];
-			stateType[i] = nullptr;
-		}
-	}
-	stateType.clear();
-	if (states) {
-		delete states;
-		states = nullptr;
-	}
 }
 
 void Butcher::Sell(int sales) {
@@ -228,25 +138,9 @@ void Butcher::UpdatePrice(int newPrice) {
 
 Waiter::Waiter() {
 	coffees = 0;
-	stateType.clear();
-	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node());
-	}
-	states = new FluxNode(merchantType[WAITER], stateType);
 }
 
 Waiter::~Waiter() {
-	for (int i = 0; i < stateType.size(); i++) {
-		if (stateType[i]) {
-			delete stateType[i];
-			stateType[i] = nullptr;
-		}
-	}
-	stateType.clear();
-	if (states) {
-		delete states;
-		states = nullptr;
-	}
 }
 
 void Waiter::Sell(int sales) {
@@ -277,25 +171,9 @@ void Waiter::UpdatePrice(int newPrice) {
 
 Hairdressers::Hairdressers() {
 	hair = 0;
-	stateType.clear();
-	for (int i = 0; i < STATES; i++) {
-		stateType.push_back(new Node());
-	}
-	states = new FluxNode(merchantType[HAIRDRESSERS], stateType);
 }
 
 Hairdressers::~Hairdressers() {
-	for (int i = 0; i < stateType.size(); i++) {
-		if (stateType[i]) {
-			delete stateType[i];
-			stateType[i] = nullptr;
-		}
-	}
-	stateType.clear();
-	if (states) {
-		delete states;
-		states = nullptr;
-	}
 }
 
 void Hairdressers::Sell(int sales) {
