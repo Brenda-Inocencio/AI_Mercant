@@ -10,6 +10,7 @@
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
+#include "Game.h"
 
 int GetRandomNumber(int min, int max) {
     std::random_device m_rd;
@@ -80,7 +81,8 @@ int main() {
     Button* settingsButton = new SettingsButton();
     Button* increase = new ButtonRight();
     Button* decrease = new ButtonLeft();
-
+    Game game;
+    
     sf::Clock clock;
     float timer = 0.f;
     float dt = 0.0f;
@@ -136,31 +138,8 @@ int main() {
 
         // Draw the sprite
         //Draw the rectangle
-
-        if (isSettings) {
-            window.clear();
-            setting->Render(window);
-            increase->Render(window);
-            decrease->Render(window);
-        }
-        else if (!isRunning) {
-            menustart->Render(window);
-            start->Render(window);
-            exit->Render(window);
-            settingsButton->Render(window);
-            
-        }
-        if (true) {
-            window.draw(sprite);
-            for (int i = 0; i < shops.size(); i++) {
-                shops[i]->Render(window);
-            }
-            hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
-        }
-        else if (endSim) {
-            menuend->Render(window);
-        }
-
+        game.Update(isRunning, endSim, isSettings);
+        game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
 
         // Update the window
         window.display();
@@ -175,7 +154,10 @@ int main() {
     delete hud; hud = nullptr;
     delete menustart; menustart = nullptr;
     delete menuend; menuend = nullptr;
+    delete setting; setting = nullptr;
     delete exit; exit = nullptr;
     delete start; start = nullptr;
     delete settingsButton; settingsButton = nullptr;
+    delete increase; increase = nullptr;
+    delete decrease; decrease = nullptr;
 }
