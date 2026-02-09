@@ -7,14 +7,14 @@ HUD::HUD() : day("0"), time("0") {}
 void HUD::Day(int d) {
 	day = std::to_string(d);
 	// Creation text
-	dayText.setPosition(sf::Vector2f(100, 5));
+	dayText.setPosition(sf::Vector2f(470, 5));
 	dayText.setFillColor(sf::Color::Black); // Couleur du texte
 }
 
 void HUD::Time(float t) {
 	time = std::to_string(t);
 	// Creation text
-	timeText.setPosition(sf::Vector2f(110, 40));
+	timeText.setPosition(sf::Vector2f(480, 40));
 	timeText.setFillColor(sf::Color::Black); // Couleur du texte
 }
 
@@ -34,7 +34,7 @@ void HUD::RenderText(sf::RenderWindow& window) {
 	}
 
 	// Creation text
-	text.setPosition(sf::Vector2f(35, 5));
+	text.setPosition(sf::Vector2f(400, 5));
 	text.setFillColor(sf::Color::Black); // Couleur du texte
 	text.setStyle(sf::Text::Bold); // Style
 	window.draw(text);
@@ -48,7 +48,7 @@ void HUD::RenderText1(sf::RenderWindow& window) {
 	}
 
 	// Creation text
-	text1.setPosition(sf::Vector2f(35, 40));
+	text1.setPosition(sf::Vector2f(400, 40));
 	text1.setFillColor(sf::Color::Black); // Couleur du texte
 	text1.setStyle(sf::Text::Bold); // Style
 	window.draw(text1);
