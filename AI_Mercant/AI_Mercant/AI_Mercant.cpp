@@ -137,7 +137,7 @@ int main() {
         window.clear();
 
         // Draw the sprite
-        //Draw the rectangle
+        // Draw the rectangle
         game.Update(isRunning, endSim, isSettings);
         game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
 

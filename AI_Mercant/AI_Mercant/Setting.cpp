@@ -12,7 +12,7 @@ void Setting::Render(sf::RenderWindow& window) {
 	window.draw(*sprite);
 }
 
-Setting::~Setting() {
+Setting::~Setting(){
 
 	delete sprite;
 	sprite = nullptr;

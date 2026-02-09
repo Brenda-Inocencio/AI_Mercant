@@ -144,7 +144,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="Setting.cpp" />
-    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="MenuEnd.cpp" />
@@ -158,7 +157,6 @@
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="Setting.h" />
-    <ClInclude Include="Settings.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="MenuEnd.h" />
     <ClInclude Include="MenuStart.h" />
