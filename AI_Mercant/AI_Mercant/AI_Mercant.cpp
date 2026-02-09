@@ -10,7 +10,6 @@
 #include "button.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
-#include "Setting.h"
 
 int GetRandomNumber(int min, int max) {
     std::random_device m_rd;
@@ -33,15 +32,17 @@ int main() {
     //Settings initiallisation
     //Setting settings(nbMerchants, nbMerchantsType);
 
+    Setting* setting = new Setting(nbMerchants, nbMerchantsType);
+
     std::vector<sf::Vector2f> places = {
         { 0.f, 0.f }, { 185.f, 0.f }, { 540.f, 0.f }, { 715.f, 0.f },
         { 0.f, 385.f }, { 185.f, 385.f }, { 540.f, 385.f }, { 715.f, 385.f }
     };
     std::vector<Shop*> shops;
-    size_t maxShops = std::min(settings.GetNumberMerchants(), static_cast<int>(places.size()));
+    size_t maxShops = std::min(setting->GetNumberMerchants(), static_cast<int>(places.size()));
 
     for (size_t i = 0; i < maxShops; i++) {
-        int randomShop = GetRandomNumber(0, settings.GetNumberMerchantsType() - 1);
+        int randomShop = GetRandomNumber(0, setting->GetNumberMerchantsType() - 1);
 
         switch (randomShop) {
         case 0: {
@@ -74,7 +75,6 @@ int main() {
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
-    Setting* setting = new Setting();
     Button* exit = new Exit();
     Button* start = new Start();
     Button* settingsButton = new SettingsButton();
