@@ -1,4 +1,4 @@
 ﻿  AI_Mercant.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\AI_Mercant.cpp(45,44): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
-Game.obj : error LNK2005: "class std::vector<class sf::Vector2<float>,class std::allocator<class sf::Vector2<float> > > places" (?places@@3V?$vector@V?$Vector2@M@sf@@V?$allocator@V?$Vector2@M@sf@@@std@@@std@@A) déjà défini(e) dans AI_Mercant.obj
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés
+  Game.cpp
+  Génération de code en cours...
+  AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

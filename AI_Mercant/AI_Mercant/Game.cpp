@@ -52,30 +52,30 @@ void Game::Update(bool isRunning, bool isEnd, bool isSettings) {
     }
 }
 
-void Game::CreateShop(std::vector<Shop*>& shops, int shop, , sf::Vector2f placeIndex) {
+void Game::CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f placeIndex) {
     switch (shop) {
     case 0: {
-        shops.push_back(new Shop(placeIndex]));
+        shops.push_back(new Shop(placeIndex));
         break;
     }
     case 1: {
-        shops.push_back(new Bakery(places[placeIndex]));
+        shops.push_back(new Bakery(placeIndex));
         break;
     }
     case 2: {
-        shops.push_back(new ButcherShop(places[placeIndex]));
+        shops.push_back(new ButcherShop(placeIndex));
         break;
     }
     case 3: {
-        shops.push_back(new Coffee(places[placeIndex]));
+        shops.push_back(new Coffee(placeIndex));
         break;
     }
     case 4: {
-        shops.push_back(new Pharmacy(places[placeIndex]));
+        shops.push_back(new Pharmacy(placeIndex));
         break;
     }
     case 5: {
-        shops.push_back(new HairSalon(places[placeIndex]));
+        shops.push_back(new HairSalon(placeIndex));
         break;
     }
     }
