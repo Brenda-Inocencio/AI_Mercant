@@ -8,17 +8,20 @@
 //==== 6 Trader ====
 //==================
 
+class Merchant;
+
 class Shop {
 public:
 
-	Shop() = default;
+	Shop();
 	Shop(sf::Vector2f position);
 
-	~Shop() {};
+	~Shop();
 
 	void Render(sf::RenderWindow& window);
 
 	inline sf::Vector2f GetPosition() { return pos; }
+	inline Merchant* GetMerchant() { return merchant; }
 
 protected:
 	sf::Color color;
@@ -26,6 +29,7 @@ protected:
 	float width;
 	float height;
 	sf::Vector2f pos;
+	Merchant* merchant;
 };
 
 

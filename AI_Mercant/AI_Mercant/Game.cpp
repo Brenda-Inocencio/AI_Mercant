@@ -47,4 +47,36 @@ void Game::Update(bool isRunning, bool isEnd, bool isSettings) {
     else if (isSettings) {
         state = Settings;
     }
+    else {
+        state = Menu;
+    }
+}
+
+void Game::CreateShop(std::vector<Shop*>& shops, int shop, , sf::Vector2f placeIndex) {
+    switch (shop) {
+    case 0: {
+        shops.push_back(new Shop(placeIndex]));
+        break;
+    }
+    case 1: {
+        shops.push_back(new Bakery(places[placeIndex]));
+        break;
+    }
+    case 2: {
+        shops.push_back(new ButcherShop(places[placeIndex]));
+        break;
+    }
+    case 3: {
+        shops.push_back(new Coffee(places[placeIndex]));
+        break;
+    }
+    case 4: {
+        shops.push_back(new Pharmacy(places[placeIndex]));
+        break;
+    }
+    case 5: {
+        shops.push_back(new HairSalon(places[placeIndex]));
+        break;
+    }
+    }
 }

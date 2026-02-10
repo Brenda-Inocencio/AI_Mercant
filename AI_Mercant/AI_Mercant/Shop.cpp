@@ -1,13 +1,22 @@
 #include "Shop.h"
+#include "Pnj.h"
 
-Shop::Shop(sf::Vector2f position) {
-    pos = position;
-    width = 185.f;
-    height = 215.f;
-    color = sf::Color::Yellow; 
+Shop::Shop() : Shop(sf::Vector2f({})) {
+}
+
+Shop::Shop(sf::Vector2f position) : pos(position), width(185.f), height(215.f) {
+    merchant = new Saler();
+    color = sf::Color::Yellow;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
     rect.setFillColor(color);
     rect.setPosition(position);
+}
+
+Shop::~Shop() {
+    if (merchant) {
+        delete merchant;
+        merchant = nullptr;
+    }
 }
 
 void Shop::Render(sf::RenderWindow& window) {
@@ -15,9 +24,7 @@ void Shop::Render(sf::RenderWindow& window) {
 }
 
 Bakery::Bakery(sf::Vector2f position) {
-    pos = position;
-    width = 185.f;
-    height = 215.f;
+    merchant = new Baker();
     color = sf::Color::Red;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
     rect.setFillColor(color);
@@ -25,9 +32,7 @@ Bakery::Bakery(sf::Vector2f position) {
 }
 
 ButcherShop::ButcherShop(sf::Vector2f position) {
-    pos = position;
-    width = 185.f;
-    height = 215.f;
+    merchant = new Butcher();
     color = sf::Color::Blue;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
     rect.setFillColor(color);
@@ -35,9 +40,7 @@ ButcherShop::ButcherShop(sf::Vector2f position) {
 }
 
 Coffee::Coffee(sf::Vector2f position) {
-    pos = position;
-    width = 185.f;
-    height = 215.f;
+    merchant = new Waiter();
     color = sf::Color::Cyan;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
     rect.setFillColor(color);
@@ -45,9 +48,7 @@ Coffee::Coffee(sf::Vector2f position) {
 }
 
 Pharmacy::Pharmacy(sf::Vector2f position) {
-    pos = position;
-    width = 185.f;
-    height = 215.f;
+    merchant = new Pharmacist();
     color = sf::Color::Green;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
     rect.setFillColor(color);
@@ -55,9 +56,7 @@ Pharmacy::Pharmacy(sf::Vector2f position) {
 }
 
 HairSalon::HairSalon(sf::Vector2f position) {
-    pos = position;
-    width = 185.f;
-    height = 215.f;
+    merchant = new Hairdressers();
     color = sf::Color::Magenta;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
     rect.setFillColor(color);

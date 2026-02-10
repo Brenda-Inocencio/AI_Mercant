@@ -22,5 +22,6 @@ public:
 	void Render(sf::RenderWindow& window, MenuStart* menustart, Button* start, Button* exit, Button* settingsButton,
 		std::vector<Shop*>& shops, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease);
 	void Update(bool isRunning, bool isEnd, bool isSettings);
+	void CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f places);
 };
 

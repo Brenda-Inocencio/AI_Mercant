@@ -2,6 +2,7 @@
 
 #include "Training.h"
 #include <vector>
+#include <string>
 
 class Pnj {
 protected:
@@ -18,6 +19,7 @@ protected:
 	int merchandise;
 	int salesNumber;
 	Training* Price;
+	std::string pnj;
 public:
 	bool canSell;
 	bool canBuy;
@@ -32,37 +34,45 @@ public:
 	inline virtual float GetPrice() { return price; }
 	inline virtual float GetCash() { return cash; }
 	inline virtual int GetMerchandise() { return merchandise; }
+	inline virtual std::string String() { return pnj; }
 };
 
-class Saler : protected Merchant { 
+class Saler : public Merchant { 
 protected:
 public:
 	Saler();
 	virtual ~Saler();
 };
 
-class Baker : protected Merchant { 
+class Baker : public Merchant {
 protected:
 public:
 	Baker();
 	virtual ~Baker();
 };
 
-class Butcher : protected Merchant {
+class Butcher : public Merchant {
 protected:
 public:
 	Butcher();
 	virtual ~Butcher();
 };
 
-class Waiter : protected Merchant {
+class Waiter : public Merchant {
 protected:
 public:
 	Waiter();
 	virtual ~Waiter();
 };
 
-class Hairdressers : protected Merchant {
+class Pharmacist : public Merchant {
+protected:
+public:
+	Pharmacist();
+	virtual ~Pharmacist();
+};
+
+class Hairdressers : public Merchant {
 protected:
 public:
 	Hairdressers();
@@ -70,7 +80,7 @@ public:
 };
 
 
-class Costumer : protected Pnj {
+class Customer : public Pnj {
 protected:
 	float cash;
 public:

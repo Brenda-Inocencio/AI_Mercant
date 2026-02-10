@@ -8,6 +8,8 @@
 #include "SpendCashTask.h"
 #include "BuyFurnituresTask.h"
 #include "PauseTask.h"
+#include "BuyTask.h"
+#include "GiveCashTask.h"
 
 BehaviorTree::BehaviorTree() : BehaviorTree(nullptr) {
 
@@ -66,18 +68,23 @@ void MerchantBehaviorTree::BuildTree() {
     fallBack1->AddChild(sequence1);
 
     SellTask* task1 = new SellTask(this, sequence1);
+    sequence1->AddChild(task1);
 
     GetCashTask* task2 = new GetCashTask(this, sequence1);
+    sequence1->AddChild(task2);
 
     Sequence* sequence2 = new Sequence(this, fallBack1, {});
     fallBack1->AddChild(sequence2);
 
     SpendCashTask* task3 = new SpendCashTask(this, sequence2);
-    
+    sequence2->AddChild(task3);
+
     BuyFurnituresTask* task4 = new BuyFurnituresTask(this, sequence2);
+    sequence2->AddChild(task4);
 
     PauseTask* task5 = new PauseTask(this, fallBack1);
-    
+    fallBack1->AddChild(task5);
+
     allSubNodes.push_back(task1);
     allSubNodes.push_back(task2);
     allSubNodes.push_back(sequence1);
@@ -106,10 +113,18 @@ void CustomerBehaviorTree::BuildTree() {
     Sequence* sequence1 = new Sequence(this, fallBack1, {});
     fallBack1->AddChild(sequence1);
 
-    //task
+    BuyTask* task1 = new BuyTask();
+    sequence1->AddChild(task1);
 
+    GiveCashTask* task2 = new GiveCashTask();
+    sequence1->AddChild(task2);
 
-    //AllSubNodes.push_back(Task1);
+    //task 3 // move to shop
+    //fallBack1->AddChild(task2);
+
+    allSubNodes.push_back(task1);
+    allSubNodes.push_back(task2);
     allSubNodes.push_back(sequence1);
+    //allSubNodes.push_back(task3);
     allSubNodes.push_back(fallBack1);
 }

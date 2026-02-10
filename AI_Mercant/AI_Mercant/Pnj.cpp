@@ -11,6 +11,7 @@ Pnj::~Pnj() {
 //Customers
 Customer::Customer() {
 	cash = 100;
+	canBuy = false;
 }
 
 void Customer::Buy(Merchant* merchant, int sales) {
@@ -30,6 +31,7 @@ void Customer::SpendCash(Merchant* merchant, int sales) {
 Merchant::Merchant() {
 	cash = 1000;
 	price = 3;
+	merchandise = 0;
 	Price = nullptr;
 	salesNumber = 0;
 	canSell = false;
@@ -81,35 +83,43 @@ Price: (new Training())->updateLeaning();
 
 
 Saler::Saler() {
+	pnj = "Saler";
 }
-
 Saler::~Saler() {
 }
 
 
 Baker::Baker() {
+	pnj = "Baker";
 }
-
 Baker::~Baker() {
 }
 
 
 Butcher::Butcher() {
+	pnj = "Butcher";
 }
-
 Butcher::~Butcher() {
 }
 
 
 Waiter::Waiter() {
+	pnj = "Waiter";
 }
-
 Waiter::~Waiter() {
 }
 
 
-Hairdressers::Hairdressers() {
+Pharmacist::Pharmacist() {
+	pnj = "Pharmacist";
+}
+Pharmacist::~Pharmacist() {
 }
 
+
+Hairdressers::Hairdressers() {
+	pnj = "Hairdressers";
+}
 Hairdressers::~Hairdressers() {
 }
+

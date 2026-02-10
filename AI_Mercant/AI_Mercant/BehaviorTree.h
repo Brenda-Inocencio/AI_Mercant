@@ -39,6 +39,10 @@ class CustomerBlackBoard: public Blackboard{
 public:
 	Customer* customer;
 	Merchant* merchant;
+	std::vector<sf::Vector2f> shopPlaces = {
+		{ 0.f, 0.f }, { 185.f, 0.f }, { 540.f, 0.f }, { 715.f, 0.f },
+		{ 0.f, 385.f }, { 185.f, 385.f }, { 540.f, 385.f }, { 715.f, 385.f }
+	};
 };
 
 class MerchantBehaviorTree : public BehaviorTree {
