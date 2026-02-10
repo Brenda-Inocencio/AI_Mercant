@@ -6,11 +6,6 @@
     <ClCompile Include="GameDay.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Training.cpp" />
-    <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="Setting.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="MenuStart.cpp" />
-    <ClCompile Include="MenuEnd.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="BehaviorTree.cpp">
       <Filter>BehaviorTree</Filter>
@@ -45,17 +40,33 @@
     <ClCompile Include="SellTask.cpp">
       <Filter>BehaviorTree\MerchantTasks</Filter>
     </ClCompile>
+    <ClCompile Include="MenuEnd.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuStart.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="BuyTask.cpp">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="GiveCashTask.cpp">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Pnj.h" />
     <ClInclude Include="Training.h" />
-    <ClInclude Include="HUD.h" />
-    <ClInclude Include="Setting.h" />
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="MenuStart.h" />
-    <ClInclude Include="MenuEnd.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="BehaviorTree.h">
       <Filter>BehaviorTree</Filter>
@@ -90,6 +101,27 @@
     <ClInclude Include="BuyFurnituresTask.h">
       <Filter>BehaviorTree\MerchantTasks</Filter>
     </ClInclude>
+    <ClInclude Include="MenuEnd.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuStart.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="BuyTask.h">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="GiveCashTask.h">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BehaviorTree">
@@ -97,6 +129,12 @@
     </Filter>
     <Filter Include="BehaviorTree\MerchantTasks">
       <UniqueIdentifier>{813dcde1-a096-459b-97dd-63b99024f47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BehaviorTree\CustomerTasks">
+      <UniqueIdentifier>{d7663743-9e0e-424a-997f-1d2a4791d0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{526ea491-b342-4313-828c-102f256456fe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

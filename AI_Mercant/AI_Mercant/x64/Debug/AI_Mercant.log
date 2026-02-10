@@ -1,5 +1,47 @@
-﻿  AI_Mercant.cpp
-  BehaviorTree.cpp
+﻿  BehaviorTree.cpp
+  BuyFurnituresTask.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(68,35): error C2661: 'SellTask::SellTask' : aucune fonction surchargée ne nécessite 2 arguments
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(68,35):
+      lors de la tentative de mise en correspondance de la liste des arguments '(MerchantBehaviorTree *, Sequence *)'
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(70,41): error C2661: 'GetCashTask::GetCashTask' : aucune fonction surchargée ne nécessite 2 arguments
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(70,41):
+      lors de la tentative de mise en correspondance de la liste des arguments '(MerchantBehaviorTree *, Sequence *)'
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(75,45): error C2661: 'SpendCashTask::SpendCashTask' : aucune fonction surchargée ne nécessite 2 arguments
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(75,45):
+      lors de la tentative de mise en correspondance de la liste des arguments '(MerchantBehaviorTree *, Sequence *)'
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(77,53): error C2661: 'BuyFurnituresTask::BuyFurnituresTask' : aucune fonction surchargée ne nécessite 2 arguments
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(77,53):
+      lors de la tentative de mise en correspondance de la liste des arguments '(MerchantBehaviorTree *, Sequence *)'
+  
+  BuyTask.cpp
+  GetCashTask.cpp
+  GiveCashTask.cpp
+  Node.cpp
+  PauseTask.cpp
+  SellTask.cpp
+  Pnj.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(46,16): error C2084: la fonction 'void Merchant::Sell(int)' a déjà un corps
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(26,15):
+      voir la définition précédente de « Merchant::Sell »
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(57,16): error C2084: la fonction 'void Merchant::Cash(int)' a déjà un corps
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(27,15):
+      voir la définition précédente de « Merchant::Cash »
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(61,16): error C2084: la fonction 'void Merchant::Order(int)' a déjà un corps
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(28,15):
+      voir la définition précédente de « Merchant::Order »
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(71,16): error C2084: la fonction 'void Merchant::SpendCash(int)' a déjà un corps
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(29,15):
+      voir la définition précédente de « Merchant::SpendCash »
+  
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(78,16): error C2084: la fonction 'void Merchant::UpdatePrice(int)' a déjà un corps
+      C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.h(30,15):
+      voir la définition précédente de « Merchant::UpdatePrice »
+  
   SpendCashTask.cpp
   Génération de code en cours...
-  AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

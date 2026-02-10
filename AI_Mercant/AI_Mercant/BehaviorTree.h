@@ -32,12 +32,13 @@ protected:
 class MerchantBlackBoard : public Blackboard {
 public:
 	Merchant* merchant;
-	int furnitures;  // buy
+	Customer* customer;
 };
 
-class CustomersBlackBoard: public Blackboard{
+class CustomerBlackBoard: public Blackboard{
 public:
 	Customer* customer;
+	Merchant* merchant;
 };
 
 class MerchantBehaviorTree : public BehaviorTree {
