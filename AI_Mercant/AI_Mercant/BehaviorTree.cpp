@@ -88,16 +88,16 @@ void MerchantBehaviorTree::BuildTree() {
     allSubNodes.push_back(fallBack1);
 }
 
-CostumerBehaviorTree::CostumerBehaviorTree() : CostumerBehaviorTree(nullptr) {
+CustomerBehaviorTree::CustomerBehaviorTree() : CustomerBehaviorTree(nullptr) {
 }
 
-CostumerBehaviorTree::CostumerBehaviorTree(Blackboard* BB) : BehaviorTree(BB) {
+CustomerBehaviorTree::CustomerBehaviorTree(Blackboard* BB) : BehaviorTree(BB) {
 }
 
-CostumerBehaviorTree::~CostumerBehaviorTree() {
+CustomerBehaviorTree::~CustomerBehaviorTree() {
 }
 
-void CostumerBehaviorTree::BuildTree() {
+void CustomerBehaviorTree::BuildTree() {
     BehaviorTree::BuildTree();
 
     FallBack* fallBack1 = new FallBack(this, nullptr, {});

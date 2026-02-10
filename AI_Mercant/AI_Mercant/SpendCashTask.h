@@ -1,13 +1,13 @@
 #pragma once
 #include "TaskNode.h"
+#include "Pnj.h"
 
 class SpendCashTask : public TaskNode {
-	float newCash;
 	float cash;
-	float price;
+	Merchant* merchant;
 public:
 	SpendCashTask();
-	SpendCashTask(BehaviorTree* tree, FlowNode* nodeParent);
+	SpendCashTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant);
 	~SpendCashTask() override;
 
 	void BeginExecute() override;

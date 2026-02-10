@@ -3,10 +3,10 @@
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 
-SellTask::SellTask() : SellTask(nullptr, nullptr) {
+SellTask::SellTask() : SellTask(nullptr, nullptr, nullptr) {
 }
 
-SellTask::SellTask(BehaviorTree* tree, FlowNode* nodeParent) : TaskNode(tree, nodeParent){
+SellTask::SellTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant) : TaskNode(tree, nodeParent), merchant(_merchant) {
 }
 
 SellTask::~SellTask() {
@@ -15,18 +15,18 @@ SellTask::~SellTask() {
 void SellTask::BeginExecute() {
 	MerchantBlackBoard* _blackBoard = static_cast<MerchantBlackBoard*>(GetBlackBoard());
 	if (_blackBoard != nullptr) {
-		furnitures = _blackBoard->furnitures;
+		merchant = _blackBoard->merchant;
 	}
 }
 
 void SellTask::Tick(float dt) {
 	TaskNode::Tick(dt);
-	furnitures -= 1;
+	merchant->Sell(1); //1 = le nb de marchandise vendues
 	EndExecute();
 }
 
 void SellTask::EndExecute() {
-	if (furnitures >= 0) {
+	if (merchant->canSell) {
 		parent->OnChildEnd(ENodeState::Success);
 	}
 	else {

@@ -1,13 +1,12 @@
 #pragma once
 #include "TaskNode.h"
+#include "Pnj.h"
 
 class SellTask : public TaskNode {
-	float cash;
-	float price;
-	int furnitures;
+	Merchant* merchant;
 public:
 	SellTask();
-	SellTask(BehaviorTree* tree, FlowNode* nodeParent);
+	SellTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant);
 	~SellTask() override;
 
 	void BeginExecute() override;

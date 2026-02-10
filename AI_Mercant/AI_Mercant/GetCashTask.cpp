@@ -3,10 +3,10 @@
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 
-GetCashTask::GetCashTask() : GetCashTask(nullptr, nullptr) {
+GetCashTask::GetCashTask() : GetCashTask(nullptr, nullptr, nullptr) {
 }
 
-GetCashTask::GetCashTask(BehaviorTree* tree, FlowNode* nodeParent) : TaskNode(tree, nodeParent){
+GetCashTask::GetCashTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant) : TaskNode(tree, nodeParent), merchant(_merchant) {
 }
 
 GetCashTask::~GetCashTask() {
@@ -15,22 +15,21 @@ GetCashTask::~GetCashTask() {
 void GetCashTask::BeginExecute() {
 	MerchantBlackBoard* _blackBoard = static_cast<MerchantBlackBoard*>(GetBlackBoard());
 	if (_blackBoard != nullptr) {
-		cash = _blackBoard->cash;
-		price = _blackBoard->price;
+		merchant = _blackBoard->merchant;
+		cash = merchant->GetCash();
 	}
 }
 
 void GetCashTask::Tick(float dt) {
 	TaskNode::Tick(dt);
-	newCash = cash + price;
+	if (merchant->canSell) {
+		merchant->Cash(1); // 1 = le nb de marchandise vendues
+	}
 	EndExecute();
 }
 
 void GetCashTask::EndExecute() {
-	if (newCash > cash) {
+	if (merchant->GetCash() > cash) {
 		parent->OnChildEnd(ENodeState::Success);
-	}
-	else {
-		parent->OnChildEnd(ENodeState::Failure);
 	}
 }

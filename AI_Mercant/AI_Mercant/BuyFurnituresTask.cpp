@@ -3,10 +3,10 @@
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 
-BuyFurnituresTask::BuyFurnituresTask() : BuyFurnituresTask(nullptr, nullptr) {
+BuyFurnituresTask::BuyFurnituresTask() : BuyFurnituresTask(nullptr, nullptr, nullptr) {
 }
 
-BuyFurnituresTask::BuyFurnituresTask(BehaviorTree* tree, FlowNode* nodeParent) : TaskNode(tree, nodeParent) {
+BuyFurnituresTask::BuyFurnituresTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant) : TaskNode(tree, nodeParent), merchant(_merchant) {
 }
 
 BuyFurnituresTask::~BuyFurnituresTask() {
@@ -15,18 +15,18 @@ BuyFurnituresTask::~BuyFurnituresTask() {
 void BuyFurnituresTask::BeginExecute() {
 	MerchantBlackBoard* _blackBoard = static_cast<MerchantBlackBoard*>(GetBlackBoard());
 	if (_blackBoard != nullptr) {
-		furnitures = _blackBoard->furnitures;
+		merchant = _blackBoard->merchant;
 	}
 }
 
 void BuyFurnituresTask::Tick(float dt) {
 	TaskNode::Tick(dt);
-	newFurnitures = furnitures + 1;
+	merchant->Order(10); // 1 = nb de fourniture achete
 	EndExecute();
 }
 
 void BuyFurnituresTask::EndExecute() {
-	if (newFurnitures > furnitures) {
+	if (merchant->canBuy) {
 		parent->OnChildEnd(ENodeState::Success);
 	}
 	else {

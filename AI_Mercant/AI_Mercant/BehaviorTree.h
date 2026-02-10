@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "Pnj.h"
 
 class RootNode;
 class BaseNode;
@@ -30,10 +31,13 @@ protected:
 
 class MerchantBlackBoard : public Blackboard {
 public:
-	float cash;
-	float price;
-	float furnituresPrice;
-	int furnitures;
+	Merchant* merchant;
+	int furnitures;  // buy
+};
+
+class CustomersBlackBoard: public Blackboard{
+public:
+	Customer* customer;
 };
 
 class MerchantBehaviorTree : public BehaviorTree {
@@ -45,11 +49,11 @@ public:
 	virtual void BuildTree() override;
 };
 
-class CostumerBehaviorTree: public BehaviorTree{
+class CustomerBehaviorTree: public BehaviorTree{
 public:
-	CostumerBehaviorTree();
-	CostumerBehaviorTree(Blackboard* BB);
-	virtual ~CostumerBehaviorTree();
+	CustomerBehaviorTree();
+	CustomerBehaviorTree(Blackboard* BB);
+	virtual ~CustomerBehaviorTree();
 
 	virtual void BuildTree() override;
 };
