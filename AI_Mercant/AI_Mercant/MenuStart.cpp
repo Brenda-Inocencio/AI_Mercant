@@ -1,7 +1,7 @@
 #include "MenuStart.h"
 
 
-MenuStart::MenuStart(){
+MenuStart::MenuStart() {
 
 	image = new sf::Texture("StartMenu.png ");
 	sprite = new sf::Sprite(*image);

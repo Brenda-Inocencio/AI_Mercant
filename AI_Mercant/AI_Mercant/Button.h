@@ -15,15 +15,15 @@ public:
 	virtual float GetRightX() = 0;
 	virtual float GetPosY() = 0;
 	virtual float GetBottomY() = 0;
-	virtual void SetText(std::string textStirng, float posx, float posy, float width, float height, sf:: Font& font);
+	virtual void SetText(std::string textStirng, float posx, float posy, float width, float height, sf::Font& font);
 	virtual void Render(sf::RenderWindow& window) = 0;
 };
 
 class Exit : public Button {
-    float posx;
-    float posy;
-    float width;
-    float height;
+	float posx;
+	float posy;
+	float width;
+	float height;
 public:
 	Exit();
 	virtual ~Exit() {};

@@ -8,11 +8,11 @@
 #include "GameDay.h"
 
 
-class HUD{
+class HUD {
 public:
 	HUD();
 
-	
+
 	// Update value
 	void Day(int d);
 	void Time(float t);

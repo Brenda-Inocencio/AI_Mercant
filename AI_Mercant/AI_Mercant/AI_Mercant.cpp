@@ -28,11 +28,9 @@ int main() {
     const sf::Texture texture("Background.png");
     sf::Sprite sprite(texture);
 
-    int nbMerchants = 8; 
+    int nbMerchants = 8;
     int nbMerchantsType = 6;
     //Settings initiallisation
-    //Setting settings(nbMerchants, nbMerchantsType);
-
     Setting* setting = new Setting(nbMerchants, nbMerchantsType);
 
     std::vector<sf::Vector2f> places = {
@@ -50,11 +48,11 @@ int main() {
             shops.push_back(new Shop(places[i]));
             break;
         }
-        case 1:{
+        case 1: {
             shops.push_back(new Bakery(places[i]));
             break;
         }
-        case 2:{
+        case 2: {
             shops.push_back(new ButcherShop(places[i]));
             break;
         }
@@ -136,9 +134,9 @@ int main() {
         // Clear screen
         window.clear();
 
-        // Draw the sprite
-        // Draw the rectangle
         game.Update(isRunning, endSim, isSettings);
+        
+        // Draw the sprite
         game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
 
         // Update the window

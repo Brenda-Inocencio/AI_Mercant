@@ -2,29 +2,139 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="AI_Mercant.cpp" />
-    <ClCompile Include="BehaviorTree.cpp" />
     <ClCompile Include="Pnj.cpp" />
     <ClCompile Include="GameDay.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Training.cpp" />
-    <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="MenuEnd.cpp" />
-    <ClCompile Include="MenuStart.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Setting.cpp" />
+    <ClCompile Include="BehaviorTree.cpp">
+      <Filter>BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="BuyFurnituresTask.cpp">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="FallBack.cpp">
+      <Filter>BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="FlowNode.cpp">
+      <Filter>BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCashTask.cpp">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseTask.cpp">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence.cpp">
+      <Filter>BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskNode.cpp">
+      <Filter>BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="SpendCashTask.cpp">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="SellTask.cpp">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuEnd.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuStart.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Setting.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="BuyTask.cpp">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClCompile>
+    <ClCompile Include="GiveCashTask.cpp">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="Shop.h" />
-    <ClInclude Include="BehaviorTree.h" />
     <ClInclude Include="Pnj.h" />
     <ClInclude Include="Training.h" />
-    <ClInclude Include="HUD.h" />
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="MenuEnd.h" />
-    <ClInclude Include="MenuStart.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Setting.h" />
+    <ClInclude Include="BehaviorTree.h">
+      <Filter>BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="FallBack.h">
+      <Filter>BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="GetCashTask.h">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseTask.h">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="SellTask.h">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="Sequence.h">
+      <Filter>BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskNode.h">
+      <Filter>BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="SpendCashTask.h">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowNode.h">
+      <Filter>BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="BuyFurnituresTask.h">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuEnd.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuStart.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="BuyTask.h">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="GiveCashTask.h">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="BehaviorTree">
+      <UniqueIdentifier>{dc3d00e8-03e4-46b2-b0f9-ea19b55eac23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BehaviorTree\MerchantTasks">
+      <UniqueIdentifier>{813dcde1-a096-459b-97dd-63b99024f47a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BehaviorTree\CustomerTasks">
+      <UniqueIdentifier>{d7663743-9e0e-424a-997f-1d2a4791d0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{526ea491-b342-4313-828c-102f256456fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
