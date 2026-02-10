@@ -3,10 +3,10 @@
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 
-SellTask::SellTask() : SellTask(nullptr, nullptr, nullptr) {
+SellTask::SellTask() : SellTask(nullptr, nullptr) {
 }
 
-SellTask::SellTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant) : TaskNode(tree, nodeParent), merchant(_merchant) {
+SellTask::SellTask(BehaviorTree* tree, FlowNode* nodeParent) : TaskNode(tree, nodeParent) {
 }
 
 SellTask::~SellTask() {

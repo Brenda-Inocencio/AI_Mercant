@@ -8,7 +8,7 @@ class BuyFurnituresTask : public TaskNode {
 	Merchant* merchant;
 public:
 	BuyFurnituresTask();
-	BuyFurnituresTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant);
+	BuyFurnituresTask(BehaviorTree* tree, FlowNode* nodeParent);
 	~BuyFurnituresTask() override;
 
 	void BeginExecute() override;

@@ -3,10 +3,10 @@
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 
-BuyFurnituresTask::BuyFurnituresTask() : BuyFurnituresTask(nullptr, nullptr, nullptr) {
+BuyFurnituresTask::BuyFurnituresTask() : BuyFurnituresTask(nullptr, nullptr) {
 }
 
-BuyFurnituresTask::BuyFurnituresTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant) : TaskNode(tree, nodeParent), merchant(_merchant) {
+BuyFurnituresTask::BuyFurnituresTask(BehaviorTree* tree, FlowNode* nodeParent) : TaskNode(tree, nodeParent) {
 }
 
 BuyFurnituresTask::~BuyFurnituresTask() {

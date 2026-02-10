@@ -23,11 +23,11 @@ public:
 public:
 	Merchant();
 	virtual ~Merchant();
-	virtual void Sell(int sales) {};
-	virtual void Cash(int sellMerchandise) {};
-	virtual void Order(int newFurnitures) {};
-	virtual void SpendCash(int buyMerchandise) {};
-	virtual void UpdatePrice(int newPrice) {};
+	virtual void Sell(int sales);
+	virtual void Cash(int sellMerchandise);
+	virtual void Order(int newFurnitures);
+	virtual void SpendCash(int buyMerchandise);
+	virtual void UpdatePrice(int newPrice);
 	inline virtual float GetPrice() { return price; }
 	inline virtual float GetCash() { return cash; }
 	inline virtual int GetMerchandise() { return merchandise; }

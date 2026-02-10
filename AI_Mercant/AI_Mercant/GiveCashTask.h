@@ -8,7 +8,7 @@ class GiveCashTask : public TaskNode {
 	Merchant* merchant;
 public:
 	GiveCashTask();
-	GiveCashTask(BehaviorTree* tree, FlowNode* nodeParent, Customer* _customer);
+	GiveCashTask(BehaviorTree* tree, FlowNode* nodeParent);
 	~GiveCashTask() override;
 
 	void BeginExecute() override;

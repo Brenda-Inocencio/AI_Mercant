@@ -3,10 +3,10 @@
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 
-SpendCashTask::SpendCashTask() : SpendCashTask(nullptr, nullptr, nullptr) {
+SpendCashTask::SpendCashTask() : SpendCashTask(nullptr, nullptr) {
 }
 
-SpendCashTask::SpendCashTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant) : TaskNode(tree, nodeParent), merchant(_merchant) {
+SpendCashTask::SpendCashTask(BehaviorTree* tree, FlowNode* nodeParent) : TaskNode(tree, nodeParent) {
 }
 
 SpendCashTask::~SpendCashTask() {

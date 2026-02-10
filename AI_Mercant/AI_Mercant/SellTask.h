@@ -6,7 +6,7 @@ class SellTask : public TaskNode {
 	Merchant* merchant;
 public:
 	SellTask();
-	SellTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant);
+	SellTask(BehaviorTree* tree, FlowNode* nodeParent);
 	~SellTask() override;
 
 	void BeginExecute() override;

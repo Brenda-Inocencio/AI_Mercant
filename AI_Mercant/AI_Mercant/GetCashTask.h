@@ -7,7 +7,7 @@ class GetCashTask : public TaskNode {
 	Merchant* merchant;
 public:
 	GetCashTask();
-	GetCashTask(BehaviorTree* tree, FlowNode* nodeParent, Merchant* _merchant);
+	GetCashTask(BehaviorTree* tree, FlowNode* nodeParent);
 	~GetCashTask() override;
 
 	void BeginExecute() override;
