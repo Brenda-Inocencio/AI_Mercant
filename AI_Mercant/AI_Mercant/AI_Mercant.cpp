@@ -6,6 +6,7 @@
 #include <random>
 #include "Shop.h"
 #include "Pnj.h"
+#include "BehaviorTree.h"
 #include "GameDay.h"
 #include "HUD.h"
 #include "Setting.h"
@@ -37,8 +38,8 @@ int main() {
     Game game;
 
     std::vector<sf::Vector2f> places = {
-        { 0.f, 0.f }, { 185.f, 0.f }, { 540.f, 0.f }, { 715.f, 0.f },
-        { 0.f, 385.f }, { 185.f, 385.f }, { 540.f, 385.f }, { 715.f, 385.f }
+        { -10.f, -10.f }, { 165.f, -10.f }, { 540.f, -10.f }, { 715.f, -10.f },
+        { -10.f, 410.f }, { 165.f, 410.f }, { 540.f, 410.f }, { 715.f, 410.f }
     };
     std::vector<Shop*> shops;
     size_t maxShops = std::min(setting->GetNumberMerchants(), static_cast<int>(places.size()));
@@ -47,12 +48,17 @@ int main() {
         int randomShop = GetRandomNumber(0, setting->GetNumberMerchantsType() - 1);
         game.CreateShop(shops, randomShop, places[i]);
     }
-
-    for (int i = 0; i < shops.size(); i++) { // TODO: Test  a retirer le string de pnj apres
-        Merchant* merchant = shops[i]->GetMerchant();
-        std::cout << "Merchant : " << merchant->String() << "\n";
-    }
     
+    std::vector<Customer*> customers;
+
+    for (int i = 0; i < 4; i++) { //TODO: 4 a canger en aleatoire
+        //int pos = GetRandomNumber(0, 3);
+        customers.push_back(new Customer(i));
+    }
+
+    for (int i = 0; i < customers.size(); i++) {
+        customers[i]->behaviorTree->BeginExecute();
+    }
 
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
@@ -110,19 +116,18 @@ int main() {
             else if (event->is<sf::Event::KeyPressed>()) {  //Correction du bug avec la touche echape
                 if (event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::Escape) {
                     isSettings = false;
-                    isRunning = false; //TODO a retirer pour eviter de changer les parametre en cours de simumlation
+                    isRunning = false; //TODO: a retirer pour eviter de changer les parametre en cours de simumlation
                 }
             }
         }   
 
         // Clear screen
         window.clear();
-
-        game.Update(isRunning, endSim, isSettings);
+        game.Update(dt, isRunning, endSim, isSettings, customers);
         
         // Draw the sprite
-        game.Render(window, menustart, start, exit, settingsButton, shops, hud, sprite, menuend, setting, increase, decrease);
-
+        game.Render(window, menustart, start, exit, settingsButton, shops, customers, hud, sprite, menuend, setting, increase, decrease);
+        
         // Update the window
         window.display();
     }
@@ -132,6 +137,12 @@ int main() {
         shops[i] = nullptr;
     }
     shops.clear();
+
+    for (int i = 0; i < customers.size(); i++) {
+        delete customers[i];
+        customers[i] = nullptr;
+    }
+    customers.clear();
 
     delete hud; hud = nullptr;
     delete menustart; menustart = nullptr;

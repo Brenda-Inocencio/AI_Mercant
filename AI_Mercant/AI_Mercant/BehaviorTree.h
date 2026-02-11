@@ -5,7 +5,7 @@
 class RootNode;
 class BaseNode;
 
-class Blackboard {
+class BlackBoard {
 public:
 
 };
@@ -13,7 +13,7 @@ public:
 class BehaviorTree {
 public:
 	BehaviorTree();
-	BehaviorTree(Blackboard* BB);
+	BehaviorTree(BlackBoard* BB);
 	virtual ~BehaviorTree();
 
 	void BeginExecute();
@@ -22,33 +22,30 @@ public:
 	virtual void BuildTree();
 	void CleanTree();
 
-	Blackboard* GetBlackBoard();
+	BlackBoard* GetBlackBoard();
 protected:
-	Blackboard* internBlackBoard;
+	BlackBoard* internBlackBoard;
 	RootNode* root;
 	std::vector<BaseNode*> allSubNodes;
 };
 
-class MerchantBlackBoard : public Blackboard {
+class MerchantBlackBoard : public BlackBoard {
 public:
 	Merchant* merchant;
 	Customer* customer;
 };
 
-class CustomerBlackBoard: public Blackboard{
+class CustomerBlackBoard: public BlackBoard {
 public:
 	Customer* customer;
 	Merchant* merchant;
-	std::vector<sf::Vector2f> shopPlaces = {
-		{ 0.f, 0.f }, { 185.f, 0.f }, { 540.f, 0.f }, { 715.f, 0.f },
-		{ 0.f, 385.f }, { 185.f, 385.f }, { 540.f, 385.f }, { 715.f, 385.f }
-	};
+	std::vector<Shop*> shops;
 };
 
 class MerchantBehaviorTree : public BehaviorTree {
 public:
 	MerchantBehaviorTree();
-	MerchantBehaviorTree(Blackboard* BB);
+	MerchantBehaviorTree(BlackBoard* BB);
 	virtual ~MerchantBehaviorTree();
 
 	virtual void BuildTree() override;
@@ -57,7 +54,7 @@ public:
 class CustomerBehaviorTree: public BehaviorTree{
 public:
 	CustomerBehaviorTree();
-	CustomerBehaviorTree(Blackboard* BB);
+	CustomerBehaviorTree(BlackBoard* BB);
 	virtual ~CustomerBehaviorTree();
 
 	virtual void BuildTree() override;

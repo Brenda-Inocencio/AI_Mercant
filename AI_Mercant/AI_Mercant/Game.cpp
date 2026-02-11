@@ -1,16 +1,18 @@
 #include "Game.h"
 #include "Shop.h"
+#include "Pnj.h"
 #include "HUD.h"
 #include "MenuStart.h"
 #include "MenuEnd.h"
 #include "Button.h"
 #include "Setting.h"
+#include "BehaviorTree.h"
 
 Game::Game() : state(Menu) {
 }
 
 void Game::Render(sf::RenderWindow& window, MenuStart* menuStart, Button* start, Button* exit, Button* settingsButton,
-    std::vector<Shop*>& shops, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease) {
+    std::vector<Shop*>& shops, std::vector<Customer*> customers, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease) {
     switch (state) {
     case 0:
         menuStart->Render(window);
@@ -20,6 +22,9 @@ void Game::Render(sf::RenderWindow& window, MenuStart* menuStart, Button* start,
         break;
     case 1:
         window.draw(background);
+        for (int i = 0; i < customers.size(); i++) {
+            customers[i]->Render(window);
+        }
         for (int i = 0; i < shops.size(); i++) {
             shops[i]->Render(window);
         }
@@ -37,9 +42,12 @@ void Game::Render(sf::RenderWindow& window, MenuStart* menuStart, Button* start,
     }
 }
 
-void Game::Update(bool isRunning, bool isEnd, bool isSettings) {
+void Game::Update(float dt, bool isRunning, bool isEnd, bool isSettings, std::vector<Customer*> customers) {
     if (isRunning) {
         state = Running;
+        for (int i = 0; i < customers.size(); i++) {
+            customers[i]->behaviorTree->Tick(dt);
+        }
     }
     else if (isEnd) {
         state = End;

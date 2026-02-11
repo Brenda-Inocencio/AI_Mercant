@@ -61,6 +61,9 @@
     <ClCompile Include="GiveCashTask.cpp">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClCompile>
+    <ClCompile Include="MoveToShop.cpp">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
@@ -120,6 +123,9 @@
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClInclude>
     <ClInclude Include="GiveCashTask.h">
+      <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveToShop.h">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClInclude>
   </ItemGroup>

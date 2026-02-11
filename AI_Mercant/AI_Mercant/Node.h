@@ -1,5 +1,5 @@
 #pragma once
-class Blackboard;
+class BlackBoard;
 class FlowNode;
 class BehaviorTree;
 
@@ -20,8 +20,7 @@ public:
 	virtual void Tick(float dt);
 	virtual void EndExecute();
 
-
-	Blackboard* GetBlackBoard();
+	BlackBoard* GetBlackBoard();
 	BehaviorTree* GetBehaviorTree();
 protected:
 	BehaviorTree* ownerTree;

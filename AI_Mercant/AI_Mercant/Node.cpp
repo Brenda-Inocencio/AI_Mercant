@@ -20,7 +20,7 @@ void BaseNode::Tick(float dt) {
 void BaseNode::EndExecute() {
 }
 
-Blackboard* BaseNode::GetBlackBoard() {
+BlackBoard* BaseNode::GetBlackBoard() {
 	return GetBehaviorTree()->GetBlackBoard();
 }
 

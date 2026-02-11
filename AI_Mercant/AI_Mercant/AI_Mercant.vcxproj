@@ -152,6 +152,7 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="MenuEnd.cpp" />
     <ClCompile Include="MenuStart.cpp" />
+    <ClCompile Include="MoveToShop.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="PauseTask.cpp" />
     <ClCompile Include="SellTask.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="HUD.h" />
     <ClInclude Include="MenuEnd.h" />
     <ClInclude Include="MenuStart.h" />
+    <ClInclude Include="MoveToShop.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="PauseTask.h" />
     <ClInclude Include="SellTask.h" />

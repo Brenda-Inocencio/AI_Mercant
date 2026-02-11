@@ -1,25 +1,33 @@
 #pragma once
-
+#include <SFML/Graphics.hpp>
 #include "Training.h"
 #include <vector>
 #include <string>
 
+#define SPEED 40
+
+class BlackBoard;
+class BehaviorTree;
+class Shop;
+
 class Pnj {
 protected:
 public:
+	BlackBoard* blackBoard;
+	BehaviorTree* behaviorTree;
+
 	Pnj();
 	virtual ~Pnj();
 };
 
 
-class Merchant : private Pnj {
+class Merchant : public Pnj {
 protected:
 	float cash;
 	float price;
 	int merchandise;
 	int salesNumber;
 	Training* Price;
-	std::string pnj;
 public:
 	bool canSell;
 	bool canBuy;
@@ -34,7 +42,6 @@ public:
 	inline virtual float GetPrice() { return price; }
 	inline virtual float GetCash() { return cash; }
 	inline virtual int GetMerchandise() { return merchandise; }
-	inline virtual std::string String() { return pnj; }
 };
 
 class Saler : public Merchant { 
@@ -82,13 +89,24 @@ public:
 
 class Customer : public Pnj {
 protected:
+	sf::Texture* texture;
+	sf::Sprite* sprite;
+	sf::Vector2f pos;
+	float width;
+	float height;
 	float cash;
+
+	sf::Vector2f SetPos(int position);
 public:
 	bool canBuy;
-public:
+	bool inShop;
+
 	Customer();
-	virtual ~Customer() {};
+	Customer(int position); 
+	virtual ~Customer();
 	void Buy(Merchant* merchant, int sales);
 	void SpendCash(Merchant* merchant, int sales);
+	void MoveTo(Shop* shop, float dt);
+	void Render(sf::RenderWindow& window);
 	inline float GetCash() { return cash; }
 };

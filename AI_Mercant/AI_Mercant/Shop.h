@@ -21,6 +21,10 @@ public:
 	void Render(sf::RenderWindow& window);
 
 	inline sf::Vector2f GetPosition() { return pos; }
+	inline float GetPosX() { return pos.x; }
+	inline float GetRightX() { return pos.x + width; }
+	inline float GetPosY() { return pos.y; }
+	inline float GetBottomY() { return pos.y + height; }
 	inline Merchant* GetMerchant() { return merchant; }
 
 protected:
@@ -30,6 +34,8 @@ protected:
 	float height;
 	sf::Vector2f pos;
 	Merchant* merchant;
+	sf::Texture* texture;
+	sf::Sprite* sprite;
 };
 
 
