@@ -10,3 +10,7 @@ public:
 	inline int GetNumberMerchantsType() { return numberMerchantsType; }
 };
 
+class settings
+{
+};
+

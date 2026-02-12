@@ -1,3 +1,25 @@
+<<<<<<< Updated upstream
 ﻿  HUD.cpp
 C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+=======
+﻿  AI_Mercant.cpp
+  BehaviorTree.cpp
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(54,19): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  HUD.cpp
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Settings.cpp
+  Shop.cpp
+  Button.cpp
+  MenuEnd.cpp
+  MenuStart.cpp
+  Pnj.cpp
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(128,2): warning C4102: 'Price': unreferenced label
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(177,2): warning C4102: 'Price': unreferenced label
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(225,2): warning C4102: 'Price': unreferenced label
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(274,2): warning C4102: 'Price': unreferenced label
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(323,2): warning C4102: 'Price': unreferenced label
+  GameDay.cpp
+  Training.cpp
+  Generating Code...
+>>>>>>> Stashed changes
   AI_Mercant.vcxproj -> C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
