@@ -53,3 +53,29 @@ void HUD::RenderText1(sf::RenderWindow& window) {
 	text1.setStyle(sf::Text::Bold); // Style
 	window.draw(text1);
 }
+
+void HUD::RecapText1(sf::RenderWindow& window) {
+
+	if (!font.openFromFile("arial.ttf")) {
+		std::cerr << "Error can't find font";
+	}
+
+	// Creation text
+	textRecap1.setPosition(sf::Vector2f(195, 215));
+	textRecap1.setFillColor(sf::Color::Black); // Couleur du texte
+	textRecap1.setStyle(sf::Text::Bold); // Style
+	window.draw(textRecap1);
+}
+
+void HUD::RecapText2(sf::RenderWindow& window) {
+
+	if (!font.openFromFile("arial.ttf")) {
+		std::cerr << "Error can't find font";
+	}
+
+	// Creation text
+	textRecap2.setPosition(sf::Vector2f(195, 315));
+	textRecap2.setFillColor(sf::Color::Black); // Couleur du texte
+	textRecap2.setStyle(sf::Text::Bold); // Style
+	window.draw(textRecap2);
+}

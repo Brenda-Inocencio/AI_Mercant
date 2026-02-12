@@ -1,2 +1,3 @@
-﻿  AI_Mercant.cpp
-  AI_Mercant.vcxproj -> C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
+﻿  HUD.cpp
+C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  AI_Mercant.vcxproj -> C:\repositoireDeProjetCPP\paralaxGame\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

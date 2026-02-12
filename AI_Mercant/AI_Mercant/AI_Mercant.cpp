@@ -38,6 +38,8 @@ int main() {
 
     sf::RectangleShape rect7 = Bakery::createRectangle(185.f, 215.f, sf::Color::Red, { 715.f, 385.f });
 
+    sf::RectangleShape rectConclusion = Shop::createRectangle(185.f, 215.f, sf::Color::Green, { 0.f, 0.f });
+
     HUD* hud = new HUD();
     MenuStart* menustart = new MenuStart();
     MenuEnd* menuend = new MenuEnd();
@@ -75,7 +77,7 @@ int main() {
         window.clear();
 
         // Draw the sprite
-        window.draw(sprite);
+        /*window.draw(sprite);
 
         //Draw the rectangle
         window.draw(rect);
@@ -88,13 +90,23 @@ int main() {
         window.draw(rect7);
         hud->Render(window, 0, 0.f); // 0 et 0.f a modifier representent respectivement le jour et le temps
         
+
         menustart->Render(window);
         //menuend->Render(window);
+
 
         //window.draw(sprite2);
 
         exit->Render(window);
         start->Render(window);
+        */
+
+        menuend->Render(window);
+        exit->Render(window);
+
+        hud->RecapText1(window);
+        hud->RecapText2(window);
+        
 
         // Update the window
         window.display();

@@ -19,6 +19,8 @@ public:
 
 
 	void Render(sf::RenderWindow& window, int d, float t);
+	void RecapText1(sf::RenderWindow& window);
+	void RecapText2(sf::RenderWindow& window);
 
 	~HUD() {};
 private:
@@ -27,11 +29,15 @@ private:
 	std::string time;
 	sf::Text text = sf::Text(font, "Day : ", 24);
 	sf::Text text1 = sf::Text(font, "Time : ", 24);
+	sf::Text textRecap1 = sf::Text(font, "Most benifits : ", 24);
+	sf::Text textRecap2 = sf::Text(font, "Most clients : ", 24);
 	sf::Text dayText = sf::Text(font, day, 24);
 	sf::Text timeText = sf::Text(font, time, 24);
 
 	void RenderText(sf::RenderWindow& window);
 	void RenderText1(sf::RenderWindow& window);
+
+	
 };
 
 #endif 
