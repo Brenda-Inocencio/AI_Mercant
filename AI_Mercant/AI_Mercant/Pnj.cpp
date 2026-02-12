@@ -6,10 +6,6 @@ Pnj::Pnj() {
 }
 
 Pnj::~Pnj() {
-	if (blackBoard) {
-		delete blackBoard;
-		blackBoard = nullptr;
-	}
 	if (behaviorTree) {
 		delete behaviorTree;
 		behaviorTree = nullptr;
@@ -37,12 +33,15 @@ sf::Vector2f Customer::SetPos(int position) {
 }
 
 //Customers
-Customer::Customer() : Customer(0) {
+Customer::Customer() : Customer(0, {}) {
 }
 
-Customer::Customer(int position) : cash(100), canBuy(false), inShop(false), width(12), height(24) { // cash en aleatoire?
+Customer::Customer(int position, const std::vector<Shop*>& shops) : cash(100), canBuy(false), inShop(false), 
+	width(12), height(24) { // cash en aleatoire?
 	//pos : 0 -> Top; 1 -> Left; 2 -> Right; 3 -> Bottom
 	blackBoard = new CustomerBlackBoard();
+	blackBoard->customer = this;
+	blackBoard->shops = shops;
 	behaviorTree = new CustomerBehaviorTree(blackBoard);
 	behaviorTree->BuildTree();
 	pos = SetPos(position);
@@ -63,6 +62,10 @@ Customer::~Customer() {
 		delete sprite;
 		sprite = nullptr;
 	}
+	if (blackBoard) {
+		delete blackBoard;
+		blackBoard = nullptr;
+	}
 }
 
 void Customer::Buy(Merchant* merchant, int sales) {
@@ -77,9 +80,10 @@ void Customer::SpendCash(Merchant* merchant, int sales) {
 	}
 }
 
-void Customer::MoveTo(Shop* shop, float dt) { // risque erreur de link
+void Customer::MoveToShop(Shop* shop, float dt) { 
 	if (!inShop) {
-		if (pos != shop->GetPosition()) {
+		if (!(pos.x >= shop->GetPosX() && pos.x + width <= shop->GetRightX() &&
+			pos.y >= shop->GetPosY() && pos.y + height <= shop->GetBottomY())) {
 			if (pos.x + width > shop->GetRightX()) {
 				pos.x -= SPEED * dt;
 				if (pos.x < shop->GetPosX()) {
@@ -89,30 +93,31 @@ void Customer::MoveTo(Shop* shop, float dt) { // risque erreur de link
 			else if (pos.x < shop->GetPosX()) {
 				pos.x += SPEED * dt;
 				if (pos.x + width > shop->GetRightX()) {
-					pos.x = shop->GetRightX();
+					pos.x = shop->GetRightX() - width;
 				}
 			}
 			if (pos.y + height > shop->GetBottomY()) {
-				pos.y -= SPEED * dt;
+				pos.y += SPEED * dt;
 				if (pos.y < shop->GetPosY()) {
 					pos.y = shop->GetPosY();
 				}
 			}
 			else if (pos.y < shop->GetPosY()) {
-				pos.y += SPEED * dt;
-				if (pos.y > shop->GetBottomY()) {
-					pos.y = shop->GetBottomY();
+				pos.y -= SPEED * dt;
+				if (pos.y + height > shop->GetBottomY()) {
+					pos.y = shop->GetBottomY()- height;
 				}
 			}
 		}
-		if (pos.x >= shop->GetPosX() && pos.x + width <= shop->GetRightX() &&
-			pos.y >= shop->GetPosY() && pos.y + height <= shop->GetBottomY()) {
+		if (pos.x + width >= shop->GetPosX() && pos.x <= shop->GetRightX() &&
+			pos.y + height >= shop->GetPosY() && pos.y <= shop->GetBottomY()) {
 			inShop = true;
 		}
 	}
 }
 
 void Customer::Render(sf::RenderWindow& window) {
+	sprite->setPosition(pos);
 	window.draw(*sprite);
 }
 
@@ -129,6 +134,10 @@ Merchant::~Merchant() {
 	if (Price) {
 		delete Price;
 		Price = nullptr;
+	}
+	if (blackBoard) {
+		delete blackBoard;
+		blackBoard = nullptr;
 	}
 }
 

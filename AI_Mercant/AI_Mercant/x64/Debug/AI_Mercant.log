@@ -1,2 +1,4 @@
-﻿  BehaviorTree.cpp
+﻿  Pnj.cpp
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(177,1): warning C4102: 'Price' : étiquette non référencée
+C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(33,1): warning C4715: 'Customer::SetPos' : les chemins de contrôle ne retournent pas tous une valeur
   AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe

@@ -16,7 +16,7 @@ public:
 	Shop();
 	Shop(sf::Vector2f position);
 
-	~Shop();
+	virtual ~Shop();
 
 	void Render(sf::RenderWindow& window);
 
@@ -26,8 +26,10 @@ public:
 	inline float GetPosY() { return pos.y; }
 	inline float GetBottomY() { return pos.y + height; }
 	inline Merchant* GetMerchant() { return merchant; }
+	virtual inline std::string String() { return shop; }
 
 protected:
+	std::string shop;
 	sf::Color color;
 	sf::RectangleShape rect;
 	float width;
@@ -45,7 +47,7 @@ public:
 	Bakery() = default;
 	Bakery(sf::Vector2f position);
 
-	~Bakery() {};
+	virtual ~Bakery() override {};
 
 };
 
@@ -54,7 +56,7 @@ public:
 	ButcherShop() = default;
 	ButcherShop(sf::Vector2f position);
 
-	~ButcherShop() {};
+	virtual ~ButcherShop() override {};
 
 };
 
@@ -63,7 +65,7 @@ public:
 	Coffee() = default;
 	Coffee(sf::Vector2f position);
 
-	~Coffee() {};
+	virtual ~Coffee() override {};
 
 };
 
@@ -72,7 +74,7 @@ public:
 	Pharmacy() = default;
 	Pharmacy(sf::Vector2f position);
 
-	~Pharmacy() {};
+	virtual ~Pharmacy() override {};
 
 };
 
@@ -81,7 +83,7 @@ public:
 	HairSalon() = default;
 	HairSalon(sf::Vector2f position);
 
-	~HairSalon() {};
+	virtual ~HairSalon() override {};
 
 };
 

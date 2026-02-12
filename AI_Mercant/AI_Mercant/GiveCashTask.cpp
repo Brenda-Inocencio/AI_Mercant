@@ -2,6 +2,8 @@
 #include <valarray>
 #include "BehaviorTree.h"
 #include "FlowNode.h"
+#include "Pnj.h"
+#include "Shop.h"
 
 GiveCashTask::GiveCashTask() : GiveCashTask(nullptr, nullptr) {
 }
@@ -16,8 +18,16 @@ void GiveCashTask::BeginExecute() {
 	CustomerBlackBoard* _blackBoard = static_cast<CustomerBlackBoard*>(GetBlackBoard());
 	if (_blackBoard != nullptr) {
 		customer = _blackBoard->customer;
-		merchant = _blackBoard->merchant;
+		shops = _blackBoard->shops;
 		cash = customer->GetCash();
+		if (customer->inShop) {
+			for (int i = 0; i < shops.size(); i++) {
+				if (customer->GetPosX() >= shops[i]->GetPosX() && customer->GetRightX() <= shops[i]->GetRightX() &&
+					customer->GetPosY() >= shops[i]->GetPosY() && customer->GetBottomY() <= shops[i]->GetBottomY()) {
+					merchant = shops[i]->GetMerchant();
+				}
+			}
+		}
 	}
 }
 

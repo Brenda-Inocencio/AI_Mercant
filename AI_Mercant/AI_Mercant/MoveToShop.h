@@ -7,6 +7,7 @@ class Shop;
 class MoveToShop : public TaskNode {
 	std::vector<Shop*> shops;
 	int shop;
+	bool chooseShop;
 	Customer* customer;
 	Merchant* merchant;
 public:

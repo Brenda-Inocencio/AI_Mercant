@@ -12,7 +12,8 @@ Game::Game() : state(Menu) {
 }
 
 void Game::Render(sf::RenderWindow& window, MenuStart* menuStart, Button* start, Button* exit, Button* settingsButton,
-    std::vector<Shop*>& shops, std::vector<Customer*> customers, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease) {
+    std::vector<Shop*>& shops, std::vector<Customer*>& customers, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, 
+    Setting* setting, Button* increase, Button* decrease) {
     switch (state) {
     case 0:
         menuStart->Render(window);
@@ -42,7 +43,7 @@ void Game::Render(sf::RenderWindow& window, MenuStart* menuStart, Button* start,
     }
 }
 
-void Game::Update(float dt, bool isRunning, bool isEnd, bool isSettings, std::vector<Customer*> customers) {
+void Game::Update(float dt, bool isRunning, bool isEnd, bool isSettings, std::vector<Customer*>& customers) {
     if (isRunning) {
         state = Running;
         for (int i = 0; i < customers.size(); i++) {

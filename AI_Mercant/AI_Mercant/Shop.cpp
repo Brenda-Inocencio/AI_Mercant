@@ -15,6 +15,7 @@ Shop::Shop(sf::Vector2f position) : pos(position), width(175.f), height(175.f) {
     sprite = new sf::Sprite(*texture);
     sprite->setPosition(position);
     sprite->setScale(sf::Vector2(2.f, 2.f));
+    shop = "Shop";
 }
 
 Shop::~Shop() {
@@ -38,6 +39,7 @@ void Shop::Render(sf::RenderWindow& window) {
 }
 
 Bakery::Bakery(sf::Vector2f position) {
+    shop = "Bakery";
     merchant = new Baker();
     color = sf::Color::Red;
     rect = sf::RectangleShape(sf::Vector2f(width, height));
@@ -61,6 +63,7 @@ ButcherShop::ButcherShop(sf::Vector2f position) {
     sprite = new sf::Sprite(*texture);
     sprite->setPosition(position);
     sprite->setScale(sf::Vector2(2.f, 2.f));
+    shop = "Butcher";
 }
 
 Coffee::Coffee(sf::Vector2f position) {
@@ -74,6 +77,7 @@ Coffee::Coffee(sf::Vector2f position) {
     sprite = new sf::Sprite(*texture);
     sprite->setPosition(position);
     sprite->setScale(sf::Vector2(2.f, 2.f));
+    shop = "Coffee";
 }
 
 Pharmacy::Pharmacy(sf::Vector2f position) {
@@ -87,6 +91,7 @@ Pharmacy::Pharmacy(sf::Vector2f position) {
     sprite = new sf::Sprite(*texture);
     sprite->setPosition(position);
     sprite->setScale(sf::Vector2(2.f, 2.f));
+    shop = "Pharmacy";
 }
 
 HairSalon::HairSalon(sf::Vector2f position) {
@@ -100,6 +105,7 @@ HairSalon::HairSalon(sf::Vector2f position) {
     sprite = new sf::Sprite(*texture);
     sprite->setPosition(position);
     sprite->setScale(sf::Vector2(2.f, 2.f));
+    shop = "HairSalon";
 }
 
 

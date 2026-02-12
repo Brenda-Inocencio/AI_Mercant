@@ -64,34 +64,47 @@ void MerchantBehaviorTree::BuildTree() {
     FallBack* fallBack1 = new FallBack(this, nullptr, {});
     root->child = fallBack1;
 
-    Sequence* sequence1 = new Sequence(this, fallBack1, {});
-    fallBack1->AddChild(sequence1);
+    //Morning
+    Sequence* morning = new Sequence(this, fallBack1, {});
+    fallBack1->AddChild(morning);
 
-    SellTask* task1 = new SellTask(this, sequence1);
-    sequence1->AddChild(task1);
+    //recup fournitures
 
-    GetCashTask* task2 = new GetCashTask(this, sequence1);
-    sequence1->AddChild(task2);
+    //Day
+    FallBack* day = new FallBack(this, fallBack1, {});
+    fallBack1->AddChild(day);
 
-    Sequence* sequence2 = new Sequence(this, fallBack1, {});
-    fallBack1->AddChild(sequence2);
+    Sequence* sequence1 = new Sequence(this, day, {});
+    day->AddChild(sequence1);
 
-    SpendCashTask* task3 = new SpendCashTask(this, sequence2);
-    sequence2->AddChild(task3);
+    SellTask* sell = new SellTask(this, sequence1);
+    sequence1->AddChild(sell);
 
-    BuyFurnituresTask* task4 = new BuyFurnituresTask(this, sequence2);
-    sequence2->AddChild(task4);
+    GetCashTask* getCash = new GetCashTask(this, sequence1);
+    sequence1->AddChild(getCash);
 
-    PauseTask* task5 = new PauseTask(this, fallBack1);
-    fallBack1->AddChild(task5);
+    PauseTask* pause = new PauseTask(this, day);
+    day->AddChild(pause);
 
-    allSubNodes.push_back(task1);
-    allSubNodes.push_back(task2);
+    Sequence* evening = new Sequence(this, fallBack1, {});
+    fallBack1->AddChild(evening);
+
+    SpendCashTask* spendCash = new SpendCashTask(this, evening);
+    evening->AddChild(spendCash);
+
+    BuyFurnituresTask* buyFurnitures = new BuyFurnituresTask(this, evening);
+    evening->AddChild(buyFurnitures);
+
+    //allSubNodes.push_back(getFurnitures);
+    allSubNodes.push_back(morning);
+    allSubNodes.push_back(sell);
+    allSubNodes.push_back(getCash);
     allSubNodes.push_back(sequence1);
-    allSubNodes.push_back(task3);
-    allSubNodes.push_back(task4);
-    allSubNodes.push_back(sequence2);
-    allSubNodes.push_back(task5);
+    allSubNodes.push_back(pause);
+    allSubNodes.push_back(day);
+    allSubNodes.push_back(spendCash);
+    allSubNodes.push_back(buyFurnitures);
+    allSubNodes.push_back(evening);
     allSubNodes.push_back(fallBack1);
 }
 
@@ -113,18 +126,18 @@ void CustomerBehaviorTree::BuildTree() {
     Sequence* sequence1 = new Sequence(this, fallBack1, {});
     fallBack1->AddChild(sequence1);
 
-    BuyTask* task1 = new BuyTask(this, sequence1);
-    sequence1->AddChild(task1);
+    BuyTask* buy = new BuyTask(this, sequence1);
+    sequence1->AddChild(buy);
 
-    GiveCashTask* task2 = new GiveCashTask(this, sequence1);
-    sequence1->AddChild(task2);
+    GiveCashTask* giveCash = new GiveCashTask(this, sequence1);
+    sequence1->AddChild(giveCash);
 
-    MoveToShop* task3 = new MoveToShop(this, fallBack1);
-    fallBack1->AddChild(task3);
+    MoveToShop* moveToShop = new MoveToShop(this, fallBack1);
+    fallBack1->AddChild(moveToShop);
 
-    allSubNodes.push_back(task1);
-    allSubNodes.push_back(task2);
+    allSubNodes.push_back(buy);
+    allSubNodes.push_back(giveCash);
     allSubNodes.push_back(sequence1);
-    allSubNodes.push_back(task3);
+    allSubNodes.push_back(moveToShop);
     allSubNodes.push_back(fallBack1);
 }

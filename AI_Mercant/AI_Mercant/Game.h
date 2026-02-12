@@ -21,8 +21,8 @@ public:
 	Game();
 	~Game() {};
 	void Render(sf::RenderWindow& window, MenuStart* menustart, Button* start, Button* exit, Button* settingsButton,
-		std::vector<Shop*>& shops, std::vector<Customer*> customers, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease);
-	void Update(float dt, bool isRunning, bool isEnd, bool isSettings, std::vector<Customer*> customers);
+		std::vector<Shop*>& shops, std::vector<Customer*>& customers, HUD* hud, sf::Sprite background, MenuEnd* menuEnd, Setting* setting, Button* increase, Button* decrease);
+	void Update(float dt, bool isRunning, bool isEnd, bool isSettings, std::vector<Customer*>& customers);
 	void CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f places);
 };
 

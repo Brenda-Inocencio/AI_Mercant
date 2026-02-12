@@ -38,7 +38,6 @@ public:
 class CustomerBlackBoard: public BlackBoard {
 public:
 	Customer* customer;
-	Merchant* merchant;
 	std::vector<Shop*> shops;
 };
 

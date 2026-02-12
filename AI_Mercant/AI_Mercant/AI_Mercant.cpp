@@ -29,7 +29,7 @@ int main() {
 
     // Load a sprite to display
     const sf::Texture texture("Background.png");
-    sf::Sprite sprite(texture);
+    sf::Sprite bg(texture);
 
     int nbMerchants = 8;
     int nbMerchantsType = 6;
@@ -51,9 +51,9 @@ int main() {
     
     std::vector<Customer*> customers;
 
-    for (int i = 0; i < 4; i++) { //TODO: 4 a canger en aleatoire
-        //int pos = GetRandomNumber(0, 3);
-        customers.push_back(new Customer(i));
+    for (int i = 0; i < 1; i++) { //TODO: 4 a canger en aleatoire
+        int pos = GetRandomNumber(0, 3);
+        customers.push_back(new Customer(pos, shops));
     }
 
     for (int i = 0; i < customers.size(); i++) {
@@ -126,7 +126,7 @@ int main() {
         game.Update(dt, isRunning, endSim, isSettings, customers);
         
         // Draw the sprite
-        game.Render(window, menustart, start, exit, settingsButton, shops, customers, hud, sprite, menuend, setting, increase, decrease);
+        game.Render(window, menustart, start, exit, settingsButton, shops, customers, hud, bg, menuend, setting, increase, decrease);
         
         // Update the window
         window.display();

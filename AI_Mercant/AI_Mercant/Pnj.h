@@ -2,18 +2,17 @@
 #include <SFML/Graphics.hpp>
 #include "Training.h"
 #include <vector>
-#include <string>
 
 #define SPEED 40
 
-class BlackBoard;
+class MerchantBlackBoard;
+class CustomerBlackBoard;
 class BehaviorTree;
 class Shop;
 
 class Pnj {
 protected:
 public:
-	BlackBoard* blackBoard;
 	BehaviorTree* behaviorTree;
 
 	Pnj();
@@ -28,6 +27,7 @@ protected:
 	int merchandise;
 	int salesNumber;
 	Training* Price;
+	MerchantBlackBoard* blackBoard;
 public:
 	bool canSell;
 	bool canBuy;
@@ -89,6 +89,7 @@ public:
 
 class Customer : public Pnj {
 protected:
+	CustomerBlackBoard* blackBoard;
 	sf::Texture* texture;
 	sf::Sprite* sprite;
 	sf::Vector2f pos;
@@ -102,11 +103,15 @@ public:
 	bool inShop;
 
 	Customer();
-	Customer(int position); 
+	Customer(int position, const std::vector<Shop*>& shops);
 	virtual ~Customer();
 	void Buy(Merchant* merchant, int sales);
 	void SpendCash(Merchant* merchant, int sales);
-	void MoveTo(Shop* shop, float dt);
+	void MoveToShop(Shop* shop, float dt);
 	void Render(sf::RenderWindow& window);
 	inline float GetCash() { return cash; }
+	inline float GetPosX() { return pos.x; }
+	inline float GetRightX() { return pos.x + width; }
+	inline float GetPosY() { return pos.y; }
+	inline float GetBottomY() { return pos.y + height; }
 };
