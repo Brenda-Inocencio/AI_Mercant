@@ -1,2 +1,21 @@
 ﻿  AI_Mercant.cpp
-  AI_Mercant.vcxproj -> C:\Users\tbrouillard\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
+  BehaviorTree.cpp
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\BehaviorTree.cpp(54,19): warning C4244: 'initialisation' : conversion de '__int64' en 'int', perte possible de données
+  Game.cpp
+  HUD.cpp
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Setting.cpp
+  Shop.cpp
+  Button.cpp
+  MenuEnd.cpp
+  MenuStart.cpp
+  Pnj.cpp
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(128,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(177,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(225,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(274,2): warning C4102: 'Price' : étiquette non référencée
+C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(323,2): warning C4102: 'Price' : étiquette non référencée
+  GameDay.cpp
+  Training.cpp
+  Génération de code en cours...
+  AI_Mercant.vcxproj -> C:\Users\theob\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
