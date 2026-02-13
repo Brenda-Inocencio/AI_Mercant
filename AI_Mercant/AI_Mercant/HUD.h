@@ -15,10 +15,10 @@ public:
 
 	// Update value
 	void Day(int d);
-	void Time(float t);
+	void Time(std::string t);
 
 
-	void Render(sf::RenderWindow& window, int d, float t);
+	void Render(sf::RenderWindow& window, int d, std::string t);
 
 	~HUD() {};
 private:

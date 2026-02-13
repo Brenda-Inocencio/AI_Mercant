@@ -6,8 +6,6 @@
 
 class Setting {
 
-    int numberMerchants;
-    int numberMerchantsType;
 
 public:
 
@@ -19,8 +17,8 @@ public:
 
     ~Setting();
 
-    inline int GetNumberMerchants() { return numberMerchants; }
-    inline int GetNumberMerchantsType() { return numberMerchantsType; }
+    int numberMerchants;
+    int numberMerchantsType;
 
 private:
     sf::Texture* image;

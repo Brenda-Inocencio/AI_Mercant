@@ -2,7 +2,7 @@
 #include <iostream>
 
 GameDay::GameDay()
-    : m_phase(DayPhase::Morning), m_phaseTimer(0.f), m_phaseDuration(60.f), day(0), dayTime("Morning") {
+    : m_phase(DayPhase::Morning), m_phaseTimer(0.f), m_phaseDuration(15.f), day(1), dayTime("Morning") {
 }
 
 void GameDay::Update(float dt) {
@@ -33,8 +33,18 @@ void GameDay::NextPhase() {
     m_phaseTimer = 0.f;
 
     switch (m_phase) {
-    case DayPhase::Morning: m_phase = DayPhase::Day; break;
-    case DayPhase::Day:     m_phase = DayPhase::Evening; break;
-    case DayPhase::Evening: m_phase = DayPhase::Morning; day += 1; break;
+    case DayPhase::Morning: {
+        m_phase = DayPhase::Day;
+        break;
+    }
+    case DayPhase::Day: {
+        m_phase = DayPhase::Evening;
+        break;
+    }
+    case DayPhase::Evening: {
+        m_phase = DayPhase::Morning;
+        day += 1;
+        break;
+    }
     }
 }

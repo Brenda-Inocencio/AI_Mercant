@@ -1,26 +1,2 @@
-﻿  AI_Mercant.cpp
-  BehaviorTree.cpp
-  BuyFurnituresTask.cpp
-  BuyTask.cpp
-  Game.cpp
-  GameDay.cpp
-  GetCashTask.cpp
-  HUD.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\HUD.cpp(23,6): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  MoveToExit.cpp
-  MoveToShop.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\MoveToShop.cpp(28,58): warning C4267: 'argument' : conversion de 'size_t' en '_Ty', perte possible de données
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\MoveToShop.cpp(28,58): warning C4267:         with
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\MoveToShop.cpp(28,58): warning C4267:         [
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\MoveToShop.cpp(28,58): warning C4267:             _Ty=int
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\MoveToShop.cpp(28,58): warning C4267:         ]
-  Node.cpp
-  PauseTask.cpp
-  Pnj.cpp
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(207,1): warning C4102: 'Price' : étiquette non référencée
-  SellTask.cpp
-  Shop.cpp
-  SpendCashTask.cpp
-  Génération de code en cours...
-C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\AI_Mercant\Pnj.cpp(34,1): warning C4715: 'Customer::SetPos' : les chemins de contrôle ne retournent pas tous une valeur
+﻿  GameDay.cpp
   AI_Mercant.vcxproj -> C:\Users\trole\OneDrive\Documents\GitHub\AI_Mercant\AI_Mercant\x64\Debug\AI_Mercant.exe
