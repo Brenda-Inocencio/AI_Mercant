@@ -13,7 +13,6 @@ Pnj::~Pnj() {
 	}
 }
 
-
 sf::Vector2f Customer::SetPos(int position) {
 	switch (position) {
 	case 0:
