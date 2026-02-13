@@ -7,6 +7,7 @@
 #include "GetCashTask.h"
 #include "SpendCashTask.h"
 #include "BuyFurnituresTask.h"
+#include "GetFurnitures.h"
 #include "PauseTask.h"
 #include "BuyTask.h"
 #include "MoveToShop.h"
@@ -68,7 +69,8 @@ void MerchantBehaviorTree::BuildTree() {
     Sequence* morning = new Sequence(this, fallBack1, {});
     fallBack1->AddChild(morning);
 
-    //recup fournitures
+    GetFurnitures* getFurnitures = new GetFurnitures(this, morning);
+    morning->AddChild(getFurnitures);
 
     //Day
     FallBack* day = new FallBack(this, fallBack1, {});
@@ -86,6 +88,7 @@ void MerchantBehaviorTree::BuildTree() {
     PauseTask* pause = new PauseTask(this, day);
     day->AddChild(pause);
 
+    //Evening
     Sequence* evening = new Sequence(this, fallBack1, {});
     fallBack1->AddChild(evening);
 
@@ -95,7 +98,8 @@ void MerchantBehaviorTree::BuildTree() {
     BuyFurnituresTask* buyFurnitures = new BuyFurnituresTask(this, evening);
     evening->AddChild(buyFurnitures);
 
-    //allSubNodes.push_back(getFurnitures);
+
+    allSubNodes.push_back(getFurnitures);
     allSubNodes.push_back(morning);
     allSubNodes.push_back(sell);
     allSubNodes.push_back(getCash);

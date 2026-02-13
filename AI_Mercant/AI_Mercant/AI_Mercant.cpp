@@ -80,12 +80,16 @@ int main() {
                     if (increase->GetPosX() <= static_cast<float>(mousePos.x) && increase->GetRightX() >= static_cast<float>(mousePos.x) &&
                         increase->GetPosY() <= static_cast<float>(mousePos.y) && increase->GetBottomY() >= static_cast<float>(mousePos.y)) {   
                         setting->numberMerchants += 1;
-                        std::cerr << "+1" << "\n";
+                        if (nbMerchants > 8) {
+                            nbMerchants = 8;
+                        }
                     }
                     else if (decrease->GetPosX() <= static_cast<float>(mousePos.x) && decrease->GetRightX() >= static_cast<float>(mousePos.x) &&
                         decrease->GetPosY() <= static_cast<float>(mousePos.y) && decrease->GetBottomY() >= static_cast<float>(mousePos.y)) {  
                         setting->numberMerchants  -= 1;
-                        std::cerr << "-1" << "\n";
+                        if (nbMerchants < 4) {
+                            nbMerchants = 4;
+                        }
                     }
                 }
             }

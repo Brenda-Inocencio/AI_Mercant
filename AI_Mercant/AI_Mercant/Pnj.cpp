@@ -149,15 +149,14 @@ void Customer::Render(sf::RenderWindow& window) {
 
 
 //Merchants
-Merchant::Merchant() : Merchant(nullptr, nullptr) {
+Merchant::Merchant() : Merchant(nullptr) {
 }
 
-Merchant::Merchant(Customer* customer, DayPhase* dayPhase) : cash(1000), price(3), merchandise(0), waitMerchandise(10), salesNumber(0), 
-	canBuy(false), client(false), canSell(false) { // price varible determiner par apprentissage
+Merchant::Merchant(GameDay* day) : cash(1000), price(3), merchandise(0), salesNumber(0),
+	canBuy(false), client(false), canSell(false) {
 	blackBoard = new MerchantBlackBoard();
 	blackBoard->merchant = this;
-	blackBoard->customer = customer;
-	blackBoard->dayPhase = dayPhase;
+	blackBoard->day = day;
 	behaviorTree = new MerchantBehaviorTree(blackBoard);
 	behaviorTree->BuildTree();
 	Price = nullptr;
@@ -176,8 +175,6 @@ Merchant::~Merchant() {
 
 void Merchant::Sell() {
 	if (merchandise - 1 >= 0) {
-		merchandise -= 1;
-		salesNumber += 1;
 		client = true;
 	}
 	else if (merchandise <= 0) {
@@ -185,22 +182,39 @@ void Merchant::Sell() {
 	}
 }
 
+void Merchant::SellMerchandise() {
+	if (client) {
+		merchandise -= 1;
+		salesNumber += 1;
+	}
+}
+
 void Merchant::Cash() {
 	cash += price;
+	client = false;
 }
 
 void Merchant::Order(int newFurnitures) {
 	if (cash - newFurnitures * 2 >= 0) {
-		cash -= newFurnitures * 2;
 		canBuy = true;
+	}
+	else {
+		canBuy = false;
 	}
 }
 
 void Merchant::SpendCash(int buyMerchandise) {
-	if (cash - buyMerchandise * price >= 0) {
-		cash -= buyMerchandise * price;
-		merchandise += buyMerchandise;
+	if (cash - buyMerchandise * 2 >= 0) {
+		cash -= buyMerchandise * 2;
+		canBuy = true;
 	}
+	else {
+		canBuy = false;
+	}
+}
+
+void Merchant::GetFurnitures(int buyMerchandise) {
+	merchandise += buyMerchandise;
 }
 
 void Merchant::UpdatePrice(int newPrice) {
@@ -208,37 +222,43 @@ Price: (new Training())->updateLeaning();
 }
 
 
-Saler::Saler() {
+Saler::Saler(GameDay* day) {
+	blackBoard->day = day;
 }
 Saler::~Saler() {
 }
 
 
-Baker::Baker() {
+Baker::Baker(GameDay* day) {
+	blackBoard->day = day;
 }
 Baker::~Baker() {
 }
 
 
-Butcher::Butcher() {
+Butcher::Butcher(GameDay* day) {
+	blackBoard->day = day;
 }
 Butcher::~Butcher() {
 }
 
 
-Waiter::Waiter() {
+Waiter::Waiter(GameDay* day) {
+	blackBoard->day = day;
 }
 Waiter::~Waiter() {
 }
 
 
-Pharmacist::Pharmacist() {
+Pharmacist::Pharmacist(GameDay* day) {
+	blackBoard->day = day;
 }
 Pharmacist::~Pharmacist() {
 }
 
 
-Hairdressers::Hairdressers() {
+Hairdressers::Hairdressers(GameDay* day) {
+	blackBoard->day = day;
 }
 Hairdressers::~Hairdressers() {
 }

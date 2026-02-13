@@ -1,9 +1,13 @@
 #pragma once
 #include "TaskNode.h"
-#include "Pnj.h"
+
+class Merchant;
+class GameDay;
 
 class SellTask : public TaskNode {
 	Merchant* merchant;
+	GameDay* day;
+	int merchandise;
 public:
 	SellTask();
 	SellTask(BehaviorTree* tree, FlowNode* nodeParent);

@@ -9,12 +9,13 @@
 //==================
 
 class Merchant;
+class GameDay;
 
 class Shop {
 public:
 
 	Shop();
-	Shop(sf::Vector2f position);
+	Shop(sf::Vector2f position, GameDay* day);
 
 	virtual ~Shop();
 
@@ -25,15 +26,12 @@ public:
 	inline float GetRightX() { return pos.x + width; }
 	inline float GetPosY() { return pos.y; }
 	inline float GetBottomY() { return pos.y + height; }
-	inline Merchant* GetMerchant() { return merchant; }
+	Merchant* merchant;
 
 protected:
-	sf::Color color;
-	sf::RectangleShape rect;
 	float width;
 	float height;
 	sf::Vector2f pos;
-	Merchant* merchant;
 	sf::Texture* texture;
 	sf::Sprite* sprite;
 };
@@ -43,7 +41,7 @@ class Bakery : public Shop {
 public:
 
 	Bakery() = default;
-	Bakery(sf::Vector2f position);
+	Bakery(sf::Vector2f position, GameDay* day);
 
 	virtual ~Bakery() override {};
 
@@ -52,7 +50,7 @@ public:
 class ButcherShop : public Shop {
 public:
 	ButcherShop() = default;
-	ButcherShop(sf::Vector2f position);
+	ButcherShop(sf::Vector2f position, GameDay* day);
 
 	virtual ~ButcherShop() override {};
 
@@ -61,7 +59,7 @@ public:
 class Coffee : public Shop {
 public:
 	Coffee() = default;
-	Coffee(sf::Vector2f position);
+	Coffee(sf::Vector2f position, GameDay* day);
 
 	virtual ~Coffee() override {};
 
@@ -70,7 +68,7 @@ public:
 class Pharmacy : public Shop {
 public:
 	Pharmacy() = default;
-	Pharmacy(sf::Vector2f position);
+	Pharmacy(sf::Vector2f position, GameDay* day);
 
 	virtual ~Pharmacy() override {};
 
@@ -79,7 +77,7 @@ public:
 class HairSalon : public Shop {
 public:
 	HairSalon() = default;
-	HairSalon(sf::Vector2f position);
+	HairSalon(sf::Vector2f position, GameDay* day);
 
 	virtual ~HairSalon() override {};
 

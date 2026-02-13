@@ -1,10 +1,13 @@
 #pragma once
 #include "TaskNode.h"
-#include "Pnj.h"
+
+class Merchant;
+class GameDay;
 
 class GetCashTask : public TaskNode {
 	float cash;
 	Merchant* merchant;
+	GameDay* day;
 public:
 	GetCashTask();
 	GetCashTask(BehaviorTree* tree, FlowNode* nodeParent);

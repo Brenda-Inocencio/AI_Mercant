@@ -33,8 +33,7 @@ protected:
 class MerchantBlackBoard : public BlackBoard {
 public:
 	Merchant* merchant;
-	Customer* customer;
-	DayPhase* dayPhase;
+	GameDay* day;
 };
 
 class CustomerBlackBoard: public BlackBoard {

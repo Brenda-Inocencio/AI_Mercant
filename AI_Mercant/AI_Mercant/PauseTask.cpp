@@ -13,6 +13,10 @@ PauseTask::~PauseTask() {
 }
 
 void PauseTask::BeginExecute() {
+	MerchantBlackBoard* _blackBoard = static_cast<MerchantBlackBoard*>(GetBlackBoard());
+	if (_blackBoard != nullptr) {
+		day = _blackBoard->day;
+	}
 }
 
 void PauseTask::Tick(float dt) {
@@ -21,7 +25,7 @@ void PauseTask::Tick(float dt) {
 }
 
 void PauseTask::EndExecute() {
-	if (true) {
+	if (day->m_phase == DayPhase::Day) {
 		parent->OnChildEnd(ENodeState::Success);
 	}
 	else {

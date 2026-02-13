@@ -10,7 +10,7 @@ class CustomerBlackBoard;
 class BehaviorTree;
 class Shop;
 class Customer;
-enum class DayPhase;
+class GameDay;
 
 class Pnj {
 public:
@@ -26,7 +26,6 @@ protected:
 	float cash;
 	float price;
 	int merchandise;
-	int waitMerchandise;
 	int salesNumber;
 	Training* Price;
 	MerchantBlackBoard* blackBoard;
@@ -36,12 +35,14 @@ public:
 	bool canBuy;
 public:
 	Merchant();
-	Merchant(Customer* customer, DayPhase* dayPhase);
+	Merchant(GameDay* day);
 	virtual ~Merchant();
 	virtual void Sell();
+	virtual void SellMerchandise();
 	virtual void Cash();
 	virtual void Order(int newFurnitures);
 	virtual void SpendCash(int buyMerchandise);
+	virtual void GetFurnitures(int buyMerchandise);
 	virtual void UpdatePrice(int newPrice);
 	inline virtual float GetPrice() { return price; }
 	inline virtual float GetCash() { return cash; }
@@ -51,42 +52,42 @@ public:
 class Saler : public Merchant { 
 protected:
 public:
-	Saler();
+	Saler(GameDay* day);
 	virtual ~Saler();
 };
 
 class Baker : public Merchant {
 protected:
 public:
-	Baker();
+	Baker(GameDay* day);
 	virtual ~Baker();
 };
 
 class Butcher : public Merchant {
 protected:
 public:
-	Butcher();
+	Butcher(GameDay* day);
 	virtual ~Butcher();
 };
 
 class Waiter : public Merchant {
 protected:
 public:
-	Waiter();
+	Waiter(GameDay* day);
 	virtual ~Waiter();
 };
 
 class Pharmacist : public Merchant {
 protected:
 public:
-	Pharmacist();
+	Pharmacist(GameDay* day);
 	virtual ~Pharmacist();
 };
 
 class Hairdressers : public Merchant {
 protected:
 public:
-	Hairdressers();
+	Hairdressers(GameDay* day);
 	virtual ~Hairdressers();
 };
 

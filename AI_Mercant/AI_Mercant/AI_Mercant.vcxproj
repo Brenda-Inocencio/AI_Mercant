@@ -148,6 +148,7 @@
     <ClCompile Include="FlowNode.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GetCashTask.cpp" />
+    <ClCompile Include="GetFurnitures.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="MenuEnd.cpp" />
     <ClCompile Include="MenuStart.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameDay.h" />
     <ClInclude Include="GetCashTask.h" />
+    <ClInclude Include="GetFurnitures.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="MenuEnd.h" />
     <ClInclude Include="MenuStart.h" />

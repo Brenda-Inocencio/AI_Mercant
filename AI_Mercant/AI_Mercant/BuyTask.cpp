@@ -23,7 +23,7 @@ void BuyTask::BeginExecute() {
 			for (int i = 0; i < shops.size(); i++) {
 				if (customer->GetRightX() >= shops[i]->GetPosX() && customer->GetPosX() <= shops[i]->GetRightX() &&
 					customer->GetBottomY() >= shops[i]->GetPosY() && customer->GetPosY() <= shops[i]->GetBottomY()) {
-					merchant = shops[i]->GetMerchant();
+					merchant = shops[i]->merchant;
 				}
 			}
 		}

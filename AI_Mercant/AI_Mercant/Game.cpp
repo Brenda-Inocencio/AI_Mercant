@@ -53,16 +53,22 @@ void Game::Update(float dt, float gameTime, bool isRunning, bool isEnd, bool isS
     GameDay* gameDay, Setting* setting, std::vector<sf::Vector2f>& places, std::vector<Shop*>& shops) {
     if (isRunning) {
         state = Running;
-        if (!isShopCreate) {
+        if (!isShopCreate) { // enter 1 time
             size_t maxShops = std::min(setting->numberMerchants, static_cast<int>(places.size()));
 
             for (size_t i = 0; i < maxShops; i++) {
                 int randomShop = GetRandomNumber(0, setting->numberMerchantsType - 1);
-                CreateShop(shops, randomShop, places[i]);
+                CreateShop(shops, randomShop, places[i], gameDay);
+            }
+            for (size_t i = 0; i < shops.size(); i++) {
+                shops[i]->merchant->behaviorTree->BeginExecute();
             }
             isShopCreate = true;
         }
         gameDay->Update(dt);
+        for (size_t i = 0; i < shops.size(); i++) {
+            shops[i]->merchant->behaviorTree->Tick(dt);
+        }
         if (gameDay->m_phase == DayPhase::Day) {
             if (gameTime - spawnCooldown >= 3.f) {
                 canSpawn = true;
@@ -89,37 +95,37 @@ void Game::Update(float dt, float gameTime, bool isRunning, bool isEnd, bool isS
     }
 }
 
-void Game::CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f placeIndex) {
+void Game::CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f placeIndex, GameDay* gameDay) {
     switch (shop) {
     case 0: {
-        shops.push_back(new Shop(placeIndex));
+        shops.push_back(new Shop(placeIndex, gameDay));
         break;
     }
     case 1: {
-        shops.push_back(new Bakery(placeIndex));
+        shops.push_back(new Bakery(placeIndex, gameDay));
         break;
     }
     case 2: {
-        shops.push_back(new ButcherShop(placeIndex));
+        shops.push_back(new ButcherShop(placeIndex, gameDay));
         break;
     }
     case 3: {
-        shops.push_back(new Coffee(placeIndex));
+        shops.push_back(new Coffee(placeIndex, gameDay));
         break;
     }
     case 4: {
-        shops.push_back(new Pharmacy(placeIndex));
+        shops.push_back(new Pharmacy(placeIndex, gameDay));
         break;
     }
     case 5: {
-        shops.push_back(new HairSalon(placeIndex));
+        shops.push_back(new HairSalon(placeIndex, gameDay));
         break;
     }
     }
 }
 
 void Game::CreateCustomer(std::vector<Shop*>& shops, std::vector<Customer*>& customers) {
-    for (int i = 0; i < 1; i++) { //TODO: 4 a canger en aleatoire
+    for (int i = 0; i < 1; i++) { 
         int pos = GetRandomNumber(0, 3);
         customers.push_back(new Customer(pos, shops));
     }
