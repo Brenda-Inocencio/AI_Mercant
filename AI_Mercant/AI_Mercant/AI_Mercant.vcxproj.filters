@@ -64,6 +64,9 @@
     <ClCompile Include="MoveToExit.cpp">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClCompile>
+    <ClCompile Include="GetFurnitures.cpp">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameDay.h" />
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="MoveToExit.h">
       <Filter>BehaviorTree\CustomerTasks</Filter>
+    </ClInclude>
+    <ClInclude Include="GetFurnitures.h">
+      <Filter>BehaviorTree\MerchantTasks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
