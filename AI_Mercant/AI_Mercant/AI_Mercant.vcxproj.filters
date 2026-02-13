@@ -58,10 +58,10 @@
     <ClCompile Include="BuyTask.cpp">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClCompile>
-    <ClCompile Include="GiveCashTask.cpp">
+    <ClCompile Include="MoveToShop.cpp">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClCompile>
-    <ClCompile Include="MoveToShop.cpp">
+    <ClCompile Include="MoveToExit.cpp">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,10 +122,10 @@
     <ClInclude Include="BuyTask.h">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClInclude>
-    <ClInclude Include="GiveCashTask.h">
+    <ClInclude Include="MoveToShop.h">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClInclude>
-    <ClInclude Include="MoveToShop.h">
+    <ClInclude Include="MoveToExit.h">
       <Filter>BehaviorTree\CustomerTasks</Filter>
     </ClInclude>
   </ItemGroup>

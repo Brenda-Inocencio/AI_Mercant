@@ -1,6 +1,7 @@
 #include "Pnj.h"
 #include "Shop.h"
 #include "BehaviorTree.h"
+#include "GameDay.h"
 
 Pnj::Pnj() {
 }
@@ -36,17 +37,16 @@ sf::Vector2f Customer::SetPos(int position) {
 Customer::Customer() : Customer(0, {}) {
 }
 
-Customer::Customer(int position, const std::vector<Shop*>& shops) : cash(100), canBuy(false), inShop(false), 
-	width(12), height(24) { // cash en aleatoire?
-	//pos : 0 -> Top; 1 -> Left; 2 -> Right; 3 -> Bottom
+//position : 0 -> Top; 1 -> Left; 2 -> Right; 3 -> Bottom
+Customer::Customer(int position, const std::vector<Shop*>& shops) : inShop(false), width(12), height(24), exit(false) { 
 	blackBoard = new CustomerBlackBoard();
 	blackBoard->customer = this;
 	blackBoard->shops = shops;
 	behaviorTree = new CustomerBehaviorTree(blackBoard);
 	behaviorTree->BuildTree();
+
 	pos = SetPos(position);
 	
-
 	texture = new sf::Texture("Gars1.png");
 	sprite = new sf::Sprite(*texture);
 	sprite->setPosition(pos);
@@ -68,17 +68,10 @@ Customer::~Customer() {
 	}
 }
 
-void Customer::Buy(Merchant* merchant, int sales) {
-	if (cash - merchant->GetPrice() * sales >= 0) {
-		canBuy = true;
-	}
+void Customer::Buy(Merchant* merchant) {
+	merchant->Sell();
 }
 
-void Customer::SpendCash(Merchant* merchant, int sales) {
-	if (cash - merchant->GetPrice() * sales >= 0) {
-		cash -= merchant->GetPrice() * sales;
-	}
-}
 
 void Customer::MoveToShop(Shop* shop, float dt) { 
 	if (!inShop) {
@@ -98,13 +91,13 @@ void Customer::MoveToShop(Shop* shop, float dt) {
 			}
 			if (pos.y + height > shop->GetBottomY()) {
 				pos.y += SPEED * dt;
-				if (pos.y < shop->GetPosY()) {
+				if (pos.y > shop->GetPosY()) {
 					pos.y = shop->GetPosY();
 				}
 			}
 			else if (pos.y < shop->GetPosY()) {
 				pos.y -= SPEED * dt;
-				if (pos.y + height > shop->GetBottomY()) {
+				if (pos.y + height < shop->GetBottomY()) {
 					pos.y = shop->GetBottomY()- height;
 				}
 			}
@@ -116,6 +109,39 @@ void Customer::MoveToShop(Shop* shop, float dt) {
 	}
 }
 
+void Customer::MoveToExit(int posistion, float dt) {
+	dest = SetPos(posistion);
+	if (pos != dest) {
+		if (pos.x > dest.x) {
+			pos.x -= SPEED * dt;
+			if (pos.x < dest.x) {
+				pos.x = dest.x;
+			}
+		}
+		else if (pos.x < dest.x) {
+			pos.x += SPEED * dt;
+			if (pos.x + width > dest.x) {
+				pos.x = dest.x;
+			}
+		}
+		if (pos.y > dest.y) {
+			pos.y += SPEED * dt;
+			if (pos.y > dest.y) {
+				pos.y = dest.y;
+			}
+		}
+		else if (pos.y < dest.y) {
+			pos.y -= SPEED * dt;
+			if (pos.y < dest.y) {
+				pos.y = dest.y;
+			}
+		}
+	}
+	if (pos == dest) {
+		exit = true;
+	}
+}
+
 void Customer::Render(sf::RenderWindow& window) {
 	sprite->setPosition(pos);
 	window.draw(*sprite);
@@ -123,8 +149,15 @@ void Customer::Render(sf::RenderWindow& window) {
 
 
 //Merchants
-Merchant::Merchant() : cash(1000), price(3), merchandise(0), salesNumber(0), canBuy(false), canSell(false) { // price varible determiner par apprentissage
+Merchant::Merchant() : Merchant(nullptr, nullptr) {
+}
+
+Merchant::Merchant(Customer* customer, DayPhase* dayPhase) : cash(1000), price(3), merchandise(0), waitMerchandise(10), salesNumber(0), 
+	canBuy(false), client(false), canSell(false) { // price varible determiner par apprentissage
 	blackBoard = new MerchantBlackBoard();
+	blackBoard->merchant = this;
+	blackBoard->customer = customer;
+	blackBoard->dayPhase = dayPhase;
 	behaviorTree = new MerchantBehaviorTree(blackBoard);
 	behaviorTree->BuildTree();
 	Price = nullptr;
@@ -141,28 +174,25 @@ Merchant::~Merchant() {
 	}
 }
 
-void Merchant::Sell(int sales) {
-	if (merchandise - sales >= 0) {
-		merchandise -= sales;
-		salesNumber += sales;
-		canSell = true;
+void Merchant::Sell() {
+	if (merchandise - 1 >= 0) {
+		merchandise -= 1;
+		salesNumber += 1;
+		client = true;
 	}
 	else if (merchandise <= 0) {
 		canSell = false;
 	}
 }
 
-void Merchant::Cash(int sellMerchandise) {
-	cash += sellMerchandise * price;
+void Merchant::Cash() {
+	cash += price;
 }
 
 void Merchant::Order(int newFurnitures) {
-	if (cash - newFurnitures * price >= 0) {
-		cash -= newFurnitures * price;
+	if (cash - newFurnitures * 2 >= 0) {
+		cash -= newFurnitures * 2;
 		canBuy = true;
-	}
-	else {
-		canBuy = false;
 	}
 }
 

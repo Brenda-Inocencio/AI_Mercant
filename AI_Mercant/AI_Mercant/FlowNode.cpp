@@ -19,7 +19,6 @@ void FlowNode::OnChildEnd(ENodeState childResult) {
 		else {
 			currentExecuteChild = nullptr;
 		}
-
 	}
 }
 

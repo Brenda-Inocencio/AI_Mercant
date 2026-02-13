@@ -21,8 +21,8 @@ void BuyTask::BeginExecute() {
 		shops = _blackBoard->shops;
 		if (customer->inShop) {
 			for (int i = 0; i < shops.size(); i++) {
-				if (customer->GetPosX() >= shops[i]->GetPosX() && customer->GetRightX() <= shops[i]->GetRightX() &&
-					customer->GetPosY() >= shops[i]->GetPosY() && customer->GetBottomY() <= shops[i]->GetBottomY()) {
+				if (customer->GetRightX() >= shops[i]->GetPosX() && customer->GetPosX() <= shops[i]->GetRightX() &&
+					customer->GetBottomY() >= shops[i]->GetPosY() && customer->GetPosY() <= shops[i]->GetBottomY()) {
 					merchant = shops[i]->GetMerchant();
 				}
 			}
@@ -33,15 +33,13 @@ void BuyTask::BeginExecute() {
 void BuyTask::Tick(float dt) {
 	TaskNode::Tick(dt);
 	if (customer->inShop) {
-		if (customer->canBuy) {
-			customer->Buy(merchant, 1); // 1 = le nb de marchandise achetees
-		}
+		customer->Buy(merchant); 
 	}
 	EndExecute();
 }
 
 void BuyTask::EndExecute() {
-	if (customer->canBuy) {
+	if (customer->inShop) {
 		parent->OnChildEnd(ENodeState::Success);
 	}
 	else {

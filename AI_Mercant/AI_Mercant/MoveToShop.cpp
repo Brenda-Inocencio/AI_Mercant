@@ -1,10 +1,10 @@
 #include "MoveToShop.h"
 #include <valarray>
 #include <random>
-#include <iostream>
 #include "BehaviorTree.h"
 #include "FlowNode.h"
 #include "Shop.h"
+#include "Pnj.h"
 
 MoveToShop::MoveToShop() : MoveToShop(nullptr, nullptr){ 
 }
@@ -28,8 +28,6 @@ void MoveToShop::BeginExecute() {
 		std::uniform_int_distribution<int> dis(0, shops.size() - 1);
 		shop = dis(m_gen);
 		chooseShop = true;
-		std::cout << shops[shop]->String() << "\n";
-		std::cout << shops[shop]->GetPosX() << shops[shop]->GetPosY();
 	}
 
 }

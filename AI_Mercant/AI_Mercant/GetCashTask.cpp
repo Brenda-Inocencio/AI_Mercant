@@ -23,7 +23,7 @@ void GetCashTask::BeginExecute() {
 void GetCashTask::Tick(float dt) {
 	TaskNode::Tick(dt);
 	if (merchant->canSell) {
-		merchant->Cash(1); // 1 = le nb de marchandise vendues
+		merchant->Cash();
 	}
 	EndExecute();
 }

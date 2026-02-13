@@ -26,10 +26,8 @@ public:
 	inline float GetPosY() { return pos.y; }
 	inline float GetBottomY() { return pos.y + height; }
 	inline Merchant* GetMerchant() { return merchant; }
-	virtual inline std::string String() { return shop; }
 
 protected:
-	std::string shop;
 	sf::Color color;
 	sf::RectangleShape rect;
 	float width;

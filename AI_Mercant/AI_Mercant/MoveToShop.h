@@ -1,8 +1,10 @@
 #pragma once
 #include "TaskNode.h"
-#include "Pnj.h"
+#include <vector>
 
 class Shop;
+class Merchant;
+class Customer;
 
 class MoveToShop : public TaskNode {
 	std::vector<Shop*> shops;

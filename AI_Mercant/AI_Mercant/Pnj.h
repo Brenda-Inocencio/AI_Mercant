@@ -9,9 +9,10 @@ class MerchantBlackBoard;
 class CustomerBlackBoard;
 class BehaviorTree;
 class Shop;
+class Customer;
+enum class DayPhase;
 
 class Pnj {
-protected:
 public:
 	BehaviorTree* behaviorTree;
 
@@ -25,17 +26,20 @@ protected:
 	float cash;
 	float price;
 	int merchandise;
+	int waitMerchandise;
 	int salesNumber;
 	Training* Price;
 	MerchantBlackBoard* blackBoard;
 public:
 	bool canSell;
+	bool client;
 	bool canBuy;
 public:
 	Merchant();
+	Merchant(Customer* customer, DayPhase* dayPhase);
 	virtual ~Merchant();
-	virtual void Sell(int sales);
-	virtual void Cash(int sellMerchandise);
+	virtual void Sell();
+	virtual void Cash();
 	virtual void Order(int newFurnitures);
 	virtual void SpendCash(int buyMerchandise);
 	virtual void UpdatePrice(int newPrice);
@@ -93,23 +97,22 @@ protected:
 	sf::Texture* texture;
 	sf::Sprite* sprite;
 	sf::Vector2f pos;
+	sf::Vector2f dest;
 	float width;
 	float height;
-	float cash;
 
 	sf::Vector2f SetPos(int position);
 public:
-	bool canBuy;
 	bool inShop;
+	bool exit;
 
 	Customer();
 	Customer(int position, const std::vector<Shop*>& shops);
 	virtual ~Customer();
-	void Buy(Merchant* merchant, int sales);
-	void SpendCash(Merchant* merchant, int sales);
+	void Buy(Merchant* merchant);
 	void MoveToShop(Shop* shop, float dt);
-	void Render(sf::RenderWindow& window);
-	inline float GetCash() { return cash; }
+	void MoveToExit(int posistion, float dt);
+	void Render(sf::RenderWindow& window); 
 	inline float GetPosX() { return pos.x; }
 	inline float GetRightX() { return pos.x + width; }
 	inline float GetPosY() { return pos.y; }

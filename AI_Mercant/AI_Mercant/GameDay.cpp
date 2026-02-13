@@ -2,39 +2,34 @@
 #include <iostream>
 
 GameDay::GameDay()
-    : m_phase(DayPhase::Morning),
-    m_phaseTimer(0.f),
-    m_phaseDuration(60.f) {
-    day = 0;
+    : m_phase(DayPhase::Morning), m_phaseTimer(0.f), m_phaseDuration(60.f), day(0), dayTime("Morning") {
 }
 
-void GameDay::update(float dt) {
+void GameDay::Update(float dt) {
     m_phaseTimer += dt;
 
     switch (m_phase) {
-    case DayPhase::Morning: updateMorning(dt); break;
-    case DayPhase::Day:     updateDay(dt);     break;
-    case DayPhase::Evening: updateEvening(dt); break;
+    case DayPhase::Morning: {
+        dayTime = "Morning";
+        break;
+    }
+    case DayPhase::Day: {
+        dayTime = "Day";
+        break;
+    }
+    case DayPhase::Evening: {
+        dayTime = "Evening";
+        break;
+    }
+    default:
+        break;
     }
 
     if (m_phaseTimer >= m_phaseDuration)
-        nextPhase();
+        NextPhase();
 }
 
-
-void GameDay::updateMorning(float dt) {
-    std::cout << "Phase : Matin\n";
-}
-
-void GameDay::updateDay(float dt) {
-    std::cout << "Phase : Journée\n";
-}
-
-void GameDay::updateEvening(float dt) {
-    std::cout << "Phase : Soir\n";
-}
-
-void GameDay::nextPhase() {
+void GameDay::NextPhase() {
     m_phaseTimer = 0.f;
 
     switch (m_phase) {

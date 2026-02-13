@@ -2,6 +2,7 @@
 #define GAME_IA_
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 enum class DayPhase { Morning, Day, Evening };
 
@@ -10,20 +11,19 @@ public:
     GameDay();
 
     // Appelé depuis ton main
-    void update(float dt);
+    void Update(float dt);
     DayPhase m_phase;
     inline int GetDay() { return day; }
+    inline std::string GetTime() { return dayTime; }
 
 private:
-    void updateMorning(float dt);
-    void updateDay(float dt);
-    void updateEvening(float dt);
-    void nextPhase();
+    void NextPhase();
 
 private:
     float m_phaseTimer;
     float m_phaseDuration;
     int day;
+    std::string dayTime;
 };
 
 #endif

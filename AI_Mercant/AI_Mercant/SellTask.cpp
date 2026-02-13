@@ -21,7 +21,7 @@ void SellTask::BeginExecute() {
 
 void SellTask::Tick(float dt) {
 	TaskNode::Tick(dt);
-	merchant->Sell(1); //1 = le nb de marchandise vendues
+	merchant->Sell(); 
 	EndExecute();
 }
 

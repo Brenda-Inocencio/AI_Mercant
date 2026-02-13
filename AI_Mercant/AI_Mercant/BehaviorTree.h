@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Pnj.h"
+#include "GameDay.h"
 
 class RootNode;
 class BaseNode;
@@ -33,6 +34,7 @@ class MerchantBlackBoard : public BlackBoard {
 public:
 	Merchant* merchant;
 	Customer* customer;
+	DayPhase* dayPhase;
 };
 
 class CustomerBlackBoard: public BlackBoard {

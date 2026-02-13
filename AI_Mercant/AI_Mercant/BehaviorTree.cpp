@@ -9,8 +9,8 @@
 #include "BuyFurnituresTask.h"
 #include "PauseTask.h"
 #include "BuyTask.h"
-#include "GiveCashTask.h"
 #include "MoveToShop.h"
+#include "MoveToExit.h"
 
 BehaviorTree::BehaviorTree() : BehaviorTree(nullptr) {
 
@@ -129,14 +129,14 @@ void CustomerBehaviorTree::BuildTree() {
     BuyTask* buy = new BuyTask(this, sequence1);
     sequence1->AddChild(buy);
 
-    GiveCashTask* giveCash = new GiveCashTask(this, sequence1);
-    sequence1->AddChild(giveCash);
+    MoveToExit* moveToExit = new MoveToExit(this, sequence1);
+    sequence1->AddChild(moveToExit);
 
     MoveToShop* moveToShop = new MoveToShop(this, fallBack1);
     fallBack1->AddChild(moveToShop);
 
     allSubNodes.push_back(buy);
-    allSubNodes.push_back(giveCash);
+    allSubNodes.push_back(moveToExit);
     allSubNodes.push_back(sequence1);
     allSubNodes.push_back(moveToShop);
     allSubNodes.push_back(fallBack1);
