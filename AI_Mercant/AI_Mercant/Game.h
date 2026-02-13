@@ -30,7 +30,7 @@ public:
 	void Update(float dt, float gameTime, bool isRunning, bool isEnd, bool isSettings, std::vector<Customer*>& customers,
 		GameDay* gameDay, Setting* setting, std::vector<sf::Vector2f>& places, std::vector<Shop*>& shops);
 	void CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f places);
-	void CreateCustomer(std::vector<Shop*>& shops, int pos, std::vector<Customer*>& customers);
+	void CreateCustomer(std::vector<Shop*>& shops, std::vector<Customer*>& customers);
 	int GetRandomNumber(int min, int max);
 };
 

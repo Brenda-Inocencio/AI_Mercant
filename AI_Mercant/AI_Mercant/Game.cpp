@@ -27,7 +27,9 @@ void Game::Render(sf::RenderWindow& window, MenuStart* menuStart, Button* start,
         window.draw(background);
         if (gameDay->m_phase == DayPhase::Day) {
             for (int i = 0; i < customers.size(); i++) {
-                customers[i]->Render(window);
+                if (!customers[i]->exit) {
+                    customers[i]->Render(window);
+                }
             }
         }
         for (int i = 0; i < shops.size(); i++) {
@@ -62,11 +64,13 @@ void Game::Update(float dt, float gameTime, bool isRunning, bool isEnd, bool isS
         }
         gameDay->Update(dt);
         if (gameDay->m_phase == DayPhase::Day) {
-            if (gameTime - spawnCooldown >= 1.f) {
+            if (gameTime - spawnCooldown >= 3.f) {
                 canSpawn = true;
             }
             if (canSpawn) {
+                CreateCustomer(shops, customers);
                 spawnCooldown = gameTime;
+                canSpawn = false;
             }
             for (int i = 0; i < customers.size(); i++) {
                 customers[i]->behaviorTree->Tick(dt);
@@ -114,7 +118,7 @@ void Game::CreateShop(std::vector<Shop*>& shops, int shop, sf::Vector2f placeInd
     }
 }
 
-void Game::CreateCustomer(std::vector<Shop*>& shops, int pos, std::vector<Customer*>& customers) {
+void Game::CreateCustomer(std::vector<Shop*>& shops, std::vector<Customer*>& customers) {
     for (int i = 0; i < 1; i++) { //TODO: 4 a canger en aleatoire
         int pos = GetRandomNumber(0, 3);
         customers.push_back(new Customer(pos, shops));

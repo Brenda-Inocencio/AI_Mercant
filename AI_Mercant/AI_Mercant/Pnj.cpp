@@ -90,14 +90,14 @@ void Customer::MoveToShop(Shop* shop, float dt) {
 				}
 			}
 			if (pos.y + height > shop->GetBottomY()) {
-				pos.y += SPEED * dt;
-				if (pos.y > shop->GetPosY()) {
+				pos.y -= SPEED * dt;
+				if (pos.y < shop->GetPosY()) {
 					pos.y = shop->GetPosY();
 				}
 			}
 			else if (pos.y < shop->GetPosY()) {
-				pos.y -= SPEED * dt;
-				if (pos.y + height < shop->GetBottomY()) {
+				pos.y += SPEED * dt;
+				if (pos.y + height > shop->GetBottomY()) {
 					pos.y = shop->GetBottomY()- height;
 				}
 			}
@@ -125,14 +125,14 @@ void Customer::MoveToExit(int posistion, float dt) {
 			}
 		}
 		if (pos.y > dest.y) {
-			pos.y += SPEED * dt;
-			if (pos.y > dest.y) {
+			pos.y -= SPEED * dt;
+			if (pos.y < dest.y) {
 				pos.y = dest.y;
 			}
 		}
 		else if (pos.y < dest.y) {
-			pos.y -= SPEED * dt;
-			if (pos.y < dest.y) {
+			pos.y += SPEED * dt;
+			if (pos.y + height > dest.y) {
 				pos.y = dest.y;
 			}
 		}
